@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.net.withub.ums.sbrmpsyDao.TRmpsySuperviseFeedbackMapper" >
+  <resultMap id="BaseResultMap" type="cn.net.withub.ums.entity.sbrmpsy.TRmpsySuperviseFeedback" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="publish_user" property="publishUser" jdbcType="VARCHAR" />
+    <result column="court_code" property="courtCode" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="opinion" property="opinion" jdbcType="VARCHAR" />
+    <result column="submit_time" property="submitTime" jdbcType="TIMESTAMP" />
+    <result column="reply_status" property="replyStatus" jdbcType="VARCHAR" />
+    <result column="reply_content" property="replyContent" jdbcType="VARCHAR" />
+    <result column="reply_time" property="replyTime" jdbcType="TIMESTAMP" />
+    <result column="reply_user" property="replyUser" jdbcType="VARCHAR" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="delete_user" property="deleteUser" jdbcType="VARCHAR" />
+    <result column="delete_flag" property="deleteFlag" jdbcType="VARCHAR" />
+    <result column="data_level" property="dataLevel" jdbcType="INTEGER" />
+    <result column="submit_flag" property="submitFlag" jdbcType="VARCHAR" />
+    <result column="overdue_day" property="overdueDay" jdbcType="DATE" />
+    <result column="remind_day" property="remindDay" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, publish_user, court_code, title, opinion, submit_time, reply_status, reply_content, 
+    reply_time, reply_user, creator, create_time, update_user, update_time, delete_user, 
+    delete_flag, data_level, submit_flag, overdue_day, remind_day
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsySuperviseFeedbackExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_rmpsy_supervise_feedback
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_rmpsy_supervise_feedback
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_rmpsy_supervise_feedback
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsySuperviseFeedbackExample" >
+    delete from t_rmpsy_supervise_feedback
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsySuperviseFeedback" >
+    insert into t_rmpsy_supervise_feedback (id, publish_user, court_code, 
+      title, opinion, submit_time, 
+      reply_status, reply_content, reply_time, 
+      reply_user, creator, create_time, 
+      update_user, update_time, delete_user, 
+      delete_flag, data_level, submit_flag, 
+      overdue_day, remind_day)
+    values (#{id,jdbcType=VARCHAR}, #{publishUser,jdbcType=VARCHAR}, #{courtCode,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{opinion,jdbcType=VARCHAR}, #{submitTime,jdbcType=TIMESTAMP}, 
+      #{replyStatus,jdbcType=VARCHAR}, #{replyContent,jdbcType=VARCHAR}, #{replyTime,jdbcType=TIMESTAMP}, 
+      #{replyUser,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{deleteUser,jdbcType=VARCHAR}, 
+      #{deleteFlag,jdbcType=VARCHAR}, #{dataLevel,jdbcType=INTEGER}, #{submitFlag,jdbcType=VARCHAR}, 
+      #{overdueDay,jdbcType=DATE}, #{remindDay,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsySuperviseFeedback" >
+    insert into t_rmpsy_supervise_feedback
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="publishUser != null" >
+        publish_user,
+      </if>
+      <if test="courtCode != null" >
+        court_code,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="opinion != null" >
+        opinion,
+      </if>
+      <if test="submitTime != null" >
+        submit_time,
+      </if>
+      <if test="replyStatus != null" >
+        reply_status,
+      </if>
+      <if test="replyContent != null" >
+        reply_content,
+      </if>
+      <if test="replyTime != null" >
+        reply_time,
+      </if>
+      <if test="replyUser != null" >
+        reply_user,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="deleteUser != null" >
+        delete_user,
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag,
+      </if>
+      <if test="dataLevel != null" >
+        data_level,
+      </if>
+      <if test="submitFlag != null" >
+        submit_flag,
+      </if>
+      <if test="overdueDay != null" >
+        overdue_day,
+      </if>
+      <if test="remindDay != null" >
+        remind_day,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="publishUser != null" >
+        #{publishUser,jdbcType=VARCHAR},
+      </if>
+      <if test="courtCode != null" >
+        #{courtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="opinion != null" >
+        #{opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="submitTime != null" >
+        #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyStatus != null" >
+        #{replyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="replyContent != null" >
+        #{replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="replyTime != null" >
+        #{replyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyUser != null" >
+        #{replyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteUser != null" >
+        #{deleteUser,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="dataLevel != null" >
+        #{dataLevel,jdbcType=INTEGER},
+      </if>
+      <if test="submitFlag != null" >
+        #{submitFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueDay != null" >
+        #{overdueDay,jdbcType=DATE},
+      </if>
+      <if test="remindDay != null" >
+        #{remindDay,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsySuperviseFeedbackExample" resultType="java.lang.Integer" >
+    select count(*) from t_rmpsy_supervise_feedback
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_rmpsy_supervise_feedback
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publishUser != null" >
+        publish_user = #{record.publishUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courtCode != null" >
+        court_code = #{record.courtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opinion != null" >
+        opinion = #{record.opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.submitTime != null" >
+        submit_time = #{record.submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.replyStatus != null" >
+        reply_status = #{record.replyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.replyContent != null" >
+        reply_content = #{record.replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.replyTime != null" >
+        reply_time = #{record.replyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.replyUser != null" >
+        reply_user = #{record.replyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creator != null" >
+        creator = #{record.creator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateUser != null" >
+        update_user = #{record.updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deleteUser != null" >
+        delete_user = #{record.deleteUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deleteFlag != null" >
+        delete_flag = #{record.deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dataLevel != null" >
+        data_level = #{record.dataLevel,jdbcType=INTEGER},
+      </if>
+      <if test="record.submitFlag != null" >
+        submit_flag = #{record.submitFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.overdueDay != null" >
+        overdue_day = #{record.overdueDay,jdbcType=DATE},
+      </if>
+      <if test="record.remindDay != null" >
+        remind_day = #{record.remindDay,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_rmpsy_supervise_feedback
+    set id = #{record.id,jdbcType=VARCHAR},
+      publish_user = #{record.publishUser,jdbcType=VARCHAR},
+      court_code = #{record.courtCode,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      opinion = #{record.opinion,jdbcType=VARCHAR},
+      submit_time = #{record.submitTime,jdbcType=TIMESTAMP},
+      reply_status = #{record.replyStatus,jdbcType=VARCHAR},
+      reply_content = #{record.replyContent,jdbcType=VARCHAR},
+      reply_time = #{record.replyTime,jdbcType=TIMESTAMP},
+      reply_user = #{record.replyUser,jdbcType=VARCHAR},
+      creator = #{record.creator,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_user = #{record.updateUser,jdbcType=VARCHAR},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      delete_user = #{record.deleteUser,jdbcType=VARCHAR},
+      delete_flag = #{record.deleteFlag,jdbcType=VARCHAR},
+      data_level = #{record.dataLevel,jdbcType=INTEGER},
+      submit_flag = #{record.submitFlag,jdbcType=VARCHAR},
+      overdue_day = #{record.overdueDay,jdbcType=DATE},
+      remind_day = #{record.remindDay,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsySuperviseFeedback" >
+    update t_rmpsy_supervise_feedback
+    <set >
+      <if test="publishUser != null" >
+        publish_user = #{publishUser,jdbcType=VARCHAR},
+      </if>
+      <if test="courtCode != null" >
+        court_code = #{courtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="opinion != null" >
+        opinion = #{opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="submitTime != null" >
+        submit_time = #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyStatus != null" >
+        reply_status = #{replyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="replyContent != null" >
+        reply_content = #{replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="replyTime != null" >
+        reply_time = #{replyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyUser != null" >
+        reply_user = #{replyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteUser != null" >
+        delete_user = #{deleteUser,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="dataLevel != null" >
+        data_level = #{dataLevel,jdbcType=INTEGER},
+      </if>
+      <if test="submitFlag != null" >
+        submit_flag = #{submitFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="overdueDay != null" >
+        overdue_day = #{overdueDay,jdbcType=DATE},
+      </if>
+      <if test="remindDay != null" >
+        remind_day = #{remindDay,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsySuperviseFeedback" >
+    update t_rmpsy_supervise_feedback
+    set publish_user = #{publishUser,jdbcType=VARCHAR},
+      court_code = #{courtCode,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      opinion = #{opinion,jdbcType=VARCHAR},
+      submit_time = #{submitTime,jdbcType=TIMESTAMP},
+      reply_status = #{replyStatus,jdbcType=VARCHAR},
+      reply_content = #{replyContent,jdbcType=VARCHAR},
+      reply_time = #{replyTime,jdbcType=TIMESTAMP},
+      reply_user = #{replyUser,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      delete_user = #{deleteUser,jdbcType=VARCHAR},
+      delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+      data_level = #{dataLevel,jdbcType=INTEGER},
+      submit_flag = #{submitFlag,jdbcType=VARCHAR},
+      overdue_day = #{overdueDay,jdbcType=DATE},
+      remind_day = #{remindDay,jdbcType=DATE}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

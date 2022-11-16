@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.net.withub.ums.dao.UmsVerifyConfigMapper" >
+  <resultMap id="BaseResultMap" type="cn.net.withub.ums.entity.UmsVerifyConfig" >
+    <id column="c_scope" property="cScope" jdbcType="VARCHAR" />
+    <id column="c_key" property="cKey" jdbcType="VARCHAR" />
+    <result column="c_value" property="cValue" jdbcType="SMALLINT" />
+    <result column="c_name" property="cName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    c_scope, c_key, c_value, c_name
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.net.withub.ums.entity.UmsVerifyConfigCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ums_verify_config
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null" >
+      <if test="offset != null" >
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null" >
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="cn.net.withub.ums.entity.UmsVerifyConfigKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from ums_verify_config
+    where c_scope = #{cScope,jdbcType=VARCHAR}
+      and c_key = #{cKey,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.net.withub.ums.entity.UmsVerifyConfigKey" >
+    delete from ums_verify_config
+    where c_scope = #{cScope,jdbcType=VARCHAR}
+      and c_key = #{cKey,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.net.withub.ums.entity.UmsVerifyConfigCriteria" >
+    delete from ums_verify_config
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.net.withub.ums.entity.UmsVerifyConfig" >
+    insert into ums_verify_config (c_scope, c_key, c_value, 
+      c_name)
+    values (#{cScope,jdbcType=VARCHAR}, #{cKey,jdbcType=VARCHAR}, #{cValue,jdbcType=SMALLINT}, 
+      #{cName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.net.withub.ums.entity.UmsVerifyConfig" >
+    insert into ums_verify_config
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cScope != null" >
+        c_scope,
+      </if>
+      <if test="cKey != null" >
+        c_key,
+      </if>
+      <if test="cValue != null" >
+        c_value,
+      </if>
+      <if test="cName != null" >
+        c_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cScope != null" >
+        #{cScope,jdbcType=VARCHAR},
+      </if>
+      <if test="cKey != null" >
+        #{cKey,jdbcType=VARCHAR},
+      </if>
+      <if test="cValue != null" >
+        #{cValue,jdbcType=SMALLINT},
+      </if>
+      <if test="cName != null" >
+        #{cName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.net.withub.ums.entity.UmsVerifyConfigCriteria" resultType="java.lang.Integer" >
+    select count(*) from ums_verify_config
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ums_verify_config
+    <set >
+      <if test="record.cScope != null" >
+        c_scope = #{record.cScope,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cKey != null" >
+        c_key = #{record.cKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cValue != null" >
+        c_value = #{record.cValue,jdbcType=SMALLINT},
+      </if>
+      <if test="record.cName != null" >
+        c_name = #{record.cName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ums_verify_config
+    set c_scope = #{record.cScope,jdbcType=VARCHAR},
+      c_key = #{record.cKey,jdbcType=VARCHAR},
+      c_value = #{record.cValue,jdbcType=SMALLINT},
+      c_name = #{record.cName,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.net.withub.ums.entity.UmsVerifyConfig" >
+    update ums_verify_config
+    <set >
+      <if test="cValue != null" >
+        c_value = #{cValue,jdbcType=SMALLINT},
+      </if>
+      <if test="cName != null" >
+        c_name = #{cName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where c_scope = #{cScope,jdbcType=VARCHAR}
+      and c_key = #{cKey,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.net.withub.ums.entity.UmsVerifyConfig" >
+    update ums_verify_config
+    set c_value = #{cValue,jdbcType=SMALLINT},
+      c_name = #{cName,jdbcType=VARCHAR}
+    where c_scope = #{cScope,jdbcType=VARCHAR}
+      and c_key = #{cKey,jdbcType=VARCHAR}
+  </update>
+
+  <insert id="insertByBatch" parameterType="java.util.List" >
+    insert into ums_verify_config (c_scope, c_key, c_value,
+    c_name)
+    values
+    <foreach collection="list" item="code" index= "index" separator =",">
+      (#{code.cScope,jdbcType=VARCHAR}, #{code.cKey,jdbcType=VARCHAR}, #{code.cValue,jdbcType=SMALLINT},
+      #{code.cName,jdbcType=VARCHAR})
+    </foreach >
+  </insert>
+
+</mapper>

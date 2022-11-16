@@ -1,0 +1,611 @@
+<?xml version="1.0" ?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://resource.ws.inf.web.bop.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="Service" targetNamespace="http://resource.ws.inf.web.bop.com/">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://io.java" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://io.java">
+  <xsd:complexType name="UnsupportedEncodingException">
+    <xsd:complexContent>
+      <xsd:extension base="tns:IOException">
+        <xsd:sequence></xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="IOException">
+    <xsd:sequence></xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://resource.ws.inf.web.bop.com/" xmlns:ns0="http://io.java" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://resource.ws.inf.web.bop.com/">
+  <xsd:element name="GetChildOrgInfoService" type="tns:GetChildOrgInfoService"></xsd:element>
+  <xsd:complexType name="GetChildOrgInfoService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetChildOrgInfoServiceResponse" type="tns:GetChildOrgInfoServiceResponse"></xsd:element>
+  <xsd:complexType name="GetChildOrgInfoServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetChildDeptInfoService" type="tns:GetChildDeptInfoService"></xsd:element>
+  <xsd:complexType name="GetChildDeptInfoService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetChildDeptInfoServiceResponse" type="tns:GetChildDeptInfoServiceResponse"></xsd:element>
+  <xsd:complexType name="GetChildDeptInfoServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetChildDeptInfoService1" type="tns:GetChildDeptInfoService1"></xsd:element>
+  <xsd:complexType name="GetChildDeptInfoService1">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg2" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetChildDeptInfoService1Response" type="tns:GetChildDeptInfoService1Response"></xsd:element>
+  <xsd:complexType name="GetChildDeptInfoService1Response">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetUserAllInfoForChildDeptService" type="tns:GetUserAllInfoForChildDeptService"></xsd:element>
+  <xsd:complexType name="GetUserAllInfoForChildDeptService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetUserAllInfoForChildDeptServiceResponse" type="tns:GetUserAllInfoForChildDeptServiceResponse"></xsd:element>
+  <xsd:complexType name="GetUserAllInfoForChildDeptServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetByTimeUserAllInfoForChildDeptService" type="tns:GetByTimeUserAllInfoForChildDeptService"></xsd:element>
+  <xsd:complexType name="GetByTimeUserAllInfoForChildDeptService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg2" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetByTimeUserAllInfoForChildDeptServiceResponse" type="tns:GetByTimeUserAllInfoForChildDeptServiceResponse"></xsd:element>
+  <xsd:complexType name="GetByTimeUserAllInfoForChildDeptServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetUserInfoForChildOrgService" type="tns:GetUserInfoForChildOrgService"></xsd:element>
+  <xsd:complexType name="GetUserInfoForChildOrgService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetUserInfoForChildOrgServiceResponse" type="tns:GetUserInfoForChildOrgServiceResponse"></xsd:element>
+  <xsd:complexType name="GetUserInfoForChildOrgServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetUserAllInfoForChildOrgServiceBysl" type="tns:GetUserAllInfoForChildOrgServiceBysl"></xsd:element>
+  <xsd:complexType name="GetUserAllInfoForChildOrgServiceBysl">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element name="arg2" type="xsd:int"></xsd:element>
+      <xsd:element name="arg3" type="xsd:int"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetUserAllInfoForChildOrgServiceByslResponse" type="tns:GetUserAllInfoForChildOrgServiceByslResponse"></xsd:element>
+  <xsd:complexType name="GetUserAllInfoForChildOrgServiceByslResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetByTimeUserAllInfoForChildOrgService" type="tns:GetByTimeUserAllInfoForChildOrgService"></xsd:element>
+  <xsd:complexType name="GetByTimeUserAllInfoForChildOrgService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg2" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetByTimeUserAllInfoForChildOrgServiceResponse" type="tns:GetByTimeUserAllInfoForChildOrgServiceResponse"></xsd:element>
+  <xsd:complexType name="GetByTimeUserAllInfoForChildOrgServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetByTimeChildOrgInfoService" type="tns:GetByTimeChildOrgInfoService"></xsd:element>
+  <xsd:complexType name="GetByTimeChildOrgInfoService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg2" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetByTimeChildOrgInfoServiceResponse" type="tns:GetByTimeChildOrgInfoServiceResponse"></xsd:element>
+  <xsd:complexType name="GetByTimeChildOrgInfoServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetUserInfoForChildDeptService" type="tns:GetUserInfoForChildDeptService"></xsd:element>
+  <xsd:complexType name="GetUserInfoForChildDeptService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetUserInfoForChildDeptServiceResponse" type="tns:GetUserInfoForChildDeptServiceResponse"></xsd:element>
+  <xsd:complexType name="GetUserInfoForChildDeptServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetByTimeChildDeptInfoService" type="tns:GetByTimeChildDeptInfoService"></xsd:element>
+  <xsd:complexType name="GetByTimeChildDeptInfoService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg2" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetByTimeChildDeptInfoServiceResponse" type="tns:GetByTimeChildDeptInfoServiceResponse"></xsd:element>
+  <xsd:complexType name="GetByTimeChildDeptInfoServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetUserAllInfoForChildOrgService" type="tns:GetUserAllInfoForChildOrgService"></xsd:element>
+  <xsd:complexType name="GetUserAllInfoForChildOrgService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetUserAllInfoForChildOrgServiceResponse" type="tns:GetUserAllInfoForChildOrgServiceResponse"></xsd:element>
+  <xsd:complexType name="GetUserAllInfoForChildOrgServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetByTimeUserInfoForChildOrgService" type="tns:GetByTimeUserInfoForChildOrgService"></xsd:element>
+  <xsd:complexType name="GetByTimeUserInfoForChildOrgService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg2" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetByTimeUserInfoForChildOrgServiceResponse" type="tns:GetByTimeUserInfoForChildOrgServiceResponse"></xsd:element>
+  <xsd:complexType name="GetByTimeUserInfoForChildOrgServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetByTimeUserInfoForChildDeptService" type="tns:GetByTimeUserInfoForChildDeptService"></xsd:element>
+  <xsd:complexType name="GetByTimeUserInfoForChildDeptService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg1" nillable="true" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="arg2" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetByTimeUserInfoForChildDeptServiceResponse" type="tns:GetByTimeUserInfoForChildDeptServiceResponse"></xsd:element>
+  <xsd:complexType name="GetByTimeUserInfoForChildDeptServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="UnsupportedEncodingException" nillable="true" type="ns0:UnsupportedEncodingException"></xsd:element>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetChildOrgInfoService">
+    <wsdl:part element="tns:GetChildOrgInfoService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetByTimeChildDeptInfoServiceResponse">
+    <wsdl:part element="tns:GetByTimeChildDeptInfoServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetChildDeptInfoService1">
+    <wsdl:part element="tns:GetChildDeptInfoService1" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetByTimeUserInfoForChildDeptServiceResponse">
+    <wsdl:part element="tns:GetByTimeUserInfoForChildDeptServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetByTimeChildOrgInfoServiceResponse">
+    <wsdl:part element="tns:GetByTimeChildOrgInfoServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetByTimeUserInfoForChildOrgServiceResponse">
+    <wsdl:part element="tns:GetByTimeUserInfoForChildOrgServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetChildDeptInfoServiceResponse">
+    <wsdl:part element="tns:GetChildDeptInfoServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoForChildDeptService">
+    <wsdl:part element="tns:GetUserInfoForChildDeptService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetChildDeptInfoService1Response">
+    <wsdl:part element="tns:GetChildDeptInfoService1Response" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserAllInfoForChildOrgServiceByslResponse">
+    <wsdl:part element="tns:GetUserAllInfoForChildOrgServiceByslResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserAllInfoForChildOrgService">
+    <wsdl:part element="tns:GetUserAllInfoForChildOrgService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UnsupportedEncodingException">
+    <wsdl:part element="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetChildOrgInfoServiceResponse">
+    <wsdl:part element="tns:GetChildOrgInfoServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetByTimeUserInfoForChildDeptService">
+    <wsdl:part element="tns:GetByTimeUserInfoForChildDeptService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoForChildOrgServiceResponse">
+    <wsdl:part element="tns:GetUserInfoForChildOrgServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetChildDeptInfoService">
+    <wsdl:part element="tns:GetChildDeptInfoService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserAllInfoForChildDeptService">
+    <wsdl:part element="tns:GetUserAllInfoForChildDeptService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoForChildDeptServiceResponse">
+    <wsdl:part element="tns:GetUserInfoForChildDeptServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetByTimeUserAllInfoForChildDeptService">
+    <wsdl:part element="tns:GetByTimeUserAllInfoForChildDeptService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserAllInfoForChildOrgServiceResponse">
+    <wsdl:part element="tns:GetUserAllInfoForChildOrgServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoForChildOrgService">
+    <wsdl:part element="tns:GetUserInfoForChildOrgService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserAllInfoForChildOrgServiceBysl">
+    <wsdl:part element="tns:GetUserAllInfoForChildOrgServiceBysl" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetByTimeUserAllInfoForChildOrgService">
+    <wsdl:part element="tns:GetByTimeUserAllInfoForChildOrgService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetByTimeChildOrgInfoService">
+    <wsdl:part element="tns:GetByTimeChildOrgInfoService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetByTimeUserAllInfoForChildDeptServiceResponse">
+    <wsdl:part element="tns:GetByTimeUserAllInfoForChildDeptServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserAllInfoForChildDeptServiceResponse">
+    <wsdl:part element="tns:GetUserAllInfoForChildDeptServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetByTimeChildDeptInfoService">
+    <wsdl:part element="tns:GetByTimeChildDeptInfoService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetByTimeUserInfoForChildOrgService">
+    <wsdl:part element="tns:GetByTimeUserInfoForChildOrgService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetByTimeUserAllInfoForChildOrgServiceResponse">
+    <wsdl:part element="tns:GetByTimeUserAllInfoForChildOrgServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ServicePortType">
+    <wsdl:operation name="GetChildOrgInfoService">
+      <wsdl:input message="tns:GetChildOrgInfoService" name="GetChildOrgInfoService">
+    </wsdl:input>
+      <wsdl:output message="tns:GetChildOrgInfoServiceResponse" name="GetChildOrgInfoServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildDeptInfoService">
+      <wsdl:input message="tns:GetChildDeptInfoService" name="GetChildDeptInfoService">
+    </wsdl:input>
+      <wsdl:output message="tns:GetChildDeptInfoServiceResponse" name="GetChildDeptInfoServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildDeptInfoService1">
+      <wsdl:input message="tns:GetChildDeptInfoService1" name="GetChildDeptInfoService1">
+    </wsdl:input>
+      <wsdl:output message="tns:GetChildDeptInfoService1Response" name="GetChildDeptInfoService1Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAllInfoForChildDeptService">
+      <wsdl:input message="tns:GetUserAllInfoForChildDeptService" name="GetUserAllInfoForChildDeptService">
+    </wsdl:input>
+      <wsdl:output message="tns:GetUserAllInfoForChildDeptServiceResponse" name="GetUserAllInfoForChildDeptServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTimeUserAllInfoForChildDeptService">
+      <wsdl:input message="tns:GetByTimeUserAllInfoForChildDeptService" name="GetByTimeUserAllInfoForChildDeptService">
+    </wsdl:input>
+      <wsdl:output message="tns:GetByTimeUserAllInfoForChildDeptServiceResponse" name="GetByTimeUserAllInfoForChildDeptServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfoForChildOrgService">
+      <wsdl:input message="tns:GetUserInfoForChildOrgService" name="GetUserInfoForChildOrgService">
+    </wsdl:input>
+      <wsdl:output message="tns:GetUserInfoForChildOrgServiceResponse" name="GetUserInfoForChildOrgServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAllInfoForChildOrgServiceBysl">
+      <wsdl:input message="tns:GetUserAllInfoForChildOrgServiceBysl" name="GetUserAllInfoForChildOrgServiceBysl">
+    </wsdl:input>
+      <wsdl:output message="tns:GetUserAllInfoForChildOrgServiceByslResponse" name="GetUserAllInfoForChildOrgServiceByslResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTimeUserAllInfoForChildOrgService">
+      <wsdl:input message="tns:GetByTimeUserAllInfoForChildOrgService" name="GetByTimeUserAllInfoForChildOrgService">
+    </wsdl:input>
+      <wsdl:output message="tns:GetByTimeUserAllInfoForChildOrgServiceResponse" name="GetByTimeUserAllInfoForChildOrgServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTimeChildOrgInfoService">
+      <wsdl:input message="tns:GetByTimeChildOrgInfoService" name="GetByTimeChildOrgInfoService">
+    </wsdl:input>
+      <wsdl:output message="tns:GetByTimeChildOrgInfoServiceResponse" name="GetByTimeChildOrgInfoServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfoForChildDeptService">
+      <wsdl:input message="tns:GetUserInfoForChildDeptService" name="GetUserInfoForChildDeptService">
+    </wsdl:input>
+      <wsdl:output message="tns:GetUserInfoForChildDeptServiceResponse" name="GetUserInfoForChildDeptServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTimeChildDeptInfoService">
+      <wsdl:input message="tns:GetByTimeChildDeptInfoService" name="GetByTimeChildDeptInfoService">
+    </wsdl:input>
+      <wsdl:output message="tns:GetByTimeChildDeptInfoServiceResponse" name="GetByTimeChildDeptInfoServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAllInfoForChildOrgService">
+      <wsdl:input message="tns:GetUserAllInfoForChildOrgService" name="GetUserAllInfoForChildOrgService">
+    </wsdl:input>
+      <wsdl:output message="tns:GetUserAllInfoForChildOrgServiceResponse" name="GetUserAllInfoForChildOrgServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTimeUserInfoForChildOrgService">
+      <wsdl:input message="tns:GetByTimeUserInfoForChildOrgService" name="GetByTimeUserInfoForChildOrgService">
+    </wsdl:input>
+      <wsdl:output message="tns:GetByTimeUserInfoForChildOrgServiceResponse" name="GetByTimeUserInfoForChildOrgServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTimeUserInfoForChildDeptService">
+      <wsdl:input message="tns:GetByTimeUserInfoForChildDeptService" name="GetByTimeUserInfoForChildDeptService">
+    </wsdl:input>
+      <wsdl:output message="tns:GetByTimeUserInfoForChildDeptServiceResponse" name="GetByTimeUserInfoForChildDeptServiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:UnsupportedEncodingException" name="UnsupportedEncodingException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoapBinding" type="tns:ServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="GetChildOrgInfoService">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetChildOrgInfoService">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetChildOrgInfoServiceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAllInfoForChildDeptService">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetUserAllInfoForChildDeptService">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetUserAllInfoForChildDeptServiceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildDeptInfoService1">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetChildDeptInfoService1">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetChildDeptInfoService1Response">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildDeptInfoService">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetChildDeptInfoService">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetChildDeptInfoServiceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTimeUserAllInfoForChildDeptService">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetByTimeUserAllInfoForChildDeptService">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetByTimeUserAllInfoForChildDeptServiceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfoForChildOrgService">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetUserInfoForChildOrgService">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetUserInfoForChildOrgServiceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAllInfoForChildOrgServiceBysl">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetUserAllInfoForChildOrgServiceBysl">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetUserAllInfoForChildOrgServiceByslResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTimeUserAllInfoForChildOrgService">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetByTimeUserAllInfoForChildOrgService">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetByTimeUserAllInfoForChildOrgServiceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTimeChildOrgInfoService">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetByTimeChildOrgInfoService">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetByTimeChildOrgInfoServiceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfoForChildDeptService">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetUserInfoForChildDeptService">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetUserInfoForChildDeptServiceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTimeChildDeptInfoService">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetByTimeChildDeptInfoService">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetByTimeChildDeptInfoServiceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAllInfoForChildOrgService">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetUserAllInfoForChildOrgService">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetUserAllInfoForChildOrgServiceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTimeUserInfoForChildOrgService">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetByTimeUserInfoForChildOrgService">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetByTimeUserInfoForChildOrgServiceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByTimeUserInfoForChildDeptService">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="GetByTimeUserInfoForChildDeptService">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="GetByTimeUserInfoForChildDeptServiceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port binding="tns:ServiceSoapBinding" name="ServicePort">
+      <soap:address location="http://149.0.0.41/webservice/services"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

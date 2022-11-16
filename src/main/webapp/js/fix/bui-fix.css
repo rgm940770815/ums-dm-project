@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.bui-calendar2:before {
+    content: '';
+    display: inline-block;
+    border-top: 7px solid rgba(0, 0, 0, 0.2);
+    border-right: 7px solid transparent;
+    border-bottom-width: 0;
+    border-left: 7px solid transparent;
+    position: absolute;
+    left: 5px;
+    bottom: -7px !important;
+    top: auto !important;
+}
+
+.bui-calendar2:after {
+    content: '';
+    display: inline-block;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 0;
+    border-top: 6px solid #fff;
+    position: absolute;
+    left: 6px;
+    bottom: -6px;
+    top: auto;
+}
+
+.controls input[type="checkbox"] {
+    margin-top: 9px;
+}
+
+.controls input[type="radio"] {
+    top: 3px;
+    position: relative;
+}
+
+.control-label input[type="checkbox"], .control-label input[type="radio"] {
+    top: 3px;
+    position: relative;
+}
+

@@ -1,0 +1,90 @@
+@charset "UTF-8";
+/* CSS Document */
+ body{margin: 0px;padding: 0px;background-size: cover; font-family:"微软雅黑"; font-size:14px;}
+/*body{margin: 0px;padding: 0px;background:#439fc6;font-family:"微软雅黑"; font-size:14px;}*/
+a{ text-decoration:none; color:#2c91f6;
+transition: 0.2s;
+-moz-transition: 0.2s; /* Firefox 4 */
+-webkit-transition: 0.2s; /* Safari and Chrome */
+-o-transition: 0.2s; /* Opera */
+}
+a:hover{ color:#f00;}
+ul,li,dl,dt,dd{list-style:none outside; margin:0; padding:0; border:0;}
+img{ border:0; vertical-align:middle;margin:0 auto;}
+table {border-spacing: 0;width: 100%; font-size:14px;}
+p { padding:0px; margin:0px;}
+.b_bg { background:#fff;}
+.biaonr {border-bottom:1px solid #c4c4c4;border-right:1px solid #c4c4c4;border-left:1px solid #c4c4c4; width:98%;  margin: 0 0 10px 10px;}
+.biaonr tbody td { text-align:center;
+border-top: 1px solid #c4c4c4;
+	border-left: 1px solid #c4c4c4}
+.biaonr thead th {
+    border-top: 1px solid #b9b9b9;
+	border-left: 1px solid #b9b9b9;
+    text-align: center;
+	background:#ddedf6; font-weight:normal; line-height:25px;}
+.biaonr tbody th {
+    border-top: 1px solid #c4c4c4;
+	border-left: 1px solid #c4c4c4;
+    text-align: center;
+	background:#e8eef1; font-weight:normal;}
+.biaonr td {
+    border-left: 1px solid #c4c4c4;
+    border-top: 1px solid #c4c4c4;
+    padding: 7px;
+    text-align: center;}
+.b_title { background:#f9f9f9; color:#000; font-size:22px; }
+.biaonr tr:hover{
+    background-color: #5b44ff;
+}
+.biaonr tr:hover > [loaddata], .biaonr tr:hover > [loaddata2]{
+    color: #fff;
+}
+
+.biaonr tbody [loaddata]{
+    cursor: pointer;
+}
+
+#hddataTbl {
+    width:100% !important;
+    margin: 0 0 10px 10px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 12px;
+    table-layout:fixed;
+    font-family: 'Helvetica Neue',helvetica, "Hiragino Sans GB",'Microsoft YaHei', "WenQuanYi Micro Hei", sans-serif;
+    color: #000000;
+}
+
+#hddataTbl th{
+    text-align: center;
+    padding: 5px;
+}
+
+#hddataTbl td{
+    text-align: center;
+    padding: 2px;
+    word-wrap: break-word;
+    min-height: 25px;
+}
+
+.col-5 {
+    float: left;
+    width: 50%;
+}
+.col-4 {
+    float: left;
+    width: 41%;
+    text-align: right;
+}
+.tabHead {
+    text-align: center;
+    font-size:22px;
+}
+.tabfoot {
+    padding-bottom: 30px;
+    margin-left: 75%;
+}
+.sort:hover {
+    background-color: #c8d6e1;
+}

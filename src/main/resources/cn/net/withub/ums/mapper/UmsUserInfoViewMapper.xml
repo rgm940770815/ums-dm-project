@@ -1,0 +1,2986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.net.withub.ums.dao.UmsUserInfoViewMapper">
+    <resultMap id="BaseResultMap" type="cn.net.withub.ums.entity.UmsUserInfoView">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="xtpt_id" jdbcType="INTEGER" property="xtptId"/>
+        <result column="court_no" jdbcType="INTEGER" property="courtNo"/>
+        <result column="user_no" jdbcType="INTEGER" property="userNo"/>
+        <result column="is_info_complete" jdbcType="INTEGER" property="isInfoComplete"/>
+        <result column="salt" jdbcType="VARCHAR" property="salt"/>
+        <result column="c_ps_xlxw" jdbcType="INTEGER" property="cPsXlxw"/>
+        <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="user_code" jdbcType="VARCHAR" property="userCode"/>
+        <result column="user_type" jdbcType="INTEGER" property="userType"/>
+        <result column="C_CODE_JG1" jdbcType="VARCHAR" property="cCodeJg1"/>
+        <result column="C_CODE_JG2" jdbcType="VARCHAR" property="cCodeJg2"/>
+        <result column="C_CODE_JG3" jdbcType="VARCHAR" property="cCodeJg3"/>
+        <result column="fullname" jdbcType="VARCHAR" property="fullname"/>
+        <result column="former_name" jdbcType="VARCHAR" property="formerName"/>
+        <result column="gender" jdbcType="INTEGER" property="gender"/>
+        <result column="department" jdbcType="INTEGER" property="department"/>
+        <result column="unicode" jdbcType="INTEGER" property="unicode"/>
+        <result column="position_nature" jdbcType="INTEGER" property="positionNature"/>
+        <result column="hometown" jdbcType="VARCHAR" property="hometown"/>
+        <result column="birthplace" jdbcType="VARCHAR" property="birthplace"/>
+        <result column="birthday" jdbcType="DATE" property="birthday"/>
+        <result column="physical_condition" jdbcType="INTEGER" property="physicalCondition"/>
+        <result column="marital_status" jdbcType="INTEGER" property="maritalStatus"/>
+        <result column="nation" jdbcType="INTEGER" property="nation"/>
+        <result column="idcard" jdbcType="VARCHAR" property="idcard"/>
+        <result column="preparation" jdbcType="INTEGER" property="preparation"/>
+        <result column="position_type" jdbcType="INTEGER" property="positionType"/>
+        <result column="position_type_date" jdbcType="DATE" property="positionTypeDate"/>
+        <result column="assign" jdbcType="INTEGER" property="assign"/>
+        <result column="education_background" jdbcType="INTEGER" property="educationBackground"/>
+        <result column="major" jdbcType="INTEGER" property="major"/>
+        <result column="degree" jdbcType="INTEGER" property="degree"/>
+        <result column="degree_date" jdbcType="DATE" property="degreeDate"/>
+        <result column="work_date" jdbcType="DATE" property="workDate"/>
+        <result column="enter_date" jdbcType="DATE" property="enterDate"/>
+        <result column="pro_cert" jdbcType="INTEGER" property="proCert"/>
+        <result column="pro_cert_date" jdbcType="DATE" property="proCertDate"/>
+        <result column="political" jdbcType="INTEGER" property="political"/>
+        <result column="political_date" jdbcType="DATE" property="politicalDate"/>
+        <result column="politic_law_work_date" jdbcType="DATE" property="politicLawWorkDate"/>
+        <result column="administration_position" jdbcType="INTEGER" property="administrationPosition"/>
+        <result column="administration_position_date" jdbcType="DATE" property="administrationPositionDate"/>
+        <result column="law_position" jdbcType="INTEGER" property="lawPosition"/>
+        <result column="law_position_date" jdbcType="DATE" property="lawPositionDate"/>
+        <result column="is_parttime_presiding_judge" jdbcType="INTEGER" property="isParttimePresidingJudge"/>
+        <result column="party_office" jdbcType="INTEGER" property="partyOffice"/>
+        <result column="party_office_date" jdbcType="DATE" property="partyOfficeDate"/>
+        <result column="lawyer_date" jdbcType="DATE" property="lawyerDate"/>
+        <result column="extra_seniority" jdbcType="INTEGER" property="extraSeniority"/>
+        <result column="deduction_seniority" jdbcType="INTEGER" property="deductionSeniority"/>
+        <result column="before_court_work_year" jdbcType="INTEGER" property="beforeCourtWorkYear"/>
+        <result column="rank" jdbcType="INTEGER" property="rank"/>
+        <result column="rank_date" jdbcType="DATE" property="rankDate"/>
+        <result column="level" jdbcType="INTEGER" property="level"/>
+        <result column="level_date" jdbcType="DATE" property="levelDate"/>
+        <result column="enter_way" jdbcType="INTEGER" property="enterWay"/>
+        <result column="enter_source" jdbcType="INTEGER" property="enterSource"/>
+        <result column="former_post" jdbcType="INTEGER" property="formerPost"/>
+        <result column="former_rank" jdbcType="INTEGER" property="formerRank"/>
+        <result column="former_unit" jdbcType="VARCHAR" property="formerUnit"/>
+        <result column="verify_date" jdbcType="DATE" property="verifyDate"/>
+        <result column="leave_reason" jdbcType="INTEGER" property="leaveReason"/>
+        <result column="leave_date" jdbcType="DATE" property="leaveDate"/>
+        <result column="leave_destination" jdbcType="INTEGER" property="leaveDestination"/>
+        <result column="sort_no" jdbcType="INTEGER" property="sortNo"/>
+        <result column="is_valid" jdbcType="INTEGER" property="isValid"/>
+        <result column="additional_duration" jdbcType="INTEGER" property="additionalDuration"/>
+        <result column="lawyer_cert_date" jdbcType="DATE" property="lawyerCertDate"/>
+        <result column="servant_level" jdbcType="INTEGER" property="servantLevel"/>
+        <result column="servant_level_date" jdbcType="DATE" property="servantLevelDate"/>
+        <result column="lawyer_cert" jdbcType="INTEGER" property="lawyerCert"/>
+        <result column="court_code" jdbcType="VARCHAR" property="courtCode"/>
+        <result column="order_no" jdbcType="INTEGER" property="orderNo"/>
+        <result column="court_std_no" jdbcType="INTEGER" property="courtStdNo"/>
+        <result column="uk_no" jdbcType="VARCHAR" property="ukNo"/>
+        <result column="work_no" jdbcType="VARCHAR" property="workNo"/>
+        <result column="fanka_no" jdbcType="VARCHAR" property="fankaNo"/>
+        <result column="official_no" jdbcType="VARCHAR" property="officialNo"/>
+        <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="dept_org_code" jdbcType="VARCHAR" property="deptOrgCode"/>
+        <result column="yefg" jdbcType="INTEGER" property="yefg"/>
+        <result column="user_type_text" jdbcType="VARCHAR" property="userTypeText"/>
+        <result column="court_no_text" jdbcType="VARCHAR" property="courtNoText"/>
+        <result column="gender_text" jdbcType="VARCHAR" property="genderText"/>
+        <result column="department_text" jdbcType="VARCHAR" property="departmentText"/>
+        <result column="position_nature_text" jdbcType="VARCHAR" property="positionNatureText"/>
+        <result column="physical_condition_text" jdbcType="VARCHAR" property="physicalConditionText"/>
+        <result column="marital_status_text" jdbcType="VARCHAR" property="maritalStatusText"/>
+        <result column="nation_text" jdbcType="VARCHAR" property="nationText"/>
+        <result column="preparation_text" jdbcType="VARCHAR" property="preparationText"/>
+        <result column="position_type_text" jdbcType="VARCHAR" property="positionTypeText"/>
+        <result column="assign_text" jdbcType="VARCHAR" property="assignText"/>
+        <result column="education_background_text" jdbcType="VARCHAR" property="educationBackgroundText"/>
+        <result column="major_text" jdbcType="VARCHAR" property="majorText"/>
+        <result column="degree_text" jdbcType="VARCHAR" property="degreeText"/>
+        <result column="pro_cert_text" jdbcType="VARCHAR" property="proCertText"/>
+        <result column="political_text" jdbcType="VARCHAR" property="politicalText"/>
+        <result column="administration_position_text" jdbcType="VARCHAR" property="administrationPositionText"/>
+        <result column="law_position_text" jdbcType="VARCHAR" property="lawPositionText"/>
+        <result column="is_parttime_presiding_judge_text" jdbcType="VARCHAR" property="isParttimePresidingJudgeText"/>
+        <result column="party_office_text" jdbcType="VARCHAR" property="partyOfficeText"/>
+        <result column="rank_text" jdbcType="VARCHAR" property="rankText"/>
+        <result column="level_text" jdbcType="VARCHAR" property="levelText"/>
+        <result column="enter_way_text" jdbcType="VARCHAR" property="enterWayText"/>
+        <result column="enter_source_text" jdbcType="VARCHAR" property="enterSourceText"/>
+        <result column="former_post_text" jdbcType="VARCHAR" property="formerPostText"/>
+        <result column="former_rank_text" jdbcType="VARCHAR" property="formerRankText"/>
+        <result column="leave_reason_text" jdbcType="VARCHAR" property="leaveReasonText"/>
+        <result column="leave_destination_text" jdbcType="VARCHAR" property="leaveDestinationText"/>
+        <result column="is_valid_text" jdbcType="VARCHAR" property="isValidText"/>
+        <result column="servant_level_text" jdbcType="VARCHAR" property="servantLevelText"/>
+        <result column="lawyer_cert_text" jdbcType="VARCHAR" property="lawyerCertText"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="begin_time" jdbcType="DATE" property="beginTime"/>
+        <result column="local_address" jdbcType="VARCHAR" property="localAddress"/>
+        <result column="postal_address" jdbcType="VARCHAR" property="postalAddress"/>
+        <result column="job" jdbcType="VARCHAR" property="job"/>
+        <result column="juror_edu_text" jdbcType="VARCHAR" property="jurorEduText"/>
+        <result column="dept_sortNo" jdbcType="BIGINT" property="deptSortno"/>
+        <result column="dept_level" jdbcType="BIGINT" property="deptLevel"/>
+        <result column="personnel_classification" jdbcType="VARCHAR" property="personnelClassification"/>
+        <result column="personnel_classification_text" jdbcType="VARCHAR" property="personnelClassificationText"/>
+        <result column="nation_report" jdbcType="VARCHAR" property="nationReport"/>
+        <result column="education_background_report" jdbcType="VARCHAR" property="educationBackgroundReport"/>
+        <result column="administration_position_report" jdbcType="VARCHAR" property="administrationPositionReport"/>
+        <result column="law_position_report" jdbcType="VARCHAR" property="lawPositionReport"/>
+        <result column="rank_report" jdbcType="VARCHAR" property="rankReport"/>
+        <result column="political_report" jdbcType="VARCHAR" property="politicalReport"/>
+        <result column="party_office_report" jdbcType="VARCHAR" property="partyOfficeReport"/>
+        <result column="nation_report_text" jdbcType="VARCHAR" property="nationReportText"/>
+        <result column="education_background_report_text" jdbcType="VARCHAR" property="educationBackgroundReportText"/>
+        <result column="administration_position_report_text" jdbcType="VARCHAR" property="administrationPositionReportText"/>
+        <result column="law_position_report_text" jdbcType="VARCHAR" property="lawPositionReportText"/>
+        <result column="rank_report_text" jdbcType="VARCHAR" property="rankReportText"/>
+        <result column="political_report_text" jdbcType="VARCHAR" property="politicalReportText"/>
+        <result column="party_office_report_text" jdbcType="VARCHAR" property="partyOfficeReportText"/>
+        <result column="bzcy" jdbcType="INTEGER" property="bzcy"/>
+        <result column="assess_type" jdbcType="INTEGER" property="assessType"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.groupValue">
+                                    and ( ${criterion.condition} #{criterion.value} )
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Example_Where_Clause_a">
+        <foreach collection="oredCriteria" item="criteria" separator="or">
+            <if test="criteria.valid">
+                <trim prefix="(" prefixOverrides="and" suffix=")">
+                    <foreach collection="criteria.criteria" item="criterion">
+                        <choose>
+                            <when test="criterion.noValue">
+                                and a.${criterion.condition}
+                            </when>
+                            <when test="criterion.singleValue">
+                                and a.${criterion.condition} #{criterion.value}
+                            </when>
+                            <when test="criterion.betweenValue">
+                                and a.${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                            </when>
+                            <when test="criterion.groupValue">
+                                and ( ${criterion.condition} #{criterion.value} )
+                            </when>
+                            <when test="criterion.listValue">
+                                and a.${criterion.condition}
+                                <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                    #{listItem}
+                                </foreach>
+                            </when>
+                        </choose>
+                    </foreach>
+                </trim>
+            </if>
+        </foreach>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    id, xtpt_id, court_no, user_no, is_info_complete, salt, c_ps_xlxw, phone_number, 
+    username, password, user_code, user_type, C_CODE_JG1, C_CODE_JG2, C_CODE_JG3, fullname, 
+    former_name, gender, department, unicode, position_nature, hometown, birthplace, 
+    birthday, physical_condition, marital_status, nation, idcard, preparation, position_type, 
+    position_type_date, assign, education_background, major, degree, degree_date, work_date, 
+    enter_date, pro_cert, pro_cert_date, political, political_date, politic_law_work_date, 
+    administration_position, administration_position_date, law_position, law_position_date, 
+    is_parttime_presiding_judge, party_office, party_office_date, lawyer_date, extra_seniority, 
+    deduction_seniority, before_court_work_year, rank, rank_date, level, level_date, 
+    enter_way, enter_source, former_post, former_rank, former_unit, verify_date, leave_reason, 
+    leave_date, leave_destination, sort_no, is_valid, additional_duration, lawyer_cert_date, 
+    servant_level, servant_level_date, lawyer_cert, court_code, order_no, court_std_no, 
+    uk_no, work_no, fanka_no, official_no, update_user, update_time, dept_org_code, yefg, 
+    user_type_text, court_no_text, gender_text, department_text, position_nature_text, 
+    physical_condition_text, marital_status_text, nation_text, preparation_text, position_type_text, 
+    assign_text, education_background_text, major_text, degree_text, pro_cert_text, political_text, 
+    administration_position_text, law_position_text, is_parttime_presiding_judge_text, 
+    party_office_text, rank_text, level_text, enter_way_text, enter_source_text, former_post_text, 
+    former_rank_text, leave_reason_text, leave_destination_text, is_valid_text, servant_level_text, 
+    lawyer_cert_text, user_id, begin_time, local_address, postal_address, job, juror_edu_text, 
+    dept_sortNo, dept_level, personnel_classification, personnel_classification_text, nation_report, education_background_report,
+    administration_position_report, law_position_report, rank_report, political_report, 
+    party_office_report, nation_report_text, education_background_report_text, administration_position_report_text, 
+    law_position_report_text, rank_report_text, political_report_text, party_office_report_text, 
+    bzcy,assess_type
+  </sql>
+    <sql id="Base_Column_List_new">
+          "id" AS "id",
+            	        get_xtpt_user_id(a.id)                                                                            AS "xtpt_id"                            ,
+                        "court_no"                                                                               AS "court_no"                           ,
+                        "user_no"                                                                                AS "user_no"                            ,
+                        "is_info_complete"                                                                       AS "is_info_complete"                   ,
+                        "salt"                                                                                   AS "salt"                               ,
+                        "c_ps_xlxw"                                                                              AS "c_ps_xlxw"                          ,
+                        "phone_number"                                                                           AS "phone_number"                       ,
+                        "username"                                                                               AS "username"                           ,
+                        "password"                                                                               AS "password"                           ,
+                        "user_code"                                                                              AS "user_code"                          ,
+                        "user_type"                                                                              AS "user_type"                          ,
+                        "C_CODE_JG1"                                                                             AS "C_CODE_JG1"                         ,
+                        "C_CODE_JG2"                                                                             AS "C_CODE_JG2"                         ,
+                        "C_CODE_JG3"                                                                             AS "C_CODE_JG3"                         ,
+                        "fullname"                                                                               AS "fullname"                           ,
+                        "former_name"                                                                            AS "former_name"                        ,
+                        "gender"                                                                                 AS "gender"                             ,
+                        "department"                                                                             AS "department"                         ,
+                        "unicode"                                                                                AS "unicode"                            ,
+                        "position_nature"                                                                        AS "position_nature"                    ,
+                        "hometown"                                                                               AS "hometown"                           ,
+                        "birthplace"                                                                             AS "birthplace"                         ,
+                        "birthday"                                                                               AS "birthday"                           ,
+                        "physical_condition"                                                                     AS "physical_condition"                 ,
+                        "marital_status"                                                                         AS "marital_status"                     ,
+                        "nation"                                                                                 AS "nation"                             ,
+                        "idcard"                                                                                 AS "idcard"                             ,
+                        "preparation"                                                                            AS "preparation"                        ,
+                        "position_type"                                                                          AS "position_type"                      ,
+                        "position_type_date"                                                                     AS "position_type_date"                 ,
+                        "assign"                                                                                 AS "assign"                             ,
+                        "education_background"                                                                   AS "education_background"               ,
+                        "major"                                                                                  AS "major"                              ,
+                        "degree"                                                                                 AS "degree"                             ,
+                        "degree_date"                                                                            AS "degree_date"                        ,
+                        "work_date"                                                                              AS "work_date"                          ,
+                        "enter_date"                                                                             AS "enter_date"                         ,
+                        "pro_cert"                                                                               AS "pro_cert"                           ,
+                        "pro_cert_date"                                                                          AS "pro_cert_date"                      ,
+                        "political"                                                                              AS "political"                          ,
+                        "political_date"                                                                         AS "political_date"                     ,
+                        "politic_law_work_date"                                                                  AS "politic_law_work_date"              ,
+                        "administration_position"                                                                AS "administration_position"            ,
+                        "administration_position_date"                                                           AS "administration_position_date"       ,
+                        "law_position"                                                                           AS "law_position"                       ,
+                        "law_position_date"                                                                      AS "law_position_date"                  ,
+                        "is_parttime_presiding_judge"                                                            AS "is_parttime_presiding_judge"        ,
+                        "party_office"                                                                           AS "party_office"                       ,
+                        "party_office_date"                                                                      AS "party_office_date"                  ,
+                        "lawyer_date"                                                                            AS "lawyer_date"                        ,
+                        "extra_seniority"                                                                        AS "extra_seniority"                    ,
+                        "deduction_seniority"                                                                    AS "deduction_seniority"                ,
+                        "before_court_work_year"                                                                 AS "before_court_work_year"             ,
+                        "rank"                                                                                   AS "rank"                               ,
+                        "rank_date"                                                                              AS "rank_date"                          ,
+                        "level"                                                                                  AS "level"                              ,
+                        "level_date"                                                                             AS "level_date"                         ,
+                        "enter_way"                                                                              AS "enter_way"                          ,
+                        "enter_source"                                                                           AS "enter_source"                       ,
+                        "former_post"                                                                            AS "former_post"                        ,
+                        "former_rank"                                                                            AS "former_rank"                        ,
+                        "former_unit"                                                                            AS "former_unit"                        ,
+                        "verify_date"                                                                            AS "verify_date"                        ,
+                        "leave_reason"                                                                           AS "leave_reason"                       ,
+                        "leave_date"                                                                             AS "leave_date"                         ,
+                        "leave_destination"                                                                      AS "leave_destination"                  ,
+                        "sort_no"                                                                                AS "sort_no"                            ,
+                        "is_valid"                                                                               AS "is_valid"                           ,
+                        "additional_duration"                                                                    AS "additional_duration"                ,
+                        "lawyer_cert_date"                                                                       AS "lawyer_cert_date"                   ,
+                        "servant_level"                                                                          AS "servant_level"                      ,
+                        "servant_level_date"                                                                     AS "servant_level_date"                 ,
+                        "lawyer_cert"                                                                            AS "lawyer_cert"                        ,
+                        "court_code"                                                                             AS "court_code"                         ,
+                        "order_no"                                                                               AS "order_no"                           ,
+                        "court_std_no"                                                                           AS "court_std_no"                       ,
+                        "uk_no"                                                                                  AS "uk_no"                              ,
+                        "work_no"                                                                                AS "work_no"                            ,
+                        "fanka_no"                                                                               AS "fanka_no"                           ,
+                        "official_no"                                                                            AS "official_no"                        ,
+                        "update_user"                                                                            AS "update_user"                        ,
+                        "update_time"                                                                            AS "update_time"                        ,
+                        "dept_org_code"                                                                          AS "dept_org_code"                      ,
+                        "yefg"                                                                                   AS "yefg"                               ,
+                        CASE "user_type" WHEN 1 THEN '在编人员' WHEN 2 THEN '外聘人员' WHEN 3 THEN '人民陪审员' ELSE '其他' END AS "user_type_text"                     ,
+                        "CODE_TEXT"("court_no", 1)                                                               AS "court_no_text"                      ,
+                        "CODE_TEXT"("gender", 3)                                                                 AS "gender_text"                        ,
+                        "DEPT_TEXT"("court_no", "department")                                                    AS "department_text"                    ,
+                        "CODE_TEXT"("position_nature", 64)                                                       AS "position_nature_text"               ,
+                        "CODE_TEXT"("physical_condition", 10)                                                    AS "physical_condition_text"            ,
+                        "CODE_TEXT"("marital_status", 6)                                                         AS "marital_status_text"                ,
+                        "CODE_TEXT"("nation", 5)                                                                 AS "nation_text"                        ,
+                        "CODE_TEXT"("preparation", 9)                                                            AS "preparation_text"                   ,
+                        "CODE_TEXT"("position_type", 62)                                                         AS "position_type_text"                 ,
+                        "CODE_TEXT"("assign", 63)                                                                AS "assign_text"                        ,
+                        "CODE_TEXT"("education_background", 11)                                                  AS "education_background_text"          ,
+                        "CODE_TEXT"("major", 12)                                                                 AS "major_text"                         ,
+                        "CODE_TEXT"("degree", 23)                                                                AS "degree_text"                        ,
+                        "CODE_TEXT"("pro_cert", 47)                                                              AS "pro_cert_text"                      ,
+                        "CODE_TEXT"("political", 13)                                                             AS "political_text"                     ,
+                        "CODE_TEXT"("administration_position", 15)                                               AS "administration_position_text"       ,
+                        "CODE_TEXT"("law_position", 16)                                                          AS "law_position_text"                  ,
+                        "CODE_TEXT"("is_parttime_presiding_judge", 68)                                           AS "is_parttime_presiding_judge_text"   ,
+                        "CODE_TEXT"("party_office", 57)                                                          AS "party_office_text"                  ,
+                        "CODE_TEXT"("rank", 17)                                                                  AS "rank_text"                          ,
+                        "CODE_TEXT"("level", 20)                                                                 AS "level_text"                         ,
+                        "CODE_TEXT"("enter_way", 43)                                                             AS "enter_way_text"                     ,
+                        "CODE_TEXT"("enter_source", 44)                                                          AS "enter_source_text"                  ,
+                        "CODE_TEXT"("former_post", 14)                                                           AS "former_post_text"                   ,
+                        "CODE_TEXT"("former_rank", 17)                                                           AS "former_rank_text"                   ,
+                        "CODE_TEXT"("leave_reason", 45)                                                          AS "leave_reason_text"                  ,
+                        "CODE_TEXT"("leave_destination", 46)                                                     AS "leave_destination_text"             ,
+                        "CODE_TEXT"("is_valid", 68)                                                              AS "is_valid_text"                      ,
+                        "CODE_TEXT"("servant_level", 83)                                                         AS "servant_level_text"                 ,
+                        "CODE_TEXT"("lawyer_cert", 86)                                                           AS "lawyer_cert_text"                   ,
+                        "user_id"                                                                                AS "user_id"                            ,
+                        "begin_time"                                                                             AS "begin_time"                         ,
+                        "local_address"                                                                          AS "local_address"                      ,
+                        "postal_address"                                                                         AS "postal_address"                     ,
+                        "job"                                                                                    AS "job"                                ,
+                        "CODE_TEXT"("c_ps_xlxw", 10001)                                                          AS "juror_edu_text"                     ,
+                        "personnel_classification"                                                               AS "personnel_classification"           ,
+                        "nation_report"                                                                          AS "nation_report"                      ,
+                        "education_background_report"                                                            AS "education_background_report"        ,
+                        "administration_position_report"                                                         AS "administration_position_report"     ,
+                        "law_position_report"                                                                    AS "law_position_report"                ,
+                        "rank_report"                                                                            AS "rank_report"                        ,
+                        "political_report"                                                                       AS "political_report"                   ,
+                        "party_office_report"                                                                    AS "party_office_report"                ,
+                        "CODE_TEXT"("nation_report", 1005)                                                       AS "nation_report_text"                 ,
+                        "CODE_TEXT"("education_background_report", 1011)                                         AS "education_background_report_text"   ,
+                        "CODE_TEXT"("administration_position_report", 1015)                                      AS "administration_position_report_text",
+                        "CODE_TEXT"("law_position_report", 1016)                                                 AS "law_position_report_text"           ,
+                        "CODE_TEXT"("rank_report", 1017)                                                         AS "rank_report_text"                   ,
+                        "CODE_TEXT"("political_report", 1013)                                                    AS "political_report_text"              ,
+                        "CODE_TEXT"("party_office_report", 1057)                                                 AS "party_office_report_text"           ,
+                        "CODE_TEXT"("personnel_classification", 94)                                              AS "personnel_classification_text"      ,
+                        "bzcy"   AS "bzcy",
+                        dept_level(a.department,a.court_code) as  dept_level,
+                        dept_sort_no(a.department,a.court_code) as   dept_sortNo
+    </sql>
+
+    <select id="selectByExample" parameterType="cn.net.withub.ums.entity.UmsUserInfoViewCriteria" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from ums_user_info_view a
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <delete id="deleteByExample" parameterType="cn.net.withub.ums.entity.UmsUserInfoViewCriteria">
+        delete from ums_user_info_view
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="cn.net.withub.ums.entity.UmsUserInfoView">
+    insert into ums_user_info_view (id, xtpt_id, court_no, 
+      user_no, is_info_complete, salt, 
+      c_ps_xlxw, phone_number, username, 
+      password, user_code, user_type, 
+      C_CODE_JG1, C_CODE_JG2, C_CODE_JG3, 
+      fullname, former_name, gender, 
+      department, unicode, position_nature, 
+      hometown, birthplace, birthday, 
+      physical_condition, marital_status, nation, 
+      idcard, preparation, position_type, 
+      position_type_date, assign, education_background, 
+      major, degree, degree_date, 
+      work_date, enter_date, pro_cert, 
+      pro_cert_date, political, political_date, 
+      politic_law_work_date, administration_position, 
+      administration_position_date, law_position, law_position_date, 
+      is_parttime_presiding_judge, party_office, 
+      party_office_date, lawyer_date, extra_seniority, 
+      deduction_seniority, before_court_work_year, 
+      rank, rank_date, level, 
+      level_date, enter_way, enter_source, 
+      former_post, former_rank, former_unit, 
+      verify_date, leave_reason, leave_date, 
+      leave_destination, sort_no, is_valid, 
+      additional_duration, lawyer_cert_date, servant_level, 
+      servant_level_date, lawyer_cert, court_code, 
+      order_no, court_std_no, uk_no, 
+      work_no, fanka_no, official_no, 
+      update_user, update_time, dept_org_code, 
+      yefg, user_type_text, court_no_text, 
+      gender_text, department_text, position_nature_text, 
+      physical_condition_text, marital_status_text, 
+      nation_text, preparation_text, position_type_text, 
+      assign_text, education_background_text, major_text, 
+      degree_text, pro_cert_text, political_text, 
+      administration_position_text, law_position_text, 
+      is_parttime_presiding_judge_text, party_office_text, 
+      rank_text, level_text, enter_way_text, 
+      enter_source_text, former_post_text, former_rank_text, 
+      leave_reason_text, leave_destination_text, 
+      is_valid_text, servant_level_text, lawyer_cert_text, 
+      user_id, begin_time, local_address, 
+      postal_address, job, juror_edu_text, 
+      dept_sortNo, dept_level, personnel_classification, personnel_classification_text,
+      nation_report, education_background_report, 
+      administration_position_report, law_position_report, 
+      rank_report, political_report, party_office_report, 
+      nation_report_text, education_background_report_text, 
+      administration_position_report_text, law_position_report_text, 
+      rank_report_text, political_report_text, party_office_report_text, 
+      bzcy)
+    values (#{id,jdbcType=VARCHAR}, #{xtptId,jdbcType=INTEGER}, #{courtNo,jdbcType=INTEGER}, 
+      #{userNo,jdbcType=INTEGER}, #{isInfoComplete,jdbcType=INTEGER}, #{salt,jdbcType=VARCHAR}, 
+      #{cPsXlxw,jdbcType=INTEGER}, #{phoneNumber,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{userCode,jdbcType=VARCHAR}, #{userType,jdbcType=INTEGER}, 
+      #{cCodeJg1,jdbcType=VARCHAR}, #{cCodeJg2,jdbcType=VARCHAR}, #{cCodeJg3,jdbcType=VARCHAR}, 
+      #{fullname,jdbcType=VARCHAR}, #{formerName,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, 
+      #{department,jdbcType=INTEGER}, #{unicode,jdbcType=INTEGER}, #{positionNature,jdbcType=INTEGER}, 
+      #{hometown,jdbcType=VARCHAR}, #{birthplace,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, 
+      #{physicalCondition,jdbcType=INTEGER}, #{maritalStatus,jdbcType=INTEGER}, #{nation,jdbcType=INTEGER}, 
+      #{idcard,jdbcType=VARCHAR}, #{preparation,jdbcType=INTEGER}, #{positionType,jdbcType=INTEGER}, 
+      #{positionTypeDate,jdbcType=DATE}, #{assign,jdbcType=INTEGER}, #{educationBackground,jdbcType=INTEGER}, 
+      #{major,jdbcType=INTEGER}, #{degree,jdbcType=INTEGER}, #{degreeDate,jdbcType=DATE}, 
+      #{workDate,jdbcType=DATE}, #{enterDate,jdbcType=DATE}, #{proCert,jdbcType=INTEGER}, 
+      #{proCertDate,jdbcType=DATE}, #{political,jdbcType=INTEGER}, #{politicalDate,jdbcType=DATE}, 
+      #{politicLawWorkDate,jdbcType=DATE}, #{administrationPosition,jdbcType=INTEGER}, 
+      #{administrationPositionDate,jdbcType=DATE}, #{lawPosition,jdbcType=INTEGER}, #{lawPositionDate,jdbcType=DATE}, 
+      #{isParttimePresidingJudge,jdbcType=INTEGER}, #{partyOffice,jdbcType=INTEGER}, 
+      #{partyOfficeDate,jdbcType=DATE}, #{lawyerDate,jdbcType=DATE}, #{extraSeniority,jdbcType=INTEGER}, 
+      #{deductionSeniority,jdbcType=INTEGER}, #{beforeCourtWorkYear,jdbcType=INTEGER}, 
+      #{rank,jdbcType=INTEGER}, #{rankDate,jdbcType=DATE}, #{level,jdbcType=INTEGER}, 
+      #{levelDate,jdbcType=DATE}, #{enterWay,jdbcType=INTEGER}, #{enterSource,jdbcType=INTEGER}, 
+      #{formerPost,jdbcType=INTEGER}, #{formerRank,jdbcType=INTEGER}, #{formerUnit,jdbcType=VARCHAR}, 
+      #{verifyDate,jdbcType=DATE}, #{leaveReason,jdbcType=INTEGER}, #{leaveDate,jdbcType=DATE}, 
+      #{leaveDestination,jdbcType=INTEGER}, #{sortNo,jdbcType=INTEGER}, #{isValid,jdbcType=INTEGER}, 
+      #{additionalDuration,jdbcType=INTEGER}, #{lawyerCertDate,jdbcType=DATE}, #{servantLevel,jdbcType=INTEGER}, 
+      #{servantLevelDate,jdbcType=DATE}, #{lawyerCert,jdbcType=INTEGER}, #{courtCode,jdbcType=VARCHAR}, 
+      #{orderNo,jdbcType=INTEGER}, #{courtStdNo,jdbcType=INTEGER}, #{ukNo,jdbcType=VARCHAR}, 
+      #{workNo,jdbcType=VARCHAR}, #{fankaNo,jdbcType=VARCHAR}, #{officialNo,jdbcType=VARCHAR}, 
+      #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{deptOrgCode,jdbcType=VARCHAR}, 
+      #{yefg,jdbcType=INTEGER}, #{userTypeText,jdbcType=VARCHAR}, #{courtNoText,jdbcType=VARCHAR}, 
+      #{genderText,jdbcType=VARCHAR}, #{departmentText,jdbcType=VARCHAR}, #{positionNatureText,jdbcType=VARCHAR}, 
+      #{physicalConditionText,jdbcType=VARCHAR}, #{maritalStatusText,jdbcType=VARCHAR}, 
+      #{nationText,jdbcType=VARCHAR}, #{preparationText,jdbcType=VARCHAR}, #{positionTypeText,jdbcType=VARCHAR}, 
+      #{assignText,jdbcType=VARCHAR}, #{educationBackgroundText,jdbcType=VARCHAR}, #{majorText,jdbcType=VARCHAR}, 
+      #{degreeText,jdbcType=VARCHAR}, #{proCertText,jdbcType=VARCHAR}, #{politicalText,jdbcType=VARCHAR}, 
+      #{administrationPositionText,jdbcType=VARCHAR}, #{lawPositionText,jdbcType=VARCHAR}, 
+      #{isParttimePresidingJudgeText,jdbcType=VARCHAR}, #{partyOfficeText,jdbcType=VARCHAR}, 
+      #{rankText,jdbcType=VARCHAR}, #{levelText,jdbcType=VARCHAR}, #{enterWayText,jdbcType=VARCHAR}, 
+      #{enterSourceText,jdbcType=VARCHAR}, #{formerPostText,jdbcType=VARCHAR}, #{formerRankText,jdbcType=VARCHAR}, 
+      #{leaveReasonText,jdbcType=VARCHAR}, #{leaveDestinationText,jdbcType=VARCHAR}, 
+      #{isValidText,jdbcType=VARCHAR}, #{servantLevelText,jdbcType=VARCHAR}, #{lawyerCertText,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR}, #{beginTime,jdbcType=DATE}, #{localAddress,jdbcType=VARCHAR}, 
+      #{postalAddress,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, #{jurorEduText,jdbcType=VARCHAR}, 
+      #{deptSortno,jdbcType=BIGINT}, #{deptLevel,jdbcType=BIGINT}, #{personnelClassification,jdbcType=VARCHAR}, 
+      #{nationReport,jdbcType=VARCHAR}, #{educationBackgroundReport,jdbcType=VARCHAR}, 
+      #{administrationPositionReport,jdbcType=VARCHAR}, #{lawPositionReport,jdbcType=VARCHAR}, 
+      #{rankReport,jdbcType=VARCHAR}, #{politicalReport,jdbcType=VARCHAR}, #{partyOfficeReport,jdbcType=VARCHAR}, 
+      #{nationReportText,jdbcType=VARCHAR}, #{educationBackgroundReportText,jdbcType=VARCHAR}, 
+      #{administrationPositionReportText,jdbcType=VARCHAR}, #{lawPositionReportText,jdbcType=VARCHAR}, 
+      #{rankReportText,jdbcType=VARCHAR}, #{politicalReportText,jdbcType=VARCHAR}, #{partyOfficeReportText,jdbcType=VARCHAR}, 
+      #{bzcy,jdbcType=INTEGER})
+  </insert>
+    <insert id="insertSelective" parameterType="cn.net.withub.ums.entity.UmsUserInfoView">
+        insert into ums_user_info_view
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="xtptId != null">
+                xtpt_id,
+            </if>
+            <if test="courtNo != null">
+                court_no,
+            </if>
+            <if test="userNo != null">
+                user_no,
+            </if>
+            <if test="isInfoComplete != null">
+                is_info_complete,
+            </if>
+            <if test="salt != null">
+                salt,
+            </if>
+            <if test="cPsXlxw != null">
+                c_ps_xlxw,
+            </if>
+            <if test="phoneNumber != null">
+                phone_number,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="userCode != null">
+                user_code,
+            </if>
+            <if test="userType != null">
+                user_type,
+            </if>
+            <if test="cCodeJg1 != null">
+                C_CODE_JG1,
+            </if>
+            <if test="cCodeJg2 != null">
+                C_CODE_JG2,
+            </if>
+            <if test="cCodeJg3 != null">
+                C_CODE_JG3,
+            </if>
+            <if test="fullname != null">
+                fullname,
+            </if>
+            <if test="formerName != null">
+                former_name,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="department != null">
+                department,
+            </if>
+            <if test="unicode != null">
+                unicode,
+            </if>
+            <if test="positionNature != null">
+                position_nature,
+            </if>
+            <if test="hometown != null">
+                hometown,
+            </if>
+            <if test="birthplace != null">
+                birthplace,
+            </if>
+            <if test="birthday != null">
+                birthday,
+            </if>
+            <if test="physicalCondition != null">
+                physical_condition,
+            </if>
+            <if test="maritalStatus != null">
+                marital_status,
+            </if>
+            <if test="nation != null">
+                nation,
+            </if>
+            <if test="idcard != null">
+                idcard,
+            </if>
+            <if test="preparation != null">
+                preparation,
+            </if>
+            <if test="positionType != null">
+                position_type,
+            </if>
+            <if test="positionTypeDate != null">
+                position_type_date,
+            </if>
+            <if test="assign != null">
+                assign,
+            </if>
+            <if test="educationBackground != null">
+                education_background,
+            </if>
+            <if test="major != null">
+                major,
+            </if>
+            <if test="degree != null">
+                degree,
+            </if>
+            <if test="degreeDate != null">
+                degree_date,
+            </if>
+            <if test="workDate != null">
+                work_date,
+            </if>
+            <if test="enterDate != null">
+                enter_date,
+            </if>
+            <if test="proCert != null">
+                pro_cert,
+            </if>
+            <if test="proCertDate != null">
+                pro_cert_date,
+            </if>
+            <if test="political != null">
+                political,
+            </if>
+            <if test="politicalDate != null">
+                political_date,
+            </if>
+            <if test="politicLawWorkDate != null">
+                politic_law_work_date,
+            </if>
+            <if test="administrationPosition != null">
+                administration_position,
+            </if>
+            <if test="administrationPositionDate != null">
+                administration_position_date,
+            </if>
+            <if test="lawPosition != null">
+                law_position,
+            </if>
+            <if test="lawPositionDate != null">
+                law_position_date,
+            </if>
+            <if test="isParttimePresidingJudge != null">
+                is_parttime_presiding_judge,
+            </if>
+            <if test="partyOffice != null">
+                party_office,
+            </if>
+            <if test="partyOfficeDate != null">
+                party_office_date,
+            </if>
+            <if test="lawyerDate != null">
+                lawyer_date,
+            </if>
+            <if test="extraSeniority != null">
+                extra_seniority,
+            </if>
+            <if test="deductionSeniority != null">
+                deduction_seniority,
+            </if>
+            <if test="beforeCourtWorkYear != null">
+                before_court_work_year,
+            </if>
+            <if test="rank != null">
+                rank,
+            </if>
+            <if test="rankDate != null">
+                rank_date,
+            </if>
+            <if test="level != null">
+                level,
+            </if>
+            <if test="levelDate != null">
+                level_date,
+            </if>
+            <if test="enterWay != null">
+                enter_way,
+            </if>
+            <if test="enterSource != null">
+                enter_source,
+            </if>
+            <if test="formerPost != null">
+                former_post,
+            </if>
+            <if test="formerRank != null">
+                former_rank,
+            </if>
+            <if test="formerUnit != null">
+                former_unit,
+            </if>
+            <if test="verifyDate != null">
+                verify_date,
+            </if>
+            <if test="leaveReason != null">
+                leave_reason,
+            </if>
+            <if test="leaveDate != null">
+                leave_date,
+            </if>
+            <if test="leaveDestination != null">
+                leave_destination,
+            </if>
+            <if test="sortNo != null">
+                sort_no,
+            </if>
+            <if test="isValid != null">
+                is_valid,
+            </if>
+            <if test="additionalDuration != null">
+                additional_duration,
+            </if>
+            <if test="lawyerCertDate != null">
+                lawyer_cert_date,
+            </if>
+            <if test="servantLevel != null">
+                servant_level,
+            </if>
+            <if test="servantLevelDate != null">
+                servant_level_date,
+            </if>
+            <if test="lawyerCert != null">
+                lawyer_cert,
+            </if>
+            <if test="courtCode != null">
+                court_code,
+            </if>
+            <if test="orderNo != null">
+                order_no,
+            </if>
+            <if test="courtStdNo != null">
+                court_std_no,
+            </if>
+            <if test="ukNo != null">
+                uk_no,
+            </if>
+            <if test="workNo != null">
+                work_no,
+            </if>
+            <if test="fankaNo != null">
+                fanka_no,
+            </if>
+            <if test="officialNo != null">
+                official_no,
+            </if>
+            <if test="updateUser != null">
+                update_user,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="deptOrgCode != null">
+                dept_org_code,
+            </if>
+            <if test="yefg != null">
+                yefg,
+            </if>
+            <if test="userTypeText != null">
+                user_type_text,
+            </if>
+            <if test="courtNoText != null">
+                court_no_text,
+            </if>
+            <if test="genderText != null">
+                gender_text,
+            </if>
+            <if test="departmentText != null">
+                department_text,
+            </if>
+            <if test="positionNatureText != null">
+                position_nature_text,
+            </if>
+            <if test="physicalConditionText != null">
+                physical_condition_text,
+            </if>
+            <if test="maritalStatusText != null">
+                marital_status_text,
+            </if>
+            <if test="nationText != null">
+                nation_text,
+            </if>
+            <if test="preparationText != null">
+                preparation_text,
+            </if>
+            <if test="positionTypeText != null">
+                position_type_text,
+            </if>
+            <if test="assignText != null">
+                assign_text,
+            </if>
+            <if test="educationBackgroundText != null">
+                education_background_text,
+            </if>
+            <if test="majorText != null">
+                major_text,
+            </if>
+            <if test="degreeText != null">
+                degree_text,
+            </if>
+            <if test="proCertText != null">
+                pro_cert_text,
+            </if>
+            <if test="politicalText != null">
+                political_text,
+            </if>
+            <if test="administrationPositionText != null">
+                administration_position_text,
+            </if>
+            <if test="lawPositionText != null">
+                law_position_text,
+            </if>
+            <if test="isParttimePresidingJudgeText != null">
+                is_parttime_presiding_judge_text,
+            </if>
+            <if test="partyOfficeText != null">
+                party_office_text,
+            </if>
+            <if test="rankText != null">
+                rank_text,
+            </if>
+            <if test="levelText != null">
+                level_text,
+            </if>
+            <if test="enterWayText != null">
+                enter_way_text,
+            </if>
+            <if test="enterSourceText != null">
+                enter_source_text,
+            </if>
+            <if test="formerPostText != null">
+                former_post_text,
+            </if>
+            <if test="formerRankText != null">
+                former_rank_text,
+            </if>
+            <if test="leaveReasonText != null">
+                leave_reason_text,
+            </if>
+            <if test="leaveDestinationText != null">
+                leave_destination_text,
+            </if>
+            <if test="isValidText != null">
+                is_valid_text,
+            </if>
+            <if test="servantLevelText != null">
+                servant_level_text,
+            </if>
+            <if test="lawyerCertText != null">
+                lawyer_cert_text,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="beginTime != null">
+                begin_time,
+            </if>
+            <if test="localAddress != null">
+                local_address,
+            </if>
+            <if test="postalAddress != null">
+                postal_address,
+            </if>
+            <if test="job != null">
+                job,
+            </if>
+            <if test="jurorEduText != null">
+                juror_edu_text,
+            </if>
+            <if test="deptSortno != null">
+                dept_sortNo,
+            </if>
+            <if test="deptLevel != null">
+                dept_level,
+            </if>
+            <if test="personnelClassification != null">
+                personnel_classification,
+            </if>
+            <if test="nationReport != null">
+                nation_report,
+            </if>
+            <if test="educationBackgroundReport != null">
+                education_background_report,
+            </if>
+            <if test="administrationPositionReport != null">
+                administration_position_report,
+            </if>
+            <if test="lawPositionReport != null">
+                law_position_report,
+            </if>
+            <if test="rankReport != null">
+                rank_report,
+            </if>
+            <if test="politicalReport != null">
+                political_report,
+            </if>
+            <if test="partyOfficeReport != null">
+                party_office_report,
+            </if>
+            <if test="nationReportText != null">
+                nation_report_text,
+            </if>
+            <if test="educationBackgroundReportText != null">
+                education_background_report_text,
+            </if>
+            <if test="administrationPositionReportText != null">
+                administration_position_report_text,
+            </if>
+            <if test="lawPositionReportText != null">
+                law_position_report_text,
+            </if>
+            <if test="rankReportText != null">
+                rank_report_text,
+            </if>
+            <if test="politicalReportText != null">
+                political_report_text,
+            </if>
+            <if test="partyOfficeReportText != null">
+                party_office_report_text,
+            </if>
+            <if test="bzcy != null">
+                bzcy,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="xtptId != null">
+                #{xtptId,jdbcType=INTEGER},
+            </if>
+            <if test="courtNo != null">
+                #{courtNo,jdbcType=INTEGER},
+            </if>
+            <if test="userNo != null">
+                #{userNo,jdbcType=INTEGER},
+            </if>
+            <if test="isInfoComplete != null">
+                #{isInfoComplete,jdbcType=INTEGER},
+            </if>
+            <if test="salt != null">
+                #{salt,jdbcType=VARCHAR},
+            </if>
+            <if test="cPsXlxw != null">
+                #{cPsXlxw,jdbcType=INTEGER},
+            </if>
+            <if test="phoneNumber != null">
+                #{phoneNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="userCode != null">
+                #{userCode,jdbcType=VARCHAR},
+            </if>
+            <if test="userType != null">
+                #{userType,jdbcType=INTEGER},
+            </if>
+            <if test="cCodeJg1 != null">
+                #{cCodeJg1,jdbcType=VARCHAR},
+            </if>
+            <if test="cCodeJg2 != null">
+                #{cCodeJg2,jdbcType=VARCHAR},
+            </if>
+            <if test="cCodeJg3 != null">
+                #{cCodeJg3,jdbcType=VARCHAR},
+            </if>
+            <if test="fullname != null">
+                #{fullname,jdbcType=VARCHAR},
+            </if>
+            <if test="formerName != null">
+                #{formerName,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                #{gender,jdbcType=INTEGER},
+            </if>
+            <if test="department != null">
+                #{department,jdbcType=INTEGER},
+            </if>
+            <if test="unicode != null">
+                #{unicode,jdbcType=INTEGER},
+            </if>
+            <if test="positionNature != null">
+                #{positionNature,jdbcType=INTEGER},
+            </if>
+            <if test="hometown != null">
+                #{hometown,jdbcType=VARCHAR},
+            </if>
+            <if test="birthplace != null">
+                #{birthplace,jdbcType=VARCHAR},
+            </if>
+            <if test="birthday != null">
+                #{birthday,jdbcType=DATE},
+            </if>
+            <if test="physicalCondition != null">
+                #{physicalCondition,jdbcType=INTEGER},
+            </if>
+            <if test="maritalStatus != null">
+                #{maritalStatus,jdbcType=INTEGER},
+            </if>
+            <if test="nation != null">
+                #{nation,jdbcType=INTEGER},
+            </if>
+            <if test="idcard != null">
+                #{idcard,jdbcType=VARCHAR},
+            </if>
+            <if test="preparation != null">
+                #{preparation,jdbcType=INTEGER},
+            </if>
+            <if test="positionType != null">
+                #{positionType,jdbcType=INTEGER},
+            </if>
+            <if test="positionTypeDate != null">
+                #{positionTypeDate,jdbcType=DATE},
+            </if>
+            <if test="assign != null">
+                #{assign,jdbcType=INTEGER},
+            </if>
+            <if test="educationBackground != null">
+                #{educationBackground,jdbcType=INTEGER},
+            </if>
+            <if test="major != null">
+                #{major,jdbcType=INTEGER},
+            </if>
+            <if test="degree != null">
+                #{degree,jdbcType=INTEGER},
+            </if>
+            <if test="degreeDate != null">
+                #{degreeDate,jdbcType=DATE},
+            </if>
+            <if test="workDate != null">
+                #{workDate,jdbcType=DATE},
+            </if>
+            <if test="enterDate != null">
+                #{enterDate,jdbcType=DATE},
+            </if>
+            <if test="proCert != null">
+                #{proCert,jdbcType=INTEGER},
+            </if>
+            <if test="proCertDate != null">
+                #{proCertDate,jdbcType=DATE},
+            </if>
+            <if test="political != null">
+                #{political,jdbcType=INTEGER},
+            </if>
+            <if test="politicalDate != null">
+                #{politicalDate,jdbcType=DATE},
+            </if>
+            <if test="politicLawWorkDate != null">
+                #{politicLawWorkDate,jdbcType=DATE},
+            </if>
+            <if test="administrationPosition != null">
+                #{administrationPosition,jdbcType=INTEGER},
+            </if>
+            <if test="administrationPositionDate != null">
+                #{administrationPositionDate,jdbcType=DATE},
+            </if>
+            <if test="lawPosition != null">
+                #{lawPosition,jdbcType=INTEGER},
+            </if>
+            <if test="lawPositionDate != null">
+                #{lawPositionDate,jdbcType=DATE},
+            </if>
+            <if test="isParttimePresidingJudge != null">
+                #{isParttimePresidingJudge,jdbcType=INTEGER},
+            </if>
+            <if test="partyOffice != null">
+                #{partyOffice,jdbcType=INTEGER},
+            </if>
+            <if test="partyOfficeDate != null">
+                #{partyOfficeDate,jdbcType=DATE},
+            </if>
+            <if test="lawyerDate != null">
+                #{lawyerDate,jdbcType=DATE},
+            </if>
+            <if test="extraSeniority != null">
+                #{extraSeniority,jdbcType=INTEGER},
+            </if>
+            <if test="deductionSeniority != null">
+                #{deductionSeniority,jdbcType=INTEGER},
+            </if>
+            <if test="beforeCourtWorkYear != null">
+                #{beforeCourtWorkYear,jdbcType=INTEGER},
+            </if>
+            <if test="rank != null">
+                #{rank,jdbcType=INTEGER},
+            </if>
+            <if test="rankDate != null">
+                #{rankDate,jdbcType=DATE},
+            </if>
+            <if test="level != null">
+                #{level,jdbcType=INTEGER},
+            </if>
+            <if test="levelDate != null">
+                #{levelDate,jdbcType=DATE},
+            </if>
+            <if test="enterWay != null">
+                #{enterWay,jdbcType=INTEGER},
+            </if>
+            <if test="enterSource != null">
+                #{enterSource,jdbcType=INTEGER},
+            </if>
+            <if test="formerPost != null">
+                #{formerPost,jdbcType=INTEGER},
+            </if>
+            <if test="formerRank != null">
+                #{formerRank,jdbcType=INTEGER},
+            </if>
+            <if test="formerUnit != null">
+                #{formerUnit,jdbcType=VARCHAR},
+            </if>
+            <if test="verifyDate != null">
+                #{verifyDate,jdbcType=DATE},
+            </if>
+            <if test="leaveReason != null">
+                #{leaveReason,jdbcType=INTEGER},
+            </if>
+            <if test="leaveDate != null">
+                #{leaveDate,jdbcType=DATE},
+            </if>
+            <if test="leaveDestination != null">
+                #{leaveDestination,jdbcType=INTEGER},
+            </if>
+            <if test="sortNo != null">
+                #{sortNo,jdbcType=INTEGER},
+            </if>
+            <if test="isValid != null">
+                #{isValid,jdbcType=INTEGER},
+            </if>
+            <if test="additionalDuration != null">
+                #{additionalDuration,jdbcType=INTEGER},
+            </if>
+            <if test="lawyerCertDate != null">
+                #{lawyerCertDate,jdbcType=DATE},
+            </if>
+            <if test="servantLevel != null">
+                #{servantLevel,jdbcType=INTEGER},
+            </if>
+            <if test="servantLevelDate != null">
+                #{servantLevelDate,jdbcType=DATE},
+            </if>
+            <if test="lawyerCert != null">
+                #{lawyerCert,jdbcType=INTEGER},
+            </if>
+            <if test="courtCode != null">
+                #{courtCode,jdbcType=VARCHAR},
+            </if>
+            <if test="orderNo != null">
+                #{orderNo,jdbcType=INTEGER},
+            </if>
+            <if test="courtStdNo != null">
+                #{courtStdNo,jdbcType=INTEGER},
+            </if>
+            <if test="ukNo != null">
+                #{ukNo,jdbcType=VARCHAR},
+            </if>
+            <if test="workNo != null">
+                #{workNo,jdbcType=VARCHAR},
+            </if>
+            <if test="fankaNo != null">
+                #{fankaNo,jdbcType=VARCHAR},
+            </if>
+            <if test="officialNo != null">
+                #{officialNo,jdbcType=VARCHAR},
+            </if>
+            <if test="updateUser != null">
+                #{updateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deptOrgCode != null">
+                #{deptOrgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="yefg != null">
+                #{yefg,jdbcType=INTEGER},
+            </if>
+            <if test="userTypeText != null">
+                #{userTypeText,jdbcType=VARCHAR},
+            </if>
+            <if test="courtNoText != null">
+                #{courtNoText,jdbcType=VARCHAR},
+            </if>
+            <if test="genderText != null">
+                #{genderText,jdbcType=VARCHAR},
+            </if>
+            <if test="departmentText != null">
+                #{departmentText,jdbcType=VARCHAR},
+            </if>
+            <if test="positionNatureText != null">
+                #{positionNatureText,jdbcType=VARCHAR},
+            </if>
+            <if test="physicalConditionText != null">
+                #{physicalConditionText,jdbcType=VARCHAR},
+            </if>
+            <if test="maritalStatusText != null">
+                #{maritalStatusText,jdbcType=VARCHAR},
+            </if>
+            <if test="nationText != null">
+                #{nationText,jdbcType=VARCHAR},
+            </if>
+            <if test="preparationText != null">
+                #{preparationText,jdbcType=VARCHAR},
+            </if>
+            <if test="positionTypeText != null">
+                #{positionTypeText,jdbcType=VARCHAR},
+            </if>
+            <if test="assignText != null">
+                #{assignText,jdbcType=VARCHAR},
+            </if>
+            <if test="educationBackgroundText != null">
+                #{educationBackgroundText,jdbcType=VARCHAR},
+            </if>
+            <if test="majorText != null">
+                #{majorText,jdbcType=VARCHAR},
+            </if>
+            <if test="degreeText != null">
+                #{degreeText,jdbcType=VARCHAR},
+            </if>
+            <if test="proCertText != null">
+                #{proCertText,jdbcType=VARCHAR},
+            </if>
+            <if test="politicalText != null">
+                #{politicalText,jdbcType=VARCHAR},
+            </if>
+            <if test="administrationPositionText != null">
+                #{administrationPositionText,jdbcType=VARCHAR},
+            </if>
+            <if test="lawPositionText != null">
+                #{lawPositionText,jdbcType=VARCHAR},
+            </if>
+            <if test="isParttimePresidingJudgeText != null">
+                #{isParttimePresidingJudgeText,jdbcType=VARCHAR},
+            </if>
+            <if test="partyOfficeText != null">
+                #{partyOfficeText,jdbcType=VARCHAR},
+            </if>
+            <if test="rankText != null">
+                #{rankText,jdbcType=VARCHAR},
+            </if>
+            <if test="levelText != null">
+                #{levelText,jdbcType=VARCHAR},
+            </if>
+            <if test="enterWayText != null">
+                #{enterWayText,jdbcType=VARCHAR},
+            </if>
+            <if test="enterSourceText != null">
+                #{enterSourceText,jdbcType=VARCHAR},
+            </if>
+            <if test="formerPostText != null">
+                #{formerPostText,jdbcType=VARCHAR},
+            </if>
+            <if test="formerRankText != null">
+                #{formerRankText,jdbcType=VARCHAR},
+            </if>
+            <if test="leaveReasonText != null">
+                #{leaveReasonText,jdbcType=VARCHAR},
+            </if>
+            <if test="leaveDestinationText != null">
+                #{leaveDestinationText,jdbcType=VARCHAR},
+            </if>
+            <if test="isValidText != null">
+                #{isValidText,jdbcType=VARCHAR},
+            </if>
+            <if test="servantLevelText != null">
+                #{servantLevelText,jdbcType=VARCHAR},
+            </if>
+            <if test="lawyerCertText != null">
+                #{lawyerCertText,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="beginTime != null">
+                #{beginTime,jdbcType=DATE},
+            </if>
+            <if test="localAddress != null">
+                #{localAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="postalAddress != null">
+                #{postalAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="job != null">
+                #{job,jdbcType=VARCHAR},
+            </if>
+            <if test="jurorEduText != null">
+                #{jurorEduText,jdbcType=VARCHAR},
+            </if>
+            <if test="deptSortno != null">
+                #{deptSortno,jdbcType=BIGINT},
+            </if>
+            <if test="deptLevel != null">
+                #{deptLevel,jdbcType=BIGINT},
+            </if>
+            <if test="personnelClassification != null">
+                #{personnelClassification,jdbcType=VARCHAR},
+            </if>
+            <if test="nationReport != null">
+                #{nationReport,jdbcType=VARCHAR},
+            </if>
+            <if test="educationBackgroundReport != null">
+                #{educationBackgroundReport,jdbcType=VARCHAR},
+            </if>
+            <if test="administrationPositionReport != null">
+                #{administrationPositionReport,jdbcType=VARCHAR},
+            </if>
+            <if test="lawPositionReport != null">
+                #{lawPositionReport,jdbcType=VARCHAR},
+            </if>
+            <if test="rankReport != null">
+                #{rankReport,jdbcType=VARCHAR},
+            </if>
+            <if test="politicalReport != null">
+                #{politicalReport,jdbcType=VARCHAR},
+            </if>
+            <if test="partyOfficeReport != null">
+                #{partyOfficeReport,jdbcType=VARCHAR},
+            </if>
+            <if test="nationReportText != null">
+                #{nationReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="educationBackgroundReportText != null">
+                #{educationBackgroundReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="administrationPositionReportText != null">
+                #{administrationPositionReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="lawPositionReportText != null">
+                #{lawPositionReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="rankReportText != null">
+                #{rankReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="politicalReportText != null">
+                #{politicalReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="partyOfficeReportText != null">
+                #{partyOfficeReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="bzcy != null">
+                #{bzcy,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="countByExample" parameterType="cn.net.withub.ums.entity.UmsUserInfoViewCriteria" resultType="java.lang.Integer">
+        select count(*) from ums_user_info_view a
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+
+<!--    待完善资料的人员数量-->
+    <select id="countByExample_dwszl" parameterType="cn.net.withub.ums.entity.UmsUserInfoViewCriteria" resultType="java.lang.Integer">
+        SELECT
+        count(*)
+        FROM
+        (
+        SELECT
+        a.id
+        FROM
+        ums_user_info_view a
+        <where>
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause_a"/>
+        </if>
+        and a.user_type &lt; 20
+        </where>
+        UNION
+        SELECT
+        a.id
+        FROM
+        ums_user_info_view a,ums_gbbzlx_info b
+        <where>
+        1= 1
+        <if test="_parameter != null">
+          and  <include refid="Example_Where_Clause_a"/>
+        </if>
+        and a.id = b.user_id
+        and  b.state = '已同意'
+        </where>
+        ) c
+
+    </select>
+
+    <update id="updateByExampleSelective" parameterType="map">
+        update ums_user_info_view
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=VARCHAR},
+            </if>
+            <if test="record.xtptId != null">
+                xtpt_id = #{record.xtptId,jdbcType=INTEGER},
+            </if>
+            <if test="record.courtNo != null">
+                court_no = #{record.courtNo,jdbcType=INTEGER},
+            </if>
+            <if test="record.userNo != null">
+                user_no = #{record.userNo,jdbcType=INTEGER},
+            </if>
+            <if test="record.isInfoComplete != null">
+                is_info_complete = #{record.isInfoComplete,jdbcType=INTEGER},
+            </if>
+            <if test="record.salt != null">
+                salt = #{record.salt,jdbcType=VARCHAR},
+            </if>
+            <if test="record.cPsXlxw != null">
+                c_ps_xlxw = #{record.cPsXlxw,jdbcType=INTEGER},
+            </if>
+            <if test="record.phoneNumber != null">
+                phone_number = #{record.phoneNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="record.username != null">
+                username = #{record.username,jdbcType=VARCHAR},
+            </if>
+            <if test="record.password != null">
+                password = #{record.password,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userCode != null">
+                user_code = #{record.userCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userType != null">
+                user_type = #{record.userType,jdbcType=INTEGER},
+            </if>
+            <if test="record.cCodeJg1 != null">
+                C_CODE_JG1 = #{record.cCodeJg1,jdbcType=VARCHAR},
+            </if>
+            <if test="record.cCodeJg2 != null">
+                C_CODE_JG2 = #{record.cCodeJg2,jdbcType=VARCHAR},
+            </if>
+            <if test="record.cCodeJg3 != null">
+                C_CODE_JG3 = #{record.cCodeJg3,jdbcType=VARCHAR},
+            </if>
+            <if test="record.fullname != null">
+                fullname = #{record.fullname,jdbcType=VARCHAR},
+            </if>
+            <if test="record.formerName != null">
+                former_name = #{record.formerName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.gender != null">
+                gender = #{record.gender,jdbcType=INTEGER},
+            </if>
+            <if test="record.department != null">
+                department = #{record.department,jdbcType=INTEGER},
+            </if>
+            <if test="record.unicode != null">
+                unicode = #{record.unicode,jdbcType=INTEGER},
+            </if>
+            <if test="record.positionNature != null">
+                position_nature = #{record.positionNature,jdbcType=INTEGER},
+            </if>
+            <if test="record.hometown != null">
+                hometown = #{record.hometown,jdbcType=VARCHAR},
+            </if>
+            <if test="record.birthplace != null">
+                birthplace = #{record.birthplace,jdbcType=VARCHAR},
+            </if>
+            <if test="record.birthday != null">
+                birthday = #{record.birthday,jdbcType=DATE},
+            </if>
+            <if test="record.physicalCondition != null">
+                physical_condition = #{record.physicalCondition,jdbcType=INTEGER},
+            </if>
+            <if test="record.maritalStatus != null">
+                marital_status = #{record.maritalStatus,jdbcType=INTEGER},
+            </if>
+            <if test="record.nation != null">
+                nation = #{record.nation,jdbcType=INTEGER},
+            </if>
+            <if test="record.idcard != null">
+                idcard = #{record.idcard,jdbcType=VARCHAR},
+            </if>
+            <if test="record.preparation != null">
+                preparation = #{record.preparation,jdbcType=INTEGER},
+            </if>
+            <if test="record.positionType != null">
+                position_type = #{record.positionType,jdbcType=INTEGER},
+            </if>
+            <if test="record.positionTypeDate != null">
+                position_type_date = #{record.positionTypeDate,jdbcType=DATE},
+            </if>
+            <if test="record.assign != null">
+                assign = #{record.assign,jdbcType=INTEGER},
+            </if>
+            <if test="record.educationBackground != null">
+                education_background = #{record.educationBackground,jdbcType=INTEGER},
+            </if>
+            <if test="record.major != null">
+                major = #{record.major,jdbcType=INTEGER},
+            </if>
+            <if test="record.degree != null">
+                degree = #{record.degree,jdbcType=INTEGER},
+            </if>
+            <if test="record.degreeDate != null">
+                degree_date = #{record.degreeDate,jdbcType=DATE},
+            </if>
+            <if test="record.workDate != null">
+                work_date = #{record.workDate,jdbcType=DATE},
+            </if>
+            <if test="record.enterDate != null">
+                enter_date = #{record.enterDate,jdbcType=DATE},
+            </if>
+            <if test="record.proCert != null">
+                pro_cert = #{record.proCert,jdbcType=INTEGER},
+            </if>
+            <if test="record.proCertDate != null">
+                pro_cert_date = #{record.proCertDate,jdbcType=DATE},
+            </if>
+            <if test="record.political != null">
+                political = #{record.political,jdbcType=INTEGER},
+            </if>
+            <if test="record.politicalDate != null">
+                political_date = #{record.politicalDate,jdbcType=DATE},
+            </if>
+            <if test="record.politicLawWorkDate != null">
+                politic_law_work_date = #{record.politicLawWorkDate,jdbcType=DATE},
+            </if>
+            <if test="record.administrationPosition != null">
+                administration_position = #{record.administrationPosition,jdbcType=INTEGER},
+            </if>
+            <if test="record.administrationPositionDate != null">
+                administration_position_date = #{record.administrationPositionDate,jdbcType=DATE},
+            </if>
+            <if test="record.lawPosition != null">
+                law_position = #{record.lawPosition,jdbcType=INTEGER},
+            </if>
+            <if test="record.lawPositionDate != null">
+                law_position_date = #{record.lawPositionDate,jdbcType=DATE},
+            </if>
+            <if test="record.isParttimePresidingJudge != null">
+                is_parttime_presiding_judge = #{record.isParttimePresidingJudge,jdbcType=INTEGER},
+            </if>
+            <if test="record.partyOffice != null">
+                party_office = #{record.partyOffice,jdbcType=INTEGER},
+            </if>
+            <if test="record.partyOfficeDate != null">
+                party_office_date = #{record.partyOfficeDate,jdbcType=DATE},
+            </if>
+            <if test="record.lawyerDate != null">
+                lawyer_date = #{record.lawyerDate,jdbcType=DATE},
+            </if>
+            <if test="record.extraSeniority != null">
+                extra_seniority = #{record.extraSeniority,jdbcType=INTEGER},
+            </if>
+            <if test="record.deductionSeniority != null">
+                deduction_seniority = #{record.deductionSeniority,jdbcType=INTEGER},
+            </if>
+            <if test="record.beforeCourtWorkYear != null">
+                before_court_work_year = #{record.beforeCourtWorkYear,jdbcType=INTEGER},
+            </if>
+            <if test="record.rank != null">
+                rank = #{record.rank,jdbcType=INTEGER},
+            </if>
+            <if test="record.rankDate != null">
+                rank_date = #{record.rankDate,jdbcType=DATE},
+            </if>
+            <if test="record.level != null">
+                level = #{record.level,jdbcType=INTEGER},
+            </if>
+            <if test="record.levelDate != null">
+                level_date = #{record.levelDate,jdbcType=DATE},
+            </if>
+            <if test="record.enterWay != null">
+                enter_way = #{record.enterWay,jdbcType=INTEGER},
+            </if>
+            <if test="record.enterSource != null">
+                enter_source = #{record.enterSource,jdbcType=INTEGER},
+            </if>
+            <if test="record.formerPost != null">
+                former_post = #{record.formerPost,jdbcType=INTEGER},
+            </if>
+            <if test="record.formerRank != null">
+                former_rank = #{record.formerRank,jdbcType=INTEGER},
+            </if>
+            <if test="record.formerUnit != null">
+                former_unit = #{record.formerUnit,jdbcType=VARCHAR},
+            </if>
+            <if test="record.verifyDate != null">
+                verify_date = #{record.verifyDate,jdbcType=DATE},
+            </if>
+            <if test="record.leaveReason != null">
+                leave_reason = #{record.leaveReason,jdbcType=INTEGER},
+            </if>
+            <if test="record.leaveDate != null">
+                leave_date = #{record.leaveDate,jdbcType=DATE},
+            </if>
+            <if test="record.leaveDestination != null">
+                leave_destination = #{record.leaveDestination,jdbcType=INTEGER},
+            </if>
+            <if test="record.sortNo != null">
+                sort_no = #{record.sortNo,jdbcType=INTEGER},
+            </if>
+            <if test="record.isValid != null">
+                is_valid = #{record.isValid,jdbcType=INTEGER},
+            </if>
+            <if test="record.additionalDuration != null">
+                additional_duration = #{record.additionalDuration,jdbcType=INTEGER},
+            </if>
+            <if test="record.lawyerCertDate != null">
+                lawyer_cert_date = #{record.lawyerCertDate,jdbcType=DATE},
+            </if>
+            <if test="record.servantLevel != null">
+                servant_level = #{record.servantLevel,jdbcType=INTEGER},
+            </if>
+            <if test="record.servantLevelDate != null">
+                servant_level_date = #{record.servantLevelDate,jdbcType=DATE},
+            </if>
+            <if test="record.lawyerCert != null">
+                lawyer_cert = #{record.lawyerCert,jdbcType=INTEGER},
+            </if>
+            <if test="record.courtCode != null">
+                court_code = #{record.courtCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.orderNo != null">
+                order_no = #{record.orderNo,jdbcType=INTEGER},
+            </if>
+            <if test="record.courtStdNo != null">
+                court_std_no = #{record.courtStdNo,jdbcType=INTEGER},
+            </if>
+            <if test="record.ukNo != null">
+                uk_no = #{record.ukNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.workNo != null">
+                work_no = #{record.workNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.fankaNo != null">
+                fanka_no = #{record.fankaNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.officialNo != null">
+                official_no = #{record.officialNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.updateUser != null">
+                update_user = #{record.updateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="record.updateTime != null">
+                update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.deptOrgCode != null">
+                dept_org_code = #{record.deptOrgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.yefg != null">
+                yefg = #{record.yefg,jdbcType=INTEGER},
+            </if>
+            <if test="record.userTypeText != null">
+                user_type_text = #{record.userTypeText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.courtNoText != null">
+                court_no_text = #{record.courtNoText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.genderText != null">
+                gender_text = #{record.genderText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.departmentText != null">
+                department_text = #{record.departmentText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.positionNatureText != null">
+                position_nature_text = #{record.positionNatureText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.physicalConditionText != null">
+                physical_condition_text = #{record.physicalConditionText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.maritalStatusText != null">
+                marital_status_text = #{record.maritalStatusText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.nationText != null">
+                nation_text = #{record.nationText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.preparationText != null">
+                preparation_text = #{record.preparationText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.positionTypeText != null">
+                position_type_text = #{record.positionTypeText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.assignText != null">
+                assign_text = #{record.assignText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.educationBackgroundText != null">
+                education_background_text = #{record.educationBackgroundText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.majorText != null">
+                major_text = #{record.majorText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.degreeText != null">
+                degree_text = #{record.degreeText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.proCertText != null">
+                pro_cert_text = #{record.proCertText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.politicalText != null">
+                political_text = #{record.politicalText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.administrationPositionText != null">
+                administration_position_text = #{record.administrationPositionText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.lawPositionText != null">
+                law_position_text = #{record.lawPositionText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.isParttimePresidingJudgeText != null">
+                is_parttime_presiding_judge_text = #{record.isParttimePresidingJudgeText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.partyOfficeText != null">
+                party_office_text = #{record.partyOfficeText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rankText != null">
+                rank_text = #{record.rankText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.levelText != null">
+                level_text = #{record.levelText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.enterWayText != null">
+                enter_way_text = #{record.enterWayText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.enterSourceText != null">
+                enter_source_text = #{record.enterSourceText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.formerPostText != null">
+                former_post_text = #{record.formerPostText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.formerRankText != null">
+                former_rank_text = #{record.formerRankText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.leaveReasonText != null">
+                leave_reason_text = #{record.leaveReasonText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.leaveDestinationText != null">
+                leave_destination_text = #{record.leaveDestinationText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.isValidText != null">
+                is_valid_text = #{record.isValidText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.servantLevelText != null">
+                servant_level_text = #{record.servantLevelText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.lawyerCertText != null">
+                lawyer_cert_text = #{record.lawyerCertText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userId != null">
+                user_id = #{record.userId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.beginTime != null">
+                begin_time = #{record.beginTime,jdbcType=DATE},
+            </if>
+            <if test="record.localAddress != null">
+                local_address = #{record.localAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="record.postalAddress != null">
+                postal_address = #{record.postalAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="record.job != null">
+                job = #{record.job,jdbcType=VARCHAR},
+            </if>
+            <if test="record.jurorEduText != null">
+                juror_edu_text = #{record.jurorEduText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.deptSortno != null">
+                dept_sortNo = #{record.deptSortno,jdbcType=BIGINT},
+            </if>
+            <if test="record.deptLevel != null">
+                dept_level = #{record.deptLevel,jdbcType=BIGINT},
+            </if>
+            <if test="record.personnelClassification != null">
+                personnel_classification = #{record.personnelClassification,jdbcType=VARCHAR},
+            </if>
+            <if test="record.nationReport != null">
+                nation_report = #{record.nationReport,jdbcType=VARCHAR},
+            </if>
+            <if test="record.educationBackgroundReport != null">
+                education_background_report = #{record.educationBackgroundReport,jdbcType=VARCHAR},
+            </if>
+            <if test="record.administrationPositionReport != null">
+                administration_position_report = #{record.administrationPositionReport,jdbcType=VARCHAR},
+            </if>
+            <if test="record.lawPositionReport != null">
+                law_position_report = #{record.lawPositionReport,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rankReport != null">
+                rank_report = #{record.rankReport,jdbcType=VARCHAR},
+            </if>
+            <if test="record.politicalReport != null">
+                political_report = #{record.politicalReport,jdbcType=VARCHAR},
+            </if>
+            <if test="record.partyOfficeReport != null">
+                party_office_report = #{record.partyOfficeReport,jdbcType=VARCHAR},
+            </if>
+            <if test="record.nationReportText != null">
+                nation_report_text = #{record.nationReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.educationBackgroundReportText != null">
+                education_background_report_text = #{record.educationBackgroundReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.administrationPositionReportText != null">
+                administration_position_report_text = #{record.administrationPositionReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.lawPositionReportText != null">
+                law_position_report_text = #{record.lawPositionReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.rankReportText != null">
+                rank_report_text = #{record.rankReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.politicalReportText != null">
+                political_report_text = #{record.politicalReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.partyOfficeReportText != null">
+                party_office_report_text = #{record.partyOfficeReportText,jdbcType=VARCHAR},
+            </if>
+            <if test="record.bzcy != null">
+                bzcy = #{record.bzcy,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update ums_user_info_view
+        set id = #{record.id,jdbcType=VARCHAR},
+        xtpt_id = #{record.xtptId,jdbcType=INTEGER},
+        court_no = #{record.courtNo,jdbcType=INTEGER},
+        user_no = #{record.userNo,jdbcType=INTEGER},
+        is_info_complete = #{record.isInfoComplete,jdbcType=INTEGER},
+        salt = #{record.salt,jdbcType=VARCHAR},
+        c_ps_xlxw = #{record.cPsXlxw,jdbcType=INTEGER},
+        phone_number = #{record.phoneNumber,jdbcType=VARCHAR},
+        username = #{record.username,jdbcType=VARCHAR},
+        password = #{record.password,jdbcType=VARCHAR},
+        user_code = #{record.userCode,jdbcType=VARCHAR},
+        user_type = #{record.userType,jdbcType=INTEGER},
+        C_CODE_JG1 = #{record.cCodeJg1,jdbcType=VARCHAR},
+        C_CODE_JG2 = #{record.cCodeJg2,jdbcType=VARCHAR},
+        C_CODE_JG3 = #{record.cCodeJg3,jdbcType=VARCHAR},
+        fullname = #{record.fullname,jdbcType=VARCHAR},
+        former_name = #{record.formerName,jdbcType=VARCHAR},
+        gender = #{record.gender,jdbcType=INTEGER},
+        department = #{record.department,jdbcType=INTEGER},
+        unicode = #{record.unicode,jdbcType=INTEGER},
+        position_nature = #{record.positionNature,jdbcType=INTEGER},
+        hometown = #{record.hometown,jdbcType=VARCHAR},
+        birthplace = #{record.birthplace,jdbcType=VARCHAR},
+        birthday = #{record.birthday,jdbcType=DATE},
+        physical_condition = #{record.physicalCondition,jdbcType=INTEGER},
+        marital_status = #{record.maritalStatus,jdbcType=INTEGER},
+        nation = #{record.nation,jdbcType=INTEGER},
+        idcard = #{record.idcard,jdbcType=VARCHAR},
+        preparation = #{record.preparation,jdbcType=INTEGER},
+        position_type = #{record.positionType,jdbcType=INTEGER},
+        position_type_date = #{record.positionTypeDate,jdbcType=DATE},
+        assign = #{record.assign,jdbcType=INTEGER},
+        education_background = #{record.educationBackground,jdbcType=INTEGER},
+        major = #{record.major,jdbcType=INTEGER},
+        degree = #{record.degree,jdbcType=INTEGER},
+        degree_date = #{record.degreeDate,jdbcType=DATE},
+        work_date = #{record.workDate,jdbcType=DATE},
+        enter_date = #{record.enterDate,jdbcType=DATE},
+        pro_cert = #{record.proCert,jdbcType=INTEGER},
+        pro_cert_date = #{record.proCertDate,jdbcType=DATE},
+        political = #{record.political,jdbcType=INTEGER},
+        political_date = #{record.politicalDate,jdbcType=DATE},
+        politic_law_work_date = #{record.politicLawWorkDate,jdbcType=DATE},
+        administration_position = #{record.administrationPosition,jdbcType=INTEGER},
+        administration_position_date = #{record.administrationPositionDate,jdbcType=DATE},
+        law_position = #{record.lawPosition,jdbcType=INTEGER},
+        law_position_date = #{record.lawPositionDate,jdbcType=DATE},
+        is_parttime_presiding_judge = #{record.isParttimePresidingJudge,jdbcType=INTEGER},
+        party_office = #{record.partyOffice,jdbcType=INTEGER},
+        party_office_date = #{record.partyOfficeDate,jdbcType=DATE},
+        lawyer_date = #{record.lawyerDate,jdbcType=DATE},
+        extra_seniority = #{record.extraSeniority,jdbcType=INTEGER},
+        deduction_seniority = #{record.deductionSeniority,jdbcType=INTEGER},
+        before_court_work_year = #{record.beforeCourtWorkYear,jdbcType=INTEGER},
+        rank = #{record.rank,jdbcType=INTEGER},
+        rank_date = #{record.rankDate,jdbcType=DATE},
+        level = #{record.level,jdbcType=INTEGER},
+        level_date = #{record.levelDate,jdbcType=DATE},
+        enter_way = #{record.enterWay,jdbcType=INTEGER},
+        enter_source = #{record.enterSource,jdbcType=INTEGER},
+        former_post = #{record.formerPost,jdbcType=INTEGER},
+        former_rank = #{record.formerRank,jdbcType=INTEGER},
+        former_unit = #{record.formerUnit,jdbcType=VARCHAR},
+        verify_date = #{record.verifyDate,jdbcType=DATE},
+        leave_reason = #{record.leaveReason,jdbcType=INTEGER},
+        leave_date = #{record.leaveDate,jdbcType=DATE},
+        leave_destination = #{record.leaveDestination,jdbcType=INTEGER},
+        sort_no = #{record.sortNo,jdbcType=INTEGER},
+        is_valid = #{record.isValid,jdbcType=INTEGER},
+        additional_duration = #{record.additionalDuration,jdbcType=INTEGER},
+        lawyer_cert_date = #{record.lawyerCertDate,jdbcType=DATE},
+        servant_level = #{record.servantLevel,jdbcType=INTEGER},
+        servant_level_date = #{record.servantLevelDate,jdbcType=DATE},
+        lawyer_cert = #{record.lawyerCert,jdbcType=INTEGER},
+        court_code = #{record.courtCode,jdbcType=VARCHAR},
+        order_no = #{record.orderNo,jdbcType=INTEGER},
+        court_std_no = #{record.courtStdNo,jdbcType=INTEGER},
+        uk_no = #{record.ukNo,jdbcType=VARCHAR},
+        work_no = #{record.workNo,jdbcType=VARCHAR},
+        fanka_no = #{record.fankaNo,jdbcType=VARCHAR},
+        official_no = #{record.officialNo,jdbcType=VARCHAR},
+        update_user = #{record.updateUser,jdbcType=VARCHAR},
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+        dept_org_code = #{record.deptOrgCode,jdbcType=VARCHAR},
+        yefg = #{record.yefg,jdbcType=INTEGER},
+        user_type_text = #{record.userTypeText,jdbcType=VARCHAR},
+        court_no_text = #{record.courtNoText,jdbcType=VARCHAR},
+        gender_text = #{record.genderText,jdbcType=VARCHAR},
+        department_text = #{record.departmentText,jdbcType=VARCHAR},
+        position_nature_text = #{record.positionNatureText,jdbcType=VARCHAR},
+        physical_condition_text = #{record.physicalConditionText,jdbcType=VARCHAR},
+        marital_status_text = #{record.maritalStatusText,jdbcType=VARCHAR},
+        nation_text = #{record.nationText,jdbcType=VARCHAR},
+        preparation_text = #{record.preparationText,jdbcType=VARCHAR},
+        position_type_text = #{record.positionTypeText,jdbcType=VARCHAR},
+        assign_text = #{record.assignText,jdbcType=VARCHAR},
+        education_background_text = #{record.educationBackgroundText,jdbcType=VARCHAR},
+        major_text = #{record.majorText,jdbcType=VARCHAR},
+        degree_text = #{record.degreeText,jdbcType=VARCHAR},
+        pro_cert_text = #{record.proCertText,jdbcType=VARCHAR},
+        political_text = #{record.politicalText,jdbcType=VARCHAR},
+        administration_position_text = #{record.administrationPositionText,jdbcType=VARCHAR},
+        law_position_text = #{record.lawPositionText,jdbcType=VARCHAR},
+        is_parttime_presiding_judge_text = #{record.isParttimePresidingJudgeText,jdbcType=VARCHAR},
+        party_office_text = #{record.partyOfficeText,jdbcType=VARCHAR},
+        rank_text = #{record.rankText,jdbcType=VARCHAR},
+        level_text = #{record.levelText,jdbcType=VARCHAR},
+        enter_way_text = #{record.enterWayText,jdbcType=VARCHAR},
+        enter_source_text = #{record.enterSourceText,jdbcType=VARCHAR},
+        former_post_text = #{record.formerPostText,jdbcType=VARCHAR},
+        former_rank_text = #{record.formerRankText,jdbcType=VARCHAR},
+        leave_reason_text = #{record.leaveReasonText,jdbcType=VARCHAR},
+        leave_destination_text = #{record.leaveDestinationText,jdbcType=VARCHAR},
+        is_valid_text = #{record.isValidText,jdbcType=VARCHAR},
+        servant_level_text = #{record.servantLevelText,jdbcType=VARCHAR},
+        lawyer_cert_text = #{record.lawyerCertText,jdbcType=VARCHAR},
+        user_id = #{record.userId,jdbcType=VARCHAR},
+        begin_time = #{record.beginTime,jdbcType=DATE},
+        local_address = #{record.localAddress,jdbcType=VARCHAR},
+        postal_address = #{record.postalAddress,jdbcType=VARCHAR},
+        job = #{record.job,jdbcType=VARCHAR},
+        juror_edu_text = #{record.jurorEduText,jdbcType=VARCHAR},
+        dept_sortNo = #{record.deptSortno,jdbcType=BIGINT},
+        dept_level = #{record.deptLevel,jdbcType=BIGINT},
+        personnel_classification = #{record.personnelClassification,jdbcType=VARCHAR},
+        nation_report = #{record.nationReport,jdbcType=VARCHAR},
+        education_background_report = #{record.educationBackgroundReport,jdbcType=VARCHAR},
+        administration_position_report = #{record.administrationPositionReport,jdbcType=VARCHAR},
+        law_position_report = #{record.lawPositionReport,jdbcType=VARCHAR},
+        rank_report = #{record.rankReport,jdbcType=VARCHAR},
+        political_report = #{record.politicalReport,jdbcType=VARCHAR},
+        party_office_report = #{record.partyOfficeReport,jdbcType=VARCHAR},
+        nation_report_text = #{record.nationReportText,jdbcType=VARCHAR},
+        education_background_report_text = #{record.educationBackgroundReportText,jdbcType=VARCHAR},
+        administration_position_report_text = #{record.administrationPositionReportText,jdbcType=VARCHAR},
+        law_position_report_text = #{record.lawPositionReportText,jdbcType=VARCHAR},
+        rank_report_text = #{record.rankReportText,jdbcType=VARCHAR},
+        political_report_text = #{record.politicalReportText,jdbcType=VARCHAR},
+        party_office_report_text = #{record.partyOfficeReportText,jdbcType=VARCHAR},
+        bzcy = #{record.bzcy,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+
+    <select id="seleteJurorInfo" parameterType="cn.net.withub.ums.entity.UmsUserInfoViewCriteria" resultType="java.util.Map">
+        select * from ums_user_info_view a,ums_juror_info b
+        where a.id = b.user_id and
+        <if test="_parameter != null">
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.groupValue">
+                                    and ( ${criterion.condition} #{criterion.value} )
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <select id="seleteOffStaffInfo" parameterType="cn.net.withub.ums.entity.UmsUserInfoViewCriteria" resultType="java.util.Map">
+        SELECT a.*,b.enter_src,c.company_name from (
+        select * from ums_user_info_view
+        <if test="_parameter != null">
+            <where>
+                <foreach collection="oredCriteria" item="criteria" separator="or">
+                    <if test="criteria.valid">
+                        <trim prefix="(" prefixOverrides="and" suffix=")">
+
+                            <foreach collection="criteria.criteria" item="criterion">
+                                <choose>
+                                    <when test="criterion.noValue">
+                                        and a.${criterion.condition}
+                                    </when>
+                                    <when test="criterion.singleValue">
+                                        and ${criterion.condition} #{criterion.value}
+                                    </when>
+                                    <when test="criterion.betweenValue">
+                                        and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                    </when>
+                                    <when test="criterion.groupValue">
+                                        and ( ${criterion.condition} #{criterion.value} )
+                                    </when>
+                                    <when test="criterion.listValue">
+                                        and ${criterion.condition}
+                                        <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                            #{listItem}
+                                        </foreach>
+                                    </when>
+                                </choose>
+                            </foreach>
+                        </trim>
+                    </if>
+                </foreach>
+            </where>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+        ) a left join ums_external_user_info b on a.id = b.user_id left join ums_external_company_info c on b.company_info_id = c.id
+    </select>
+
+    <select id="searchBySort" resultMap="BaseResultMap" parameterType="cn.net.withub.ums.entity.UmsUserInfoViewCriteria">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        'true' as QUERYID,
+        <include refid="Base_Column_List_new"/>
+        from ums_user_info a
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        order by
+        a.court_no,dept_sortNo
+        <if test="orderByClause != null">
+            , ${orderByClause}
+        </if>
+        ,a.sort_no nulls last
+    </select>
+
+    <select id="simpleSearchBySort" resultMap="BaseResultMap" parameterType="cn.net.withub.ums.entity.UmsUserInfoViewCriteria">
+        select
+         a.*,
+        CODE_TEXT (a.court_no, 1) AS court_no_text,
+        CODE_TEXT (a.gender, 3) AS gender_text,
+        DEPT_TEXT (a.court_no, a.department) AS department_text,
+        CODE_TEXT (a.administration_position,15) AS administration_position_text,
+        CODE_TEXT (a.law_position, 16) AS law_position_text,
+        CODE_TEXT (a.rank, 17) AS rank_text,
+        CODE_TEXT (a.administration_position_report,1015) AS administration_position_report_text,
+        CODE_TEXT (a.law_position_report, 1016) AS law_position_report_text,
+        CODE_TEXT (a.rank_report, 1017) AS rank_report_text,
+        CODE_TEXT (a.education_background, 11) AS education_background_text
+        FROM
+        (
+            SELECT
+            a.*, b.sort_no AS dept_sortNo
+            FROM
+            ums_user_info a,
+            ums_department b
+            WHERE
+            a.court_no = b.court_no
+            AND a.department = b.dept_no
+        ) a
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        order by
+        a.court_no,a.dept_sortNo
+        <if test="orderByClause != null">
+            , ${orderByClause}
+        </if>
+        ,a.sort_no nulls last
+    </select>
+
+    <!--  待完善资料的人员列表-->
+    <select id="searchBySort_dwszl" resultMap="BaseResultMap" parameterType="cn.net.withub.ums.entity.UmsUserInfoViewCriteria">
+        SELECT
+        <if test="distinct">
+            distinct
+        </if>
+        *
+        FROM
+        (
+        SELECT
+        'true' AS QUERYID,
+        '申请调职人员' AS whereFrom,
+        '' sq_content,
+        '' sq_time,
+        '' changeUUID,
+        a.*
+        FROM
+        ums_user_info_view a
+        <where>
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause_a"/>
+        </if>
+        and a.user_type &lt; 20
+        </where>
+        UNION
+        SELECT
+        'true' AS QUERYID,
+        ( CASE WHEN a.user_type BETWEEN 10 AND 20 THEN '申请调职人员' WHEN a.user_type > 20 THEN '申请改编人员' END ) AS whereFrom,
+        b.sq_content,
+        b.sq_time,
+        b.changeUUID,
+        a.*
+        FROM
+        ums_user_info_view a,ums_gbbzlx_info b
+        <where>
+         1= 1
+        <if test="_parameter != null">
+        and <include refid="Example_Where_Clause_a"/>
+        </if>
+        and a.id = b.user_id
+        and  b.state = '已同意'
+        </where>
+        ) c
+        ORDER BY
+        whereFrom,
+        c.court_no,
+        c.dept_level,
+        c.dept_sortNo,
+        c.sort_no,
+        ifnull( c.sort_no, 99 )
+
+
+
+<!--        select-->
+<!--        <if test="distinct">-->
+<!--            distinct-->
+<!--        </if>-->
+<!--            'true' as QUERYID,-->
+<!--            (case when a.user_type between 10 and 20 then '申请调职人员' when a.user_type > 20 then '申请改编人员' end) as 'whereFrom', b.sq_content, b.sq_time, b.changeUUID,-->
+<!--            a.*-->
+<!--        from-->
+<!--            ums_user_info_view a left join ums_gbbzlx_info b on a.id = b.user_id and a.court_no = b.court_no-->
+<!--        <if test="_parameter != null">-->
+<!--            <include refid="Example_Where_Clause"/>-->
+<!--        </if>-->
+<!--        or-->
+<!--            (((user_type > 20 and is_valid = 1)) and b.state = '已同意'-->
+<!--        <if test="courtNo != null">-->
+<!--            and b.court_no = #{courtNo}-->
+<!--        </if>-->
+<!--            )-->
+<!--        order by-->
+<!--            a.court_no, a.dept_level,a.dept_sortNo,a.sort_no-->
+<!--        <if test="orderByClause != null">-->
+<!--            , ${orderByClause}-->
+<!--        </if>-->
+    </select>
+
+    <select id="simpleSearchBySort_dwszl" resultMap="BaseResultMap" parameterType="cn.net.withub.ums.entity.UmsUserInfoViewCriteria">
+        SELECT
+        *
+        FROM
+        (
+        SELECT
+        'true' AS QUERYID,
+        '申请调职人员' AS whereFrom,
+        '' sq_content,
+        '' sq_time,
+        '' changeUUID,
+        a.*,
+        CODE_TEXT (a.court_no, 1) AS court_no_text,
+        CODE_TEXT (a.gender, 3) AS gender_text,
+        DEPT_TEXT (a.court_no, a.department) AS department_text,
+        CODE_TEXT (a.administration_position,15) AS administration_position_text,
+        CODE_TEXT (a.law_position, 16) AS law_position_text,
+        CODE_TEXT (a.rank, 17) AS rank_text,
+        CODE_TEXT (a.administration_position_report,1015) AS administration_position_report_text,
+        CODE_TEXT (a.law_position_report, 1016) AS law_position_report_text,
+        CODE_TEXT (a.rank_report, 1017) AS rank_report_text,
+        CODE_TEXT (a.education_background, 11) AS education_background_text
+        FROM
+        (
+        SELECT
+        a.*, b.sort_no AS dept_sortNo
+        FROM
+        ums_user_info a,
+        ums_department b
+        WHERE
+        a.court_no = b.court_no
+        AND a.department = b.dept_no
+        ) a
+        <where>
+            <if test="_parameter != null">
+                <include refid="Example_Where_Clause_a"/>
+            </if>
+            and a.user_type &lt; 20
+        </where>
+        UNION
+        SELECT
+        'true' AS QUERYID,
+        ( CASE WHEN a.user_type BETWEEN 10 AND 20 THEN '申请调职人员' WHEN a.user_type > 20 THEN '申请改编人员' END ) AS whereFrom,
+        b.sq_content,
+        b.sq_time,
+        b.changeUUID,
+        a.*,
+        CODE_TEXT (a.court_no, 1) AS court_no_text,
+        CODE_TEXT (a.gender, 3) AS gender_text,
+        DEPT_TEXT (a.court_no, a.department) AS department_text,
+        CODE_TEXT (a.administration_position,15) AS administration_position_text,
+        CODE_TEXT (a.law_position, 16) AS law_position_text,
+        CODE_TEXT (a.rank, 17) AS rank_text,
+        CODE_TEXT (a.administration_position_report,1015) AS administration_position_report_text,
+        CODE_TEXT (a.law_position_report, 1016) AS law_position_report_text,
+        CODE_TEXT (a.rank_report, 1017) AS rank_report_text,
+        CODE_TEXT (a.education_background, 11) AS education_background_text
+        FROM
+        (
+        SELECT
+        a.*, b.sort_no AS dept_sortNo
+        FROM
+        ums_user_info a,
+        ums_department b
+        WHERE
+        a.court_no = b.court_no
+        AND a.department = b.dept_no
+        ) a,ums_gbbzlx_info b
+        <where>
+            1= 1
+            <if test="_parameter != null">
+                and <include refid="Example_Where_Clause_a"/>
+            </if>
+            and a.id = b.user_id
+            and  b.state = '已同意'
+        </where>
+        ) c
+        ORDER BY
+        whereFrom,
+        c.court_no,
+        c.dept_sortNo,
+        c.sort_no nulls last
+
+    </select>
+
+    <select id="selectCustom" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT a.* from ums_user_info_view a, ums_court_full b where a.court_no = b.court_no ${info}
+    and a.is_valid = 1 and a.user_type=1 ORDER BY a.sort_no,a.court_no
+  </select>
+    <select id="countCustom" parameterType="java.lang.String" resultType="java.lang.Integer">
+    SELECT count(*) from ums_user_info_view a, ums_court_full b where a.court_no=b.court_no ${info}
+    and is_valid = 1 and a.user_type=1
+  </select>
+    <select id="selectCustomN" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT a.* from ums_user_info_view a, ums_court_full b where a.court_no = b.court_no ${info}
+    and a.is_valid = 1 and IFNULL(leave_reason ,'') = ''   ORDER BY a.court_no,a.dept_sortNo , case when a.sort_no is null then 1 else 0 end ,a.sort_no ASC
+  </select>
+    <select id="selectCustomN_" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+         a.*,
+        CODE_TEXT (a.court_no, 1) AS court_no_text,
+        CODE_TEXT (a.gender, 3) AS gender_text,
+        DEPT_TEXT (a.court_no, a.department) AS department_text,
+        CODE_TEXT (a.administration_position,15) AS administration_position_text,
+        CODE_TEXT (a.law_position, 16) AS law_position_text,
+        CODE_TEXT (a.rank, 17) AS rank_text,
+        CODE_TEXT (a.administration_position_report,1015) AS administration_position_report_text,
+        CODE_TEXT (a.law_position_report, 1016) AS law_position_report_text,
+        CODE_TEXT (a.rank_report, 1017) AS rank_report_text,
+        CODE_TEXT (a.education_background, 11) AS education_background_text
+        FROM
+        (
+            SELECT
+            a.*, b.sort_no AS dept_sortNo
+            FROM
+            ums_user_info a,
+            ums_department b
+            WHERE
+            a.court_no = b.court_no
+            AND a.department = b.dept_no
+        ) a, ums_court_full b where a.court_no = b.court_no ${info}
+    and a.is_valid = 1 and IFNULL(leave_reason ,'') = ''   ORDER BY a.court_no,a.dept_sortNo , a.sort_no ASC nulls last
+  </select>
+    <select id="countCustomN" parameterType="java.lang.String" resultType="java.lang.Integer">
+    SELECT count(*) from ums_user_info_view a, ums_court_full b where a.court_no=b.court_no ${info}
+    and is_valid = 1 and IFNULL(leave_reason ,'') = ''
+  </select>
+    <select id="selectCustomM" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT distinct a.* from ums_user_info_view a, ums_court_full b, ums_external_user_info c where a.court_no = b.court_no
+    and c.user_id = a.id ${info}
+    and a.is_valid = 1  ORDER BY a.court_no,a.dept_sortNo , case when a.sort_no is null then 1 else 0 end ,a.sort_no ASC
+  </select>
+    <select id="countCustomM" parameterType="java.lang.String" resultType="java.lang.Integer">
+    SELECT count(*) from ums_user_info_view a, ums_court_full b , ums_external_user_info c where a.court_no=b.court_no
+    and c.user_id = a.id  ${info}
+    and is_valid = 1
+  </select>
+    <select id="selectCustomK" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT distinct a.* from ums_user_info_view a, ums_court_full b, ums_juror_info c where a.court_no = b.court_no
+    and c.user_id = a.id ${info}
+    and a.is_valid = 1 ORDER BY a.court_no,a.dept_sortNo , case when a.sort_no is null then 1 else 0 end ,a.sort_no ASC
+  </select>
+    <select id="countCustomK" parameterType="java.lang.String" resultType="java.lang.Integer">
+    SELECT count(*) from ums_user_info_view a, ums_court_full b , ums_juror_info c where a.court_no=b.court_no
+    and c.user_id = a.id  ${info}
+    and is_valid = 1
+  </select>
+    <select id="selectCustomF" parameterType="java.lang.String" resultType="java.util.Map">
+     SELECT c.user_id,(SELECT src_type_name  from ums_ext_enter_src_type  WHERE id = c.enter_src  ) as enterText,
+    ( SELECT company_name from ums_external_company_info WHERE id = c.company_info_id  ) as companyText
+   from ums_user_info_view a, ums_court_full b, ums_external_user_info c
+    where a.court_no = b.court_no
+    and c.user_id = a.id ${info}
+    and a.is_valid = 1  ORDER BY a.sort_no,a.court_no
+  </select>
+    <select id="selectCustomG" parameterType="java.lang.String" resultType="java.util.Map">
+     SELECT c.user_id,(SELECT code_name from ums_code where type_id = 109  and id = c.regional  ) as regional,
+     (SELECT code_name from ums_code where type_id = 110  and id = c.type_of_case  ) as type_of_case,
+     (SELECT code_name from ums_code where type_id = 111  and id = c.member_state  ) as member_state,
+      (SELECT code_name from ums_code where type_id = 10001  and id = a.c_ps_xlxw  ) as c_ps_xlxw,
+    c.number_of_times,c.company,c.juror_work
+   from ums_user_info_view a, ums_court_full b, ums_juror_info c
+    where a.court_no = b.court_no
+    and c.user_id = a.id ${info}
+    and a.is_valid = 1  ORDER BY a.sort_no,a.court_no
+  </select>
+    <select id="selectBatchById" parameterType="java.util.List" resultType="java.util.HashMap">
+        select a.*,b.court_short_name from ums_user_info_view a,ums_court_full b
+        where a.court_no = b.court_no
+        <foreach close=")" collection="list" item="item" open="AND a.id IN(" separator=",">
+            #{item}
+        </foreach>
+        ORDER BY a.sort_no
+    </select>
+
+    <select id="selectBasicUserinfoById" parameterType="java.lang.String" resultType="java.util.Map">
+    select c.id as xtpt_id,b.*,a.juror_work ,a.company
+    from system_platform.ums_juror_info a,system_platform.ums_user_info_view_rmpsSync b,system_platform.xtpt_t_user c
+    where a.user_id = b.id and b.id = c.uuid and b.id=#{id,jdbcType=VARCHAR}
+  </select>
+
+    <select id="unionCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(distinct a.id ) from ums_user_info_view a, ${table} b where a.id = b.user_id and b.n_present_info = 1 and a.${field} is null and a.user_type = 1 and a.is_valid = 1 and (a.is_info_complete is null or a.is_info_complete != 1)
+        <if test="sqlExtend != null">
+            ${sqlExtend}
+        </if>
+        <if test="courtNo != null">
+            and a.court_no = #{courtNo}
+        </if>
+        <if test="list != null">
+            and a.court_no in
+            <foreach close=")" collection="list" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="unionQuery" parameterType="java.util.Map" resultMap="BaseResultMap">
+        SELECT DISTINCT a.* FROM ums_user_info_view a , ${table} b
+        WHERE a.id = b.user_id and b.n_present_info = 1 and a.${field} is NULL and a.user_type = 1 and a.is_valid = 1
+        and ( a.is_info_complete is null or a.is_info_complete != 1)
+        <if test="sqlExtend != null">
+            ${sqlExtend}
+        </if>
+        <if test="courtNo != null">
+            and a.court_no = #{courtNo}
+        </if>
+        <if test="list != null">
+            and a.court_no in
+            <foreach close=")" collection="list" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        limit #{start},#{limit}
+    </select>
+
+    <select id="incompleteQueryForLegal" parameterType="java.util.Map" resultMap="BaseResultMap">
+        SELECT a.* from ums_user_info_view a
+        WHERE a.user_type = 1 and a.is_valid = 1
+        and ( a.is_info_complete is null or a.is_info_complete != 1)
+        and (a.personnel_classification=1 or a.personnel_classification like '1_')
+        and not EXISTS ( select 1 from ums_legal_job b where a.id = b.user_id and b.n_present_info = 1 )
+        <if test="courtNo != null">
+            and a.court_no = #{courtNo}
+        </if>
+        <if test="list != null">
+            and a.court_no in
+            <foreach close=")" collection="list" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        limit #{start},#{limit}
+    </select>
+
+    <select id="incompleteCountForLegal" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(1) from ums_user_info_view a where a.user_type = 1 and a.is_valid = 1 and (a.is_info_complete is null or a.is_info_complete != 1) and (a.personnel_classification = 1 or a.personnel_classification like '1_') and not exists (select 1 from ums_legal_job b where a.id = b.user_id and b.n_present_info = 1)
+        <if test="courtNo != null">
+            and a.court_no = #{courtNo}
+        </if>
+        <if test="list != null">
+            and a.court_no in
+            <foreach close=")" collection="list" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="incompleteQueryForYefg" parameterType="java.util.Map" resultMap="BaseResultMap">
+        SELECT a.* from ums_user_info_view a
+        WHERE a.user_type = 1 and a.is_valid = 1
+        and ( a.is_info_complete is null or a.is_info_complete != 1)
+        and (a.personnel_classification=1 or a.personnel_classification like '1_')
+        and yefg = 1
+        and not EXISTS ( select 1 from ums_level_info b where a.id = b.user_id and b.n_present_info = 1 and b.yefg_start_time IS NOT NULL and b.is_yefg = 1)
+        <if test="courtNo != null">
+            and a.court_no = #{courtNo}
+        </if>
+        <if test="list != null">
+            and a.court_no in
+            <foreach close=")" collection="list" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        limit #{start},#{limit}
+    </select>
+
+    <select id="incompleteCountForYefg" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(1) from ums_user_info_view a where a.user_type = 1 and a.is_valid = 1 and ( a.is_info_complete is null or a.is_info_complete != 1) and (a.personnel_classification=1 or a.personnel_classification like '1_') and yefg = 1 and not exists ( select 1 from ums_level_info b where a.id = b.user_id and b.n_present_info = 1 and b.yefg_start_time is not null and b.is_yefg = 1)
+        <if test="courtNo != null">
+            and a.court_no = #{courtNo}
+        </if>
+        <if test="list != null">
+            and a.court_no in
+            <foreach close=")" collection="list" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="incompleteQueryForPolitical" parameterType="java.util.Map" resultMap="BaseResultMap">
+        SELECT distinct a.* FROM ums_user_info_view a , ums_political_info b
+        WHERE a.id = b.user_id and a.user_type = 1 and a.is_valid = 1
+        and ( a.is_info_complete is null or a.is_info_complete != 1)
+        and (b.n_political is NULL or ( b.n_political not in ( 3 ,12,13,14 ) and b.d_entry_date is NULL ) or
+        ( b.n_political = 1 and b.d_positive_date is NULL ) or b.n_present_info is null )
+        <if test="courtNo != null">
+            and a.court_no = #{courtNo}
+        </if>
+        <if test="list != null">
+            and a.court_no in
+            <foreach close=")" collection="list" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        limit #{start},#{limit}
+    </select>
+
+    <select id="incompleteCountForPolitical" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(distinct a.id) from ums_user_info_view a, ums_political_info b where a.id = b.user_id and a.user_type = 1 and a.is_valid = 1 and (a.is_info_complete is null or a.is_info_complete != 1) and (b.n_political is null or (b.n_political not in (3, 12, 13, 14) and b.d_entry_date is null ) or(b.n_political = 1 and b.d_positive_date is null) or b.n_present_info is null)
+        <if test="courtNo != null">
+            and a.court_no = #{courtNo}
+        </if>
+        <if test="list != null">
+            and a.court_no in
+            <foreach close=")" collection="list" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="incompleteQueryForFamily" parameterType="java.util.Map" resultMap="BaseResultMap">
+        SELECT distinct a.* from ums_user_info_view a
+        WHERE a.user_type = 1 and a.is_valid = 1
+        and ( a.is_info_complete is null or a.is_info_complete != 1)
+        and NOT EXISTS (SELECT 1 from ums_family_info b WHERE a.id = b.user_id )
+        <if test="courtNo != null">
+            and a.court_no = #{courtNo}
+        </if>
+        <if test="list != null">
+            and a.court_no in
+            <foreach close=")" collection="list" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        limit #{start},#{limit}
+    </select>
+
+    <select id="incompleteCountForFamily" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(distinct a.id) from ums_user_info_view a where a.user_type = 1 and a.is_valid = 1 and (a.is_info_complete is null or a.is_info_complete != 1) and not exists (select 1 from ums_family_info b where a.id = b.user_id)
+        <if test="courtNo != null">
+            and a.court_no = #{courtNo}
+        </if>
+        <if test="list != null">
+            and a.court_no in
+            <foreach close=")" collection="list" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="selectByExampleLeftJoinExternal" resultMap="BaseResultMap" parameterType="cn.net.withub.ums.entity.UmsUserInfoExternalCriteria">
+        <!--
+          WARNING - @mbggenerated
+          This element is automatically generated by MyBatis Generator, do not modify.
+          This element was generated on Wed Jun 13 17:35:50 CST 2018.
+        -->
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        a.*
+        from ums_user_info_view a
+        LEFT JOIN ums_external_user_info c on a.id = c.user_id
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="entrySrc != null">
+            and c.enter_src = #{entrySrc}
+        </if>
+        <if test="companyId != null">
+            and c.company_info_id = #{entrySrc}
+        </if>
+        and a.user_type = 2
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+        <if test="start != null ">
+            limit #{start},#{limit}
+        </if>
+    </select>
+
+    <select id="countByExampleLeftJoinExternal" resultType="java.lang.Integer" parameterType="cn.net.withub.ums.entity.UmsUserInfoExternalCriteria">
+        <!--
+          WARNING - @mbggenerated
+          This element is automatically generated by MyBatis Generator, do not modify.
+          This element was generated on Wed Jun 13 17:35:50 CST 2018.
+        -->
+        select
+        count(1)
+        from ums_user_info_view a
+        LEFT JOIN ums_external_user_info c on a.id = c.user_id
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        and a.user_type = 2
+    </select>
+
+    <select id="selectByExampleLeftJoinPsy" parameterType="cn.net.withub.ums.entity.UmsUserInfoExternalCriteria" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        a.*
+        from ums_user_info_view a
+        LEFT JOIN ums_juror_info c on a.id = c.user_id
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="jurorWork != null">
+            and c.juror_work = #{jurorWork}
+        </if>
+        <if test="memberState != null">
+            and c.member_state = #{memberState}
+        </if>
+        and a.user_type = 3
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+        <if test="start != null ">
+            limit #{start},#{limit}
+        </if>
+    </select>
+
+    <select id="countByExampleLeftJoinPsy" parameterType="cn.net.withub.ums.entity.UmsUserInfoExternalCriteria" resultType="java.lang.Integer">
+        select
+        count(1)
+        from ums_user_info_view a
+        LEFT JOIN ums_juror_info c on a.id = c.user_id
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        and a.user_type = 3
+    </select>
+
+    <select id="executeJdbcSql" parameterType="String" resultType="java.util.Map">
+   		<![CDATA[
+
+                    ${value}
+
+        ]]>
+    </select>
+
+    <select id="executeCountSql" parameterType="String" resultType="java.lang.Integer">
+        <![CDATA[
+
+                    ${value}
+
+        ]]>
+    </select>
+    <select id="executeJdbcSqlForUser" parameterType="String" resultMap="BaseResultMap">
+   		<![CDATA[
+
+                    ${value}
+
+        ]]>
+    </select>
+
+    <!--    查询 ums_user_info_view 和 ums_level_info 连表查询  反查法官列表-->
+    <select id="selectFgList_Fc" parameterType="java.util.Map" resultMap="BaseResultMap">
+        SELECT
+        a.*
+        FROM
+        ums_user_info_view a
+        WHERE
+        a.user_type = 1
+        AND a.is_valid = 1
+        ${yefgParam}
+        ${tefgParam}
+        ${courtCodeParam}
+        ${authcourt}
+        AND EXISTS (
+        SELECT 1 FROM ums_level_info b WHERE a.id = b.user_id AND a.court_no = b.court_no
+        ${judgeLevelParam}
+        <if test="startDate_re != null" >
+            <![CDATA[ AND b.yefg_start_time >= #{startDate_re} ]]>
+        </if>
+        <if test="endDate_re != null" >
+            <![CDATA[ AND b.yefg_start_time <= #{endDate_re} ]]>
+        </if>
+        <if test="startDate_te != null" >
+            <![CDATA[ AND b.yefg_end_time >= #{startDate_te} ]]>
+        </if>
+        <if test="endDate_te != null" >
+            <![CDATA[ AND b.yefg_end_time <= #{endDate_te} ]]>
+        </if>
+        <if test="yefgParam != null" >
+            AND IFNULL(b.yefg_end_reason, '') = '' AND b.n_present_info = 1
+        </if>
+        <if test="tefgParam != null" >
+            AND IFNULL(b.yefg_end_reason, '') != '' AND b.n_present_info = 1
+        </if>
+        )
+        LIMIT ${page}, ${limit}
+    </select>
+
+    <!--    查询 ums_user_info_view 和 ums_level_info 连表查询  反查法官列表数量-->
+    <select id="selectFgCount_Fc" parameterType="java.util.Map" resultType="java.lang.Integer">
+        SELECT
+        COUNT(*)
+        FROM
+        ums_user_info_view a
+        WHERE
+        a.user_type = 1
+        AND a.is_valid = 1
+        ${yefgParam}
+        ${tefgParam}
+        ${courtCodeParam}
+        ${authcourt}
+        AND EXISTS (
+        SELECT 1 FROM ums_level_info b WHERE a.id = b.user_id AND a.court_no = b.court_no
+        ${judgeLevelParam}
+        <if test="startDate_re != null" >
+            <![CDATA[ AND b.yefg_start_time >= #{startDate_re} ]]>
+        </if>
+        <if test="endDate_re != null" >
+            <![CDATA[ AND b.yefg_start_time <= #{endDate_re} ]]>
+        </if>
+        <if test="startDate_te != null" >
+            <![CDATA[ AND b.yefg_end_time >= #{startDate_te} ]]>
+        </if>
+        <if test="endDate_te != null" >
+            <![CDATA[ AND b.yefg_end_time <= #{endDate_te} ]]>
+        </if>
+        <if test="yefgParam != null" >
+            AND IFNULL(b.yefg_end_reason, '') = '' AND b.n_present_info = 1
+        </if>
+        <if test="tefgParam != null" >
+            AND IFNULL(b.yefg_end_reason, '') != '' AND b.n_present_info = 1
+        </if>
+        )
+    </select>
+
+    <select id="selectRyList" resultType="java.util.Map" parameterType="java.util.Map">
+        select a.court_no_text,department_text,a.fullname,a.gender_text,a.birthday,a.level_text,a.phone_number as phoneNumber,a.administration_position ,
+          a.administration_position_text ,a.xtpt_id
+          from ums_user_info_view a where user_type = 1 and ifnull(leave_reason,'') = '' and is_valid = 1
+        <if test="type==1">
+          and personnel_classification in ( 1, 11, 12, 13, 14, 15, 16, 17 )
+        </if>
+        <if test="type==2 and zwlsit!=null and zwlist.size()>0">
+          and administration_position  in
+            <foreach collection="zwlsit" open="(" separator=","  close=")" item="zw">
+              #{zw}
+            </foreach>
+        </if>
+        <if test="type==3">
+             and personnel_classification in ( 1, 11, 12, 13, 14, 15, 16, 17 )
+             and xtpt_id=#{xtpt_id}
+        </if>
+          and court_code = #{fydm}
+          order by a.court_code,a.dept_sortNo,a.sort_no
+    </select>
+
+    <select id="selectByUserName" resultType="cn.net.withub.ums.entity.UmsUserInfoView">
+        select * from ums_user_info_view where username = #{username}
+    </select>
+
+    <select id="count" resultType="java.lang.Integer">
+        select count(1) from ums_user_info_view u where  is_valid = 1  AND court_code = #{fydm}  ${condition}
+        <if test="org_code!=null and org_code!='' and org_code != 'null'">
+            AND EXISTS (
+            SELECT 1 from ums_department d WHERE d.court_code =u.court_code and d.dept_no = u.department and
+            d.org_code = #{org_code}
+            )
+        </if>
+    </select>
+
+    <select id="selectByFydmAndCondition" resultMap="personInfo">
+        select
+            id,xtpt_id,fullname,court_std_no court_no,court_code,court_no_text,
+            department,department_text,political_date,
+            law_position,law_position_report_text,gender,
+            rank,rank_report_text,administration_position,
+            administration_position_report_text,political,
+            political_report_text,level,level_text,yefg,
+            personnel_classification_text,personnel_classification,
+            (SELECT org_code from ums_department d WHERE d.court_code =u.court_code and d.dept_no = u.department) as org_code
+        from
+            ums_user_info_view u
+        where is_valid = 1 AND court_code = #{fydm}  ${condition}
+        <if test="org_code!=null and org_code!='' and org_code != 'null'">
+            AND EXISTS (
+            SELECT 1 from ums_department d WHERE d.court_code =u.court_code and d.dept_no = u.department and
+            d.org_code = #{org_code}
+            )
+        </if>
+        limit #{pageNum},#{pageSize}
+        order by department,dept_sortNo,sort_no
+    </select>
+    <select id="selectById" resultMap="personInfo">
+        select
+            id,xtpt_id,fullname,court_std_no court_no,court_code,court_no_text,
+            department,department_text,political_date,
+            law_position,law_position_report_text,gender,
+            rank,rank_report_text,administration_position,
+            administration_position_report_text,political,
+            political_report_text,level,level_text,yefg,
+            personnel_classification_text,personnel_classification,
+            (SELECT org_code from ums_department d WHERE d.court_code =u.court_code and d.dept_no = u.department) as org_code
+        from
+            ums_user_info_view u
+        where
+              1=1
+        <if test="id != null and id != ''">
+            and
+            id = #{id}
+        </if>
+        <if test="xtptId != null and xtptId != ''">
+            and
+            xtpt_id = #{xtptId}
+        </if>
+        limit 10
+    </select>
+    <!--获取离职人员列表-->
+    <select id="selectLeaveList" resultType="map">
+        select a.xtpt_id,a.id,a."court_no_text",a."department_text",a."fullname",a."idcard",
+               (select b."leave_date" from  SYSTEM_PLATFORM."ums_change_info" b where b."n_present_info" = 1 and b."user_id" = a.id)  leave_date,
+               a."leave_reason_text"
+        from ums_user_info_view a where a."user_type" = 1 and a."leave_reason" in (-2,2,3,4,5)
+        <if test="fydm!=null and fydm!=''">
+            and
+            court_code = #{fydm}
+        </if>
+        <if test="startDate!=null and startDate!=''">
+            and
+            leave_date >= #{startDate}
+        </if>
+        <if test="endDate!=null and endDate!=''">
+            and
+            #{endDate} >= leave_date
+        </if>
+        limit #{pageNum}, #{pageSize}
+
+
+    </select>
+    <select id="selectAllList" resultMap="personInfo">
+        select
+            id,xtpt_id,fullname,court_std_no court_no,court_code,court_no_text,
+            department,department_text,political_date,
+            law_position,law_position_report_text,gender,
+            rank,rank_report_text,administration_position,
+            administration_position_report_text,political,
+            political_report_text,level,level_text,yefg,
+            personnel_classification_text,personnel_classification,
+            (SELECT org_code from ums_department d WHERE d.court_code =u.court_code and d.dept_no = u.department) as org_code
+        from
+            ums_user_info_view u
+        where is_valid = 1
+        <if test="fydm != null and fydm != ''">
+            AND court_code = #{fydm}
+        </if>
+        <if test="courtNo != null and courtNo != ''">
+        AND  court_std_no = #{courtNo}
+        </if>
+        <if test="administrationPosition != null and administrationPosition != ''">
+            AND administration_position = #{administrationPosition}
+        </if>
+        <if test="personnelClassification != null and personnelClassification != ''">
+              AND  personnel_classification = #{personnelClassification}
+        </if>
+        <if test="yefg != null and yefg != ''">
+            AND yefg = #{yefg}
+        </if>
+        <if test="orgCode!=null and orgCode!=''">
+            AND EXISTS (
+            SELECT 1 from ums_department d WHERE d.court_code =u.court_code and d.dept_no = u.department and
+            d.org_code = #{orgCode}
+            )
+        </if>
+        <if test="deptNo != null and deptNo != ''">
+            and u.department = #{deptNo}
+        </if>
+        limit #{pageNum},#{pageSize}
+        order by department,dept_sortNo,sort_no
+    </select>
+    <select id="getDeptList" resultType="java.util.Map">
+        select dept_no deptNo,court_code fydm,org_code orgCode,dept_name deptName,dept_st_name deptStName  from ums_department
+        where is_valid = 1
+        <if test="orgType!= null and orgType != ''">
+            AND org_type = #{orgType}
+        </if>
+        <if test="fydm != null and fydm != ''">
+            AND court_code = #{fydm}
+        </if>
+        <if test="orgCode != null and orgCode != ''">
+            AND org_code = #{orgCode}
+        </if>
+        <if test="deptNo != null and deptNo != ''">
+            AND dept_no = #{deptNo}
+        </if>
+
+    </select>
+    <select id="getPersonAndChangeJobList" resultType="java.util.Map">
+
+        select a.id,a.xtpt_id xtptId,a.fullname,a.court_std_no courtNo ,a.court_code courtCode,court_no_text courtNoText,
+        department,department_text departmentText,political_date politicalDate,
+        law_position lawPosition,law_position_report_text lawPositionReportText,gender,
+        rank,rank_report_text rankReportText,administration_position administrationPosition,
+        administration_position_report_text administrationPositionReportText,political,
+        political_report_text politicalReportText,level,level_text levelText,yefg,
+        personnel_classification_text personnelClassificationText,personnel_classification personnelClassification,
+
+        old_court_text,new_court_code,new_court_text,old_dep_no,old_dep_text,new_dept_no,new_dept_text,
+        new_dept_org_code,b.update_time,c.court_code old_court_code,
+        (select org_code from ums_department d where d.dept_no=b.old_dep_no and d.court_code = c.court_code) old_org_code
+
+        from ums_user_info_view a left join ums_change_user_job b on a.id = b.user_id and b.state = '已同意' left join ums_court c
+        on b.old_court_no = c.court_no
+
+        <if test="startTime != null and startTime != ''">
+            AND b.update_time >= #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            AND #{endTime} >= b.update_time
+        </if>
+        where a."is_valid" = 1 and a."user_type" = 1
+          <if test="fydm != null and fydm != ''">
+              and a."court_code" = #{fydm}
+          </if>
+          <if test="orgCode != null and orgCode != ''">
+              and a."dept_org_code" = #{orgCode}
+          </if>
+          <if test="deptNo != null and deptNo != ''">
+              and a."department" = #{deptNo}
+          </if>
+          <if test="personnelClassification != null and personnelClassification != ''">
+              and a."personnel_classification" = #{personnelClassification}
+          </if>
+        order by  b.update_time desc,A."court_code",A."dept_sortNo",a."sort_no"
+
+    </select>
+    <select id="selectXzzw" resultType="java.util.Map">
+        select a.id,a."sort_no",a."c_unit",b."xtpt_id",a."d_assign_date",a."n_job_report",a."n_job_report_text" from SYSTEM_PLATFORM."ums_administrative_job_view" a,ums_user_info_view b
+        where a."user_id" = b."id"
+          and B."xtpt_id" = #{xtptId}
+        order by A."sort_no";
+    </select>
+    <select id="selectFgdjxx" resultType="java.util.Map">
+        select b."xtpt_id",a."d_start_date",a."court_no_text",a."judge_level_text",a."is_yefg",a."is_yefg_text" from SYSTEM_PLATFORM."ums_level_info_view" a,ums_user_info_view b
+        where a."user_id" = b."id" and a."n_level_type"=1 and b."xtpt_id" = #{xtptId}
+        order by a."sort_no"
+    </select>
+    <select id="selectFgzldjxx" resultType="java.util.Map">
+        select b."xtpt_id",a.* from SYSTEM_PLATFORM."ums_level_info_view" a,ums_user_info_view b
+        where a."user_id" = b."id" and a."n_level_type"=3 and b.xtpt_id = #{xtptId}
+        order by a."sort_no"
+    </select>
+    <select id="selectSjyDjxx" resultType="java.util.Map">
+        select b."xtpt_id",a.* from SYSTEM_PLATFORM."ums_level_info_view" a,ums_user_info_view b
+        where a."user_id" = b."id" and a."n_level_type"=4 and b."xtpt_id" = #{xtptId}
+        order by a."sort_no"
+    </select>
+    <select id="countByCourtNo" resultType="java.util.Map">
+       select user_type,gender,count(gender) as cot from ums_user_info_view where user_type in (1,2) and  is_valid = 1
+       <if test="courtNo != null and courtNo != ''">
+           and court_no = #{courtNo}
+       </if>
+       group by user_type,gender ;
+    </select>
+
+    <resultMap id="personInfo" type="cn.net.withub.ums.webService.interior.PersonInfo">
+        <result property="fullname" column="fullname"/>
+        <result property="xtptId" column="xtpt_id"/>
+        <result property="courtNo" column="court_no"/>
+        <result property="fydm" column="court_code"/>
+        <result property="courtNoText" column="court_no_text"/>
+        <result property="orgCode" column="org_code"/>
+        <result property="department" column="department"/>
+        <result property="departmentText" column="department_text"/>
+        <result property="politicalDate" column="political_date"/>
+        <result property="lawPosition" column="law_position"/>
+        <result property="lawPositionReportText" column="law_position_report_text"/>
+        <result property="gender" column="gender"/>
+        <result property="rank" column="rank"/>
+        <result property="rankReportText" column="rank_report_text"/>
+        <result property="administrationPosition" column="administration_position"/>
+        <result property="administrationPositionReportText" column="administration_position_report_text"/>
+        <result property="political" column="political"/>
+        <result property="politicalReportText" column="political_report_text"/>
+        <result property="level" column="level"/>
+        <result property="levelText" column="level_text"/>
+        <result property="yefg" column="yefg"/>
+        <result property="personnelClassificationText" column="personnel_classification_text"/>
+        <result property="personnelClassification" column="personnel_classification"/>
+    </resultMap>
+
+</mapper>

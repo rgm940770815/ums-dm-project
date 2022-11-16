@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.net.withub.ums.dao.extend.UmsDataMapper">
+
+
+    <select id="lawyerLevelData" resultType="java.util.Map">
+        SELECT     ( SELECT code_name FROM ums_code WHERE id = LEVEL AND type_id = 20   ) as name, count(1) as "value",level as keyValue FROM
+        ums_user_info_view  where is_valid =1 AND user_type=1 AND level is not null and (24 >= level)
+        <if test="courtNo != null and courtNo != ''"> and court_no = #{courtNo}</if>
+        group by level order by level
+    </select>
+    <select id="rankData" resultType="java.util.Map">
+         SELECT ( SELECT code_name FROM ums_code WHERE ums_code.id = rank_report AND type_id = 1017 ) as name, count(1) as "value",rank_report as keyValue
+        FROM ums_user_info_view where is_valid =1 AND user_type =1 and exists ( select 1 from  ums_code WHERE ums_code.id = rank_report AND type_id = 1017  )
+        <if test="courtNo != null and courtNo != ''"> and court_no = #{courtNo}</if>
+        group by rank_report order by rank_report
+    </select>
+</mapper>

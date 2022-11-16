@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </appenders>
+    <loggers>
+        <logger name="log4j.logger.noModule" level="fatal" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+        <logger name="log4j.logger.org.mybatis.jpetstore" level="trace" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+        <logger name="log4j.logger.com.opensymphony.xwork2" level="warn" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+        <logger name="log4j.logger.com.ibatis" level="trace" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+        <logger name="log4j.logger.com.ibatis.common.jdbc.SimpleDataSource" level="warn" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+        <logger name="log4j.logger.com.ibatis.common.jdbc.ScriptRunner" level="warn" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+        <logger name="log4j.logger.com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="warn" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+        <logger name="log4j.logger.org.mybatis" level="warn" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+        <logger name="log4j.logger.java.sql" level="warn" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+        <logger name="log4j.logger.java.sql.Connection" level="warn" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+        <logger name="log4j.logger.java.sql.Statement" level="warn" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+        <logger name="log4j.logger.java.sql.PreparedStatement" level="warn" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+        <!--        <logger name="log4j.logger.java.sql.ResultSet" level="warn" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>-->
+        <root level="trace">
+            <appender-ref ref="Console"/>
+        </root>
+    </loggers>
+</configuration>

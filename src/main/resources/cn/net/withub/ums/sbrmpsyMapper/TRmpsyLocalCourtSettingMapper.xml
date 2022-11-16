@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.net.withub.ums.sbrmpsyDao.TRmpsyLocalCourtSettingMapper" >
+  <resultMap id="BaseResultMap" type="cn.net.withub.ums.entity.sbrmpsy.TRmpsyLocalCourtSetting" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="institution_number" property="institutionNumber" jdbcType="VARCHAR" />
+    <result column="max_case_number" property="maxCaseNumber" jdbcType="INTEGER" />
+    <result column="reply_time_limit" property="replyTimeLimit" jdbcType="VARCHAR" />
+    <result column="send_time" property="sendTime" jdbcType="VARCHAR" />
+    <result column="court_code" property="courtCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, institution_number, max_case_number, reply_time_limit, send_time, court_code
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyLocalCourtSettingExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_rmpsy_local_court_setting
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_rmpsy_local_court_setting
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_rmpsy_local_court_setting
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyLocalCourtSettingExample" >
+    delete from t_rmpsy_local_court_setting
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyLocalCourtSetting" >
+    insert into t_rmpsy_local_court_setting (id, institution_number, max_case_number, 
+      reply_time_limit, send_time, court_code
+      )
+    values (#{id,jdbcType=VARCHAR}, #{institutionNumber,jdbcType=VARCHAR}, #{maxCaseNumber,jdbcType=INTEGER}, 
+      #{replyTimeLimit,jdbcType=VARCHAR}, #{sendTime,jdbcType=VARCHAR}, #{courtCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyLocalCourtSetting" >
+    insert into t_rmpsy_local_court_setting
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="institutionNumber != null" >
+        institution_number,
+      </if>
+      <if test="maxCaseNumber != null" >
+        max_case_number,
+      </if>
+      <if test="replyTimeLimit != null" >
+        reply_time_limit,
+      </if>
+      <if test="sendTime != null" >
+        send_time,
+      </if>
+      <if test="courtCode != null" >
+        court_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="institutionNumber != null" >
+        #{institutionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="maxCaseNumber != null" >
+        #{maxCaseNumber,jdbcType=INTEGER},
+      </if>
+      <if test="replyTimeLimit != null" >
+        #{replyTimeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        #{sendTime,jdbcType=VARCHAR},
+      </if>
+      <if test="courtCode != null" >
+        #{courtCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyLocalCourtSettingExample" resultType="java.lang.Integer" >
+    select count(*) from t_rmpsy_local_court_setting
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_rmpsy_local_court_setting
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.institutionNumber != null" >
+        institution_number = #{record.institutionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maxCaseNumber != null" >
+        max_case_number = #{record.maxCaseNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.replyTimeLimit != null" >
+        reply_time_limit = #{record.replyTimeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendTime != null" >
+        send_time = #{record.sendTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courtCode != null" >
+        court_code = #{record.courtCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_rmpsy_local_court_setting
+    set id = #{record.id,jdbcType=VARCHAR},
+      institution_number = #{record.institutionNumber,jdbcType=VARCHAR},
+      max_case_number = #{record.maxCaseNumber,jdbcType=INTEGER},
+      reply_time_limit = #{record.replyTimeLimit,jdbcType=VARCHAR},
+      send_time = #{record.sendTime,jdbcType=VARCHAR},
+      court_code = #{record.courtCode,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyLocalCourtSetting" >
+    update t_rmpsy_local_court_setting
+    <set >
+      <if test="institutionNumber != null" >
+        institution_number = #{institutionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="maxCaseNumber != null" >
+        max_case_number = #{maxCaseNumber,jdbcType=INTEGER},
+      </if>
+      <if test="replyTimeLimit != null" >
+        reply_time_limit = #{replyTimeLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        send_time = #{sendTime,jdbcType=VARCHAR},
+      </if>
+      <if test="courtCode != null" >
+        court_code = #{courtCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyLocalCourtSetting" >
+    update t_rmpsy_local_court_setting
+    set institution_number = #{institutionNumber,jdbcType=VARCHAR},
+      max_case_number = #{maxCaseNumber,jdbcType=INTEGER},
+      reply_time_limit = #{replyTimeLimit,jdbcType=VARCHAR},
+      send_time = #{sendTime,jdbcType=VARCHAR},
+      court_code = #{courtCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

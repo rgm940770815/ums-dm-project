@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.net.withub.ums.sbrmpsyDao.TRmpsyAchievementEvaluationMapper">
+    <resultMap id="BaseResultMap" type="cn.net.withub.ums.entity.sbrmpsy.TRmpsyAchievementEvaluation">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="case_id" property="caseId" jdbcType="VARCHAR"/>
+        <result column="assessor_id" property="assessorId" jdbcType="VARCHAR"/>
+        <result column="assessor_name" property="assessorName" jdbcType="VARCHAR"/>
+        <result column="judge_id" property="judgeId" jdbcType="VARCHAR"/>
+        <result column="judge_name" property="judgeName" jdbcType="VARCHAR"/>
+        <result column="time" property="time" jdbcType="DATE"/>
+        <result column="year" property="year" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="moral_score" property="moralScore" jdbcType="VARCHAR"/>
+        <result column="business_score" property="businessScore" jdbcType="VARCHAR"/>
+        <result column="attitude_score" property="attitudeScore" jdbcType="VARCHAR"/>
+        <result column="trial_score" property="trialScore" jdbcType="VARCHAR"/>
+        <result column="discipline" property="discipline" jdbcType="VARCHAR"/>
+        <result column="total_score" property="totalScore" jdbcType="VARCHAR"/>
+        <result column="result" property="result" jdbcType="VARCHAR"/>
+        <result column="update_result_people_id" property="updateResultPeopleId" jdbcType="VARCHAR"/>
+        <result column="update_result_time" property="updateResultTime" jdbcType="DATE"/>
+        <result column="create_user" property="createUser" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="DATE"/>
+        <result column="update_user" property="updateUser" jdbcType="VARCHAR"/>
+        <result column="update_time" property="updateTime" jdbcType="DATE"/>
+        <result column="delete_user" property="deleteUser" jdbcType="VARCHAR"/>
+        <result column="delete_flag" property="deleteFlag" jdbcType="VARCHAR"/>
+        <result column="data_level" property="dataLevel" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        id, case_id, assessor_id, assessor_name, judge_id, judge_name, time, year, status,
+    moral_score, business_score, attitude_score, trial_score, discipline, total_score, 
+    result, update_result_people_id, update_result_time, create_user, create_time, update_user, 
+    update_time, delete_user, delete_flag, data_level
+    </sql>
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyAchievementEvaluationExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from t_rmpsy_achievement_evaluation
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from t_rmpsy_achievement_evaluation
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from t_rmpsy_achievement_evaluation
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <delete id="deleteByExample" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyAchievementEvaluationExample">
+        delete from t_rmpsy_achievement_evaluation
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyAchievementEvaluation">
+        insert into t_rmpsy_achievement_evaluation (id, case_id, assessor_id,
+                                                    assessor_name, judge_id, judge_name,
+                                                    time, year, status, moral_score,
+                                                    business_score, attitude_score, trial_score,
+                                                    discipline, total_score, result,
+                                                    update_result_people_id, update_result_time, create_user,
+                                                    create_time, update_user, update_time,
+                                                    delete_user, delete_flag, data_level)
+        values (#{id,jdbcType=VARCHAR}, #{caseId,jdbcType=VARCHAR}, #{assessorId,jdbcType=VARCHAR},
+                #{assessorName,jdbcType=VARCHAR}, #{judgeId,jdbcType=VARCHAR}, #{judgeName,jdbcType=VARCHAR},
+                #{time,jdbcType=DATE}, #{year,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
+                #{moralScore,jdbcType=VARCHAR},
+                #{businessScore,jdbcType=VARCHAR}, #{attitudeScore,jdbcType=VARCHAR}, #{trialScore,jdbcType=VARCHAR},
+                #{discipline,jdbcType=VARCHAR}, #{totalScore,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR},
+                #{updateResultPeopleId,jdbcType=VARCHAR}, #{updateResultTime,jdbcType=DATE},
+                #{createUser,jdbcType=VARCHAR},
+                #{createTime,jdbcType=DATE}, #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=DATE},
+                #{deleteUser,jdbcType=VARCHAR}, #{deleteFlag,jdbcType=VARCHAR}, #{dataLevel,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyAchievementEvaluation">
+        insert into t_rmpsy_achievement_evaluation
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="caseId != null">
+                case_id,
+            </if>
+            <if test="assessorId != null">
+                assessor_id,
+            </if>
+            <if test="assessorName != null">
+                assessor_name,
+            </if>
+            <if test="judgeId != null">
+                judge_id,
+            </if>
+            <if test="judgeName != null">
+                judge_name,
+            </if>
+            <if test="time != null">
+                time,
+            </if>
+            <if test="year != null">
+                year,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="moralScore != null">
+                moral_score,
+            </if>
+            <if test="businessScore != null">
+                business_score,
+            </if>
+            <if test="attitudeScore != null">
+                attitude_score,
+            </if>
+            <if test="trialScore != null">
+                trial_score,
+            </if>
+            <if test="discipline != null">
+                discipline,
+            </if>
+            <if test="totalScore != null">
+                total_score,
+            </if>
+            <if test="result != null">
+                result,
+            </if>
+            <if test="updateResultPeopleId != null">
+                update_result_people_id,
+            </if>
+            <if test="updateResultTime != null">
+                update_result_time,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateUser != null">
+                update_user,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="deleteUser != null">
+                delete_user,
+            </if>
+            <if test="deleteFlag != null">
+                delete_flag,
+            </if>
+            <if test="dataLevel != null">
+                data_level,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="caseId != null">
+                #{caseId,jdbcType=VARCHAR},
+            </if>
+            <if test="assessorId != null">
+                #{assessorId,jdbcType=VARCHAR},
+            </if>
+            <if test="assessorName != null">
+                #{assessorName,jdbcType=VARCHAR},
+            </if>
+            <if test="judgeId != null">
+                #{judgeId,jdbcType=VARCHAR},
+            </if>
+            <if test="judgeName != null">
+                #{judgeName,jdbcType=VARCHAR},
+            </if>
+            <if test="time != null">
+                #{time,jdbcType=DATE},
+            </if>
+            <if test="year != null">
+                #{year,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="moralScore != null">
+                #{moralScore,jdbcType=VARCHAR},
+            </if>
+            <if test="businessScore != null">
+                #{businessScore,jdbcType=VARCHAR},
+            </if>
+            <if test="attitudeScore != null">
+                #{attitudeScore,jdbcType=VARCHAR},
+            </if>
+            <if test="trialScore != null">
+                #{trialScore,jdbcType=VARCHAR},
+            </if>
+            <if test="discipline != null">
+                #{discipline,jdbcType=VARCHAR},
+            </if>
+            <if test="totalScore != null">
+                #{totalScore,jdbcType=VARCHAR},
+            </if>
+            <if test="result != null">
+                #{result,jdbcType=VARCHAR},
+            </if>
+            <if test="updateResultPeopleId != null">
+                #{updateResultPeopleId,jdbcType=VARCHAR},
+            </if>
+            <if test="updateResultTime != null">
+                #{updateResultTime,jdbcType=DATE},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=DATE},
+            </if>
+            <if test="updateUser != null">
+                #{updateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=DATE},
+            </if>
+            <if test="deleteUser != null">
+                #{deleteUser,jdbcType=VARCHAR},
+            </if>
+            <if test="deleteFlag != null">
+                #{deleteFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="dataLevel != null">
+                #{dataLevel,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyAchievementEvaluationExample"
+            resultType="java.lang.Integer">
+        select count(*) from t_rmpsy_achievement_evaluation
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update t_rmpsy_achievement_evaluation
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=VARCHAR},
+            </if>
+            <if test="record.caseId != null">
+                case_id = #{record.caseId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.assessorId != null">
+                assessor_id = #{record.assessorId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.assessorName != null">
+                assessor_name = #{record.assessorName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.judgeId != null">
+                judge_id = #{record.judgeId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.judgeName != null">
+                judge_name = #{record.judgeName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.time != null">
+                time = #{record.time,jdbcType=DATE},
+            </if>
+            <if test="record.year != null">
+                year = #{record.year,jdbcType=VARCHAR},
+            </if>
+            <if test="record.status != null">
+                status = #{record.status,jdbcType=VARCHAR},
+            </if>
+            <if test="record.moralScore != null">
+                moral_score = #{record.moralScore,jdbcType=VARCHAR},
+            </if>
+            <if test="record.businessScore != null">
+                business_score = #{record.businessScore,jdbcType=VARCHAR},
+            </if>
+            <if test="record.attitudeScore != null">
+                attitude_score = #{record.attitudeScore,jdbcType=VARCHAR},
+            </if>
+            <if test="record.trialScore != null">
+                trial_score = #{record.trialScore,jdbcType=VARCHAR},
+            </if>
+            <if test="record.discipline != null">
+                discipline = #{record.discipline,jdbcType=VARCHAR},
+            </if>
+            <if test="record.totalScore != null">
+                total_score = #{record.totalScore,jdbcType=VARCHAR},
+            </if>
+            <if test="record.result != null">
+                result = #{record.result,jdbcType=VARCHAR},
+            </if>
+            <if test="record.updateResultPeopleId != null">
+                update_result_people_id = #{record.updateResultPeopleId,jdbcType=VARCHAR},
+            </if>
+            <if test="record.updateResultTime != null">
+                update_result_time = #{record.updateResultTime,jdbcType=DATE},
+            </if>
+            <if test="record.createUser != null">
+                create_user = #{record.createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="record.createTime != null">
+                create_time = #{record.createTime,jdbcType=DATE},
+            </if>
+            <if test="record.updateUser != null">
+                update_user = #{record.updateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="record.updateTime != null">
+                update_time = #{record.updateTime,jdbcType=DATE},
+            </if>
+            <if test="record.deleteUser != null">
+                delete_user = #{record.deleteUser,jdbcType=VARCHAR},
+            </if>
+            <if test="record.deleteFlag != null">
+                delete_flag = #{record.deleteFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="record.dataLevel != null">
+                data_level = #{record.dataLevel,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update t_rmpsy_achievement_evaluation
+        set id = #{record.id,jdbcType=VARCHAR},
+        case_id = #{record.caseId,jdbcType=VARCHAR},
+        assessor_id = #{record.assessorId,jdbcType=VARCHAR},
+        assessor_name = #{record.assessorName,jdbcType=VARCHAR},
+        judge_id = #{record.judgeId,jdbcType=VARCHAR},
+        judge_name = #{record.judgeName,jdbcType=VARCHAR},
+        time = #{record.time,jdbcType=DATE},
+        year = #{record.year,jdbcType=VARCHAR},
+        status = #{record.status,jdbcType=VARCHAR},
+        moral_score = #{record.moralScore,jdbcType=VARCHAR},
+        business_score = #{record.businessScore,jdbcType=VARCHAR},
+        attitude_score = #{record.attitudeScore,jdbcType=VARCHAR},
+        trial_score = #{record.trialScore,jdbcType=VARCHAR},
+        discipline = #{record.discipline,jdbcType=VARCHAR},
+        total_score = #{record.totalScore,jdbcType=VARCHAR},
+        result = #{record.result,jdbcType=VARCHAR},
+        update_result_people_id = #{record.updateResultPeopleId,jdbcType=VARCHAR},
+        update_result_time = #{record.updateResultTime,jdbcType=DATE},
+        create_user = #{record.createUser,jdbcType=VARCHAR},
+        create_time = #{record.createTime,jdbcType=DATE},
+        update_user = #{record.updateUser,jdbcType=VARCHAR},
+        update_time = #{record.updateTime,jdbcType=DATE},
+        delete_user = #{record.deleteUser,jdbcType=VARCHAR},
+        delete_flag = #{record.deleteFlag,jdbcType=VARCHAR},
+        data_level = #{record.dataLevel,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyAchievementEvaluation">
+        update t_rmpsy_achievement_evaluation
+        <set>
+            <if test="caseId != null">
+                case_id = #{caseId,jdbcType=VARCHAR},
+            </if>
+            <if test="assessorId != null">
+                assessor_id = #{assessorId,jdbcType=VARCHAR},
+            </if>
+            <if test="assessorName != null">
+                assessor_name = #{assessorName,jdbcType=VARCHAR},
+            </if>
+            <if test="judgeId != null">
+                judge_id = #{judgeId,jdbcType=VARCHAR},
+            </if>
+            <if test="judgeName != null">
+                judge_name = #{judgeName,jdbcType=VARCHAR},
+            </if>
+            <if test="time != null">
+                time = #{time,jdbcType=DATE},
+            </if>
+            <if test="year != null">
+                year = #{year,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="moralScore != null">
+                moral_score = #{moralScore,jdbcType=VARCHAR},
+            </if>
+            <if test="businessScore != null">
+                business_score = #{businessScore,jdbcType=VARCHAR},
+            </if>
+            <if test="attitudeScore != null">
+                attitude_score = #{attitudeScore,jdbcType=VARCHAR},
+            </if>
+            <if test="trialScore != null">
+                trial_score = #{trialScore,jdbcType=VARCHAR},
+            </if>
+            <if test="discipline != null">
+                discipline = #{discipline,jdbcType=VARCHAR},
+            </if>
+            <if test="totalScore != null">
+                total_score = #{totalScore,jdbcType=VARCHAR},
+            </if>
+            <if test="result != null">
+                result = #{result,jdbcType=VARCHAR},
+            </if>
+            <if test="updateResultPeopleId != null">
+                update_result_people_id = #{updateResultPeopleId,jdbcType=VARCHAR},
+            </if>
+            <if test="updateResultTime != null">
+                update_result_time = #{updateResultTime,jdbcType=DATE},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=DATE},
+            </if>
+            <if test="updateUser != null">
+                update_user = #{updateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=DATE},
+            </if>
+            <if test="deleteUser != null">
+                delete_user = #{deleteUser,jdbcType=VARCHAR},
+            </if>
+            <if test="deleteFlag != null">
+                delete_flag = #{deleteFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="dataLevel != null">
+                data_level = #{dataLevel,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.net.withub.ums.entity.sbrmpsy.TRmpsyAchievementEvaluation">
+        update t_rmpsy_achievement_evaluation
+        set case_id                 = #{caseId,jdbcType=VARCHAR},
+            assessor_id             = #{assessorId,jdbcType=VARCHAR},
+            assessor_name           = #{assessorName,jdbcType=VARCHAR},
+            judge_id                = #{judgeId,jdbcType=VARCHAR},
+            judge_name              = #{judgeName,jdbcType=VARCHAR},
+            time                    = #{time,jdbcType=DATE},
+            year                    = #{year,jdbcType=VARCHAR},
+            status                  = #{status,jdbcType=VARCHAR},
+            moral_score             = #{moralScore,jdbcType=VARCHAR},
+            business_score          = #{businessScore,jdbcType=VARCHAR},
+            attitude_score          = #{attitudeScore,jdbcType=VARCHAR},
+            trial_score             = #{trialScore,jdbcType=VARCHAR},
+            discipline              = #{discipline,jdbcType=VARCHAR},
+            total_score             = #{totalScore,jdbcType=VARCHAR},
+            result                  = #{result,jdbcType=VARCHAR},
+            update_result_people_id = #{updateResultPeopleId,jdbcType=VARCHAR},
+            update_result_time      = #{updateResultTime,jdbcType=DATE},
+            create_user             = #{createUser,jdbcType=VARCHAR},
+            create_time             = #{createTime,jdbcType=DATE},
+            update_user             = #{updateUser,jdbcType=VARCHAR},
+            update_time             = #{updateTime,jdbcType=DATE},
+            delete_user             = #{deleteUser,jdbcType=VARCHAR},
+            delete_flag             = #{deleteFlag,jdbcType=VARCHAR},
+            data_level              = #{dataLevel,jdbcType=INTEGER}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+</mapper>

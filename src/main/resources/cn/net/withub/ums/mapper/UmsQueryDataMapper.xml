@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.net.withub.ums.dao.extend.UmsQueryDataMapper">
+
+
+    <select id="getLawyerLevelData" resultType="java.util.Map">
+
+        SELECT id,fullname,gender_text as genderText,birthday,court_no_text as courtNoText,department_text as departmentText,
+        education_background_text as educationBackgroundText,administration_position_text as administrationPositionText
+        from ums_user_info_view where is_valid =1 AND user_type=1 AND level is not null and level   &lt;= 24
+        and  level = #{keyValue}
+        order by court_no,dept_level,dept_sortNo,sort_no
+        limit  #{start} , #{limit}
+
+    </select>
+
+
+    <select id="getRankData" resultType="java.util.Map">
+
+        SELECT id,fullname,gender_text as genderText,birthday,court_no_text as courtNoText,department_text as departmentText,
+        education_background_text as educationBackgroundText,administration_position_text as administrationPositionText
+        from ums_user_info_view where is_valid =1 AND user_type =1
+        and  rank_report = #{keyValue}
+        order by court_no,dept_level,dept_sortNo,sort_no
+        limit  #{start} , #{limit}
+
+    </select>
+
+    <select id="getGenderData" resultType="java.util.Map">
+
+       SELECT id,fullname,gender_text as genderText,birthday,court_no_text as courtNoText,department_text as departmentText,
+        education_background_text as educationBackgroundText,administration_position_text as administrationPositionText
+        from ums_user_info_view where is_valid = 1 and user_type = 1 AND gender is not null
+        and  gender = #{keyValue}
+        order by court_no,dept_level,dept_sortNo,sort_no
+        limit  #{start} , #{limit}
+
+    </select>
+
+    <select id="getAgeData" resultType="java.util.Map">
+
+            SELECT a.*
+            from
+            ( SELECT id,fullname,gender_text as genderText,birthday,court_no_text as courtNoText,department_text as departmentText,
+            education_background_text as educationBackgroundText,administration_position_text as administrationPositionText,
+            court_no,dept_level,dept_sortNo,sort_no,
+            (YEAR (now()) - YEAR (birthday) - IF( DATE_FORMAT(NOW(), '%m%d') &lt; DATE_FORMAT(birthday, '%m%d'), 1, 0 )) AS age
+            from ums_user_info_view where is_valid = 1 and user_type = 1 AND birthday is not null ) a
+            where ${condition}
+            order by a.court_no,a.dept_level,a.dept_sortNo,a.sort_no
+            limit  #{start} , #{limit}
+
+    </select>
+
+    <select id="getPoliticalData" resultType="java.util.Map">
+
+          SELECT id,fullname,gender_text as genderText,birthday,court_no_text as courtNoText,department_text as departmentText,
+          education_background_text as educationBackgroundText,administration_position_text as administrationPositionText
+          from ums_user_info_view where is_valid = 1 and user_type = 1 AND political is not null
+          and ${condition}
+          order by court_no,dept_level,dept_sortNo,sort_no
+          limit  #{start} , #{limit}
+
+    </select>
+
+    <select id="getEducationBackgroundData" resultType="java.util.Map">
+
+        SELECT id,fullname,gender_text as genderText,birthday,court_no_text as courtNoText,department_text as departmentText,
+        education_background_text as educationBackgroundText,administration_position_text as administrationPositionText
+        from ums_user_info_view where is_valid = 1 and user_type = 1 AND education_background is not null
+        and ${condition}
+        order by court_no,dept_level,dept_sortNo,sort_no
+        limit  #{start} , #{limit}
+
+    </select>
+
+    <select id="getDegreeData" resultType="java.util.Map">
+
+        SELECT id,fullname,gender_text as genderText,birthday,court_no_text as courtNoText,department_text as departmentText,
+        education_background_text as educationBackgroundText,administration_position_text as administrationPositionText
+        from ums_user_info_view where is_valid = 1 and user_type = 1 AND degree is not null
+        and ${condition}
+        order by court_no,dept_level,dept_sortNo,sort_no
+        limit  #{start} , #{limit}
+
+    </select>
+
+    <select id="countLawyerLevelData" resultType="java.lang.Integer">
+
+        select count(1)
+        from ums_user_info_view where is_valid = 1 and user_type = 1 AND level is not null and level &lt;= 24
+        and level = ${keyValue}
+
+
+    </select>
+
+    <select id="countRankData" resultType="java.lang.Integer">
+
+        SELECT count(1)
+        from ums_user_info_view where is_valid =1 AND user_type =1
+        and  rank_report = #{keyValue}
+
+
+    </select>
+
+    <select id="countGenderData" resultType="java.lang.Integer">
+
+        SELECT count(1)
+        from ums_user_info_view where is_valid = 1 and user_type = 1 AND gender is not null
+        and  gender = #{keyValue}
+
+
+    </select>
+
+    <select id="countAgeData" resultType="java.lang.Integer">
+
+          SELECT count(1)
+          from
+          ( SELECT
+        (YEAR (now()) - YEAR (birthday) - IF( DATE_FORMAT(NOW(), '%m%d') &lt; DATE_FORMAT(birthday, '%m%d'), 1, 0 )) AS age
+          from ums_user_info_view where is_valid = 1 and user_type = 1 AND birthday is not null ) a
+          where ${condition}
+
+
+    </select>
+
+    <select id="countPoliticalData" resultType="java.lang.Integer">
+
+        SELECT count(1)
+        from ums_user_info_view where is_valid = 1 and user_type = 1 AND political is not null
+        and ${condition}
+
+
+    </select>
+
+    <select id="countEducationBackgroundData" resultType="java.lang.Integer">
+
+          SELECT count(1)
+          from ums_user_info_view where is_valid = 1 and user_type = 1 AND education_background is not null
+          and ${condition}
+
+
+    </select>
+
+    <select id="countDegreeData" resultType="java.lang.Integer">
+
+           SELECT count(1)
+            from ums_user_info_view where is_valid = 1 and user_type = 1 AND degree is not null
+            and ${condition}
+
+
+    </select>
+
+    <select id="countLawPositionData" resultType="java.lang.Integer">
+
+        SELECT count(1)
+        from ums_user_info_view where is_valid = 1 and user_type = 1
+        and ${condition}
+        <if test='court != null' >
+          ${court}
+        </if>
+
+    </select>
+
+    <select id="getLawPositionData" resultType="java.util.Map">
+
+        SELECT id,fullname,gender_text as genderText,birthday,court_no_text as courtNoText,department_text as departmentText,
+        education_background_text as educationBackgroundText,administration_position_text as administrationPositionText
+        from ums_user_info_view where is_valid = 1 and user_type = 1
+        and ${condition}
+        <if test='court != null' >
+            ${court}
+        </if>
+        order by court_no,dept_level,dept_sortNo,sort_no
+        limit  #{start} , #{limit}
+
+    </select>
+
+    <select id="getCourtLawyerLevelData" resultType="java.util.Map">
+
+        SELECT
+        id,fullname,gender_text,court_no_text,department_text,administration_position_text,law_position_text
+        from ums_user_info_view where is_valid =1 AND user_type=1 AND level is not null and level   &lt;= 24
+        and  level = #{keyValue}
+        and ${condition}
+        order by court_no,dept_level,dept_sortNo,sort_no
+        limit  #{start} , #{limit}
+
+    </select>
+
+    <select id="countCourtLevelData" resultType="java.lang.Integer">
+        select count(1)
+        from ums_user_info_view where is_valid = 1 and user_type = 1 AND level is not null and level &lt;= 24
+        and level = ${keyValue}
+        and ${condition}
+    </select>
+
+
+    <select id="getCourtJudgeDepartmentData" resultType="java.util.Map">
+
+        SELECT
+        id,fullname,gender_text,court_no_text,department_text,administration_position_text,law_position_text
+        from ums_user_info_view where is_valid =1 AND user_type=1  AND department IS NOT NULL
+        and  department = #{keyValue}
+        and ${condition}
+        order by court_no,dept_level,dept_sortNo,sort_no
+        limit  #{start} , #{limit}
+
+    </select>
+
+
+    <select id="countCountCourtLevelData" resultType="java.lang.Integer">
+        select count(1)
+        from ums_user_info_view where is_valid = 1 and user_type = 1 AND department IS NOT NULL
+        and department = ${keyValue}
+        and ${condition}
+    </select>
+
+    <select id="getCourtAgeData" resultType="java.util.Map">
+
+            SELECT a.*
+            from
+            ( SELECT id,fullname,gender_text,court_no_text,department_text,administration_position_text,law_position_text,
+            court_no,dept_level,dept_sortNo,sort_no,
+            --DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(birthday)), '%Y')+0 AS age
+            <![CDATA[
+            YEAR (now()) - YEAR (birthday) - IF( DATE_FORMAT(NOW(), '%m%d') < DATE_FORMAT(birthday, '%m%d'), 1, 0 ) AS age
+            ]]>
+            from ums_user_info_view where is_valid = 1 and user_type = 1 AND birthday is not null
+            and ${query}
+            ) a
+            where ${condition}
+            order by a.court_no,a.dept_level,a.dept_sortNo,a.sort_no
+            limit  #{start} , #{limit}
+
+    </select>
+
+    <select id="countCourtAgeData" resultType="java.lang.Integer">
+
+          SELECT count(1)
+          from
+          ( SELECT
+          --DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(birthday)), '%Y')+0 AS age
+          <![CDATA[
+          YEAR (now()) - YEAR (birthday) - IF( DATE_FORMAT(NOW(), '%m%d') < DATE_FORMAT(birthday, '%m%d'), 1, 0 ) AS age
+          ]]>
+          from ums_user_info_view where is_valid = 1 and user_type = 1 AND birthday is not null  and ${query} ) a
+          where ${condition}
+
+    </select>
+
+    <select id="getCourtEducationBackgroundData" resultType="java.util.Map">
+
+        SELECT
+        id,fullname,gender_text,court_no_text,department_text,administration_position_text,law_position_text
+        from ums_user_info_view where is_valid = 1 and user_type = 1 AND education_background is not null
+        and ${condition}
+        order by court_no,dept_level,dept_sortNo,sort_no
+        limit  #{start} , #{limit}
+
+    </select>
+
+
+    <select id="countCourtJudgeBaseInfo" resultType="java.lang.Integer">
+
+         select count(1)
+        from ums_user_info_view where is_valid = 1 and user_type = 1
+        AND leave_reason IS NULL
+        and ${condition}
+
+    </select>
+
+    <select id="getCourtJudgeBaseInfo" resultType="java.util.Map">
+
+        SELECT
+        id,fullname,gender_text,court_no_text,department_text,administration_position_text,law_position_text
+        from ums_user_info_view where is_valid =1 AND user_type=1
+        AND leave_reason IS NULL
+        and ${condition}
+        order by court_no,dept_level,dept_sortNo,sort_no
+        limit  #{start} , #{limit}
+
+    </select>
+
+</mapper>

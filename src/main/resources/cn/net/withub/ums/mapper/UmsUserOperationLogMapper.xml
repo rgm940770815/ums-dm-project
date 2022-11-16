@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="UmsUserOperationLogMapper" >
+  <resultMap id="BaseResultMap" type="cn.net.withub.ums.entity.UmsUserOperationLog" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="operation_userName" property="operationUsername" jdbcType="VARCHAR" />
+    <result column="modified_userId" property="modifiedUserid" jdbcType="VARCHAR" />
+    <result column="operation_typeCode" property="operationTypecode" jdbcType="INTEGER" />
+    <result column="operation_typeDetail" property="operationTypedetail" jdbcType="VARCHAR" />
+    <result column="operation_time" property="operationTime" jdbcType="TIMESTAMP" />
+    <result column="operation_ip" property="operationIp" jdbcType="VARCHAR" />
+    <result column="operation_content" property="operationContent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, operation_userName, modified_userId, operation_typeCode, operation_typeDetail, 
+    operation_time, operation_ip, operation_content
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.net.withub.ums.entity.UmsUserOperationLogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ums_user_operation_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectCountByExample" resultType="java.lang.Integer" parameterType="cn.net.withub.ums.entity.UmsUserOperationLogExample" >
+    select
+    count(1)
+    from ums_user_operation_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ums_user_operation_log
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ums_user_operation_log
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.net.withub.ums.entity.UmsUserOperationLogExample" >
+    delete from ums_user_operation_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.net.withub.ums.entity.UmsUserOperationLog" >
+    insert into ums_user_operation_log (id, operation_userName, modified_userId, 
+      operation_typeCode, operation_typeDetail, 
+      operation_time, operation_ip, operation_content
+      )
+    values (#{id,jdbcType=VARCHAR}, #{operationUsername,jdbcType=VARCHAR}, #{modifiedUserid,jdbcType=VARCHAR}, 
+      #{operationTypecode,jdbcType=INTEGER}, #{operationTypedetail,jdbcType=VARCHAR}, 
+      #{operationTime,jdbcType=TIMESTAMP}, #{operationIp,jdbcType=VARCHAR}, #{operationContent,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.net.withub.ums.entity.UmsUserOperationLog" >
+    insert into ums_user_operation_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="operationUsername != null" >
+        operation_userName,
+      </if>
+      <if test="modifiedUserid != null" >
+        modified_userId,
+      </if>
+      <if test="operationTypecode != null" >
+        operation_typeCode,
+      </if>
+      <if test="operationTypedetail != null" >
+        operation_typeDetail,
+      </if>
+      <if test="operationTime != null" >
+        operation_time,
+      </if>
+      <if test="operationIp != null" >
+        operation_ip,
+      </if>
+      <if test="operationContent != null" >
+        operation_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="operationUsername != null" >
+        #{operationUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedUserid != null" >
+        #{modifiedUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="operationTypecode != null" >
+        #{operationTypecode,jdbcType=INTEGER},
+      </if>
+      <if test="operationTypedetail != null" >
+        #{operationTypedetail,jdbcType=VARCHAR},
+      </if>
+      <if test="operationTime != null" >
+        #{operationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operationIp != null" >
+        #{operationIp,jdbcType=VARCHAR},
+      </if>
+      <if test="operationContent != null" >
+        #{operationContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.net.withub.ums.entity.UmsUserOperationLogExample" resultType="java.lang.Integer" >
+    select count(*) from ums_user_operation_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ums_user_operation_log
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operationUsername != null" >
+        operation_userName = #{record.operationUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifiedUserid != null" >
+        modified_userId = #{record.modifiedUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operationTypecode != null" >
+        operation_typeCode = #{record.operationTypecode,jdbcType=INTEGER},
+      </if>
+      <if test="record.operationTypedetail != null" >
+        operation_typeDetail = #{record.operationTypedetail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operationTime != null" >
+        operation_time = #{record.operationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.operationIp != null" >
+        operation_ip = #{record.operationIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operationContent != null" >
+        operation_content = #{record.operationContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ums_user_operation_log
+    set id = #{record.id,jdbcType=VARCHAR},
+      operation_userName = #{record.operationUsername,jdbcType=VARCHAR},
+      modified_userId = #{record.modifiedUserid,jdbcType=VARCHAR},
+      operation_typeCode = #{record.operationTypecode,jdbcType=INTEGER},
+      operation_typeDetail = #{record.operationTypedetail,jdbcType=VARCHAR},
+      operation_time = #{record.operationTime,jdbcType=TIMESTAMP},
+      operation_ip = #{record.operationIp,jdbcType=VARCHAR},
+      operation_content = #{record.operationContent,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.net.withub.ums.entity.UmsUserOperationLog" >
+    update ums_user_operation_log
+    <set >
+      <if test="operationUsername != null" >
+        operation_userName = #{operationUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedUserid != null" >
+        modified_userId = #{modifiedUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="operationTypecode != null" >
+        operation_typeCode = #{operationTypecode,jdbcType=INTEGER},
+      </if>
+      <if test="operationTypedetail != null" >
+        operation_typeDetail = #{operationTypedetail,jdbcType=VARCHAR},
+      </if>
+      <if test="operationTime != null" >
+        operation_time = #{operationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operationIp != null" >
+        operation_ip = #{operationIp,jdbcType=VARCHAR},
+      </if>
+      <if test="operationContent != null" >
+        operation_content = #{operationContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.net.withub.ums.entity.UmsUserOperationLog" >
+    update ums_user_operation_log
+    set operation_userName = #{operationUsername,jdbcType=VARCHAR},
+      modified_userId = #{modifiedUserid,jdbcType=VARCHAR},
+      operation_typeCode = #{operationTypecode,jdbcType=INTEGER},
+      operation_typeDetail = #{operationTypedetail,jdbcType=VARCHAR},
+      operation_time = #{operationTime,jdbcType=TIMESTAMP},
+      operation_ip = #{operationIp,jdbcType=VARCHAR},
+      operation_content = #{operationContent,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

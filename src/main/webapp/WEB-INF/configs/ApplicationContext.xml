@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:task="http://www.springframework.org/schema/task" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://cxf.apache.org/jaxws
+           http://cxf.apache.org/schemas/jaxws.xsd
+           http://www.springframework.org/schema/task
+           http://www.springframework.org/schema/task/spring-task-3.2.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+>
+
+
+    <!-- 数据库配置文件位置 -->
+    <context:property-placeholder location="/WEB-INF/configs/jdbc.properties"/>
+
+    <!--加载同步人民陪审员的配置-->
+    <bean id="config" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="location" value="classpath:rmpsSync.properties"></property>
+    </bean>
+
+    <!--加载通知附件保存地址的配置-->
+    <bean id="config2" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="location" value="classpath:notice.properties"></property>
+    </bean>
+
+    <!-- 配置数据源1 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          p:driverClassName="${jdbc.driverClassName}"
+          p:password="${jdbc.password}"
+          p:url="${jdbc.url}"
+          p:username="${jdbc.username}">
+        <!-- 默认值是 0, 连接池创建连接的初始连接数目 -->
+        <property name="initialSize" value="2"/>
+        <!-- 默认是 0, 连接数中最小空闲连接数 -->
+        <property name="minIdle" value="2"/>
+        <!-- 默认值是 8, 连接池中同时可以分派的最大活跃连接数 -->
+        <property name="maxActive" value="8"/>
+        <!-- 默认是 8 ，连接池中最大空闲连接数 -->
+        <property name="maxIdle" value="5"/>
+        <!-- 默认值是无限大，当连接池中连接已经用完了，等待建立一个新连接的最大毫秒数 ( 在抛异常之前 ) -->
+        <property name="maxWait" value="60000"/>
+        <!-- 默认值是 false, 是否清理 removeAbandonedTimeout 秒没有使用的活动连接 , 清理后并没有放回连接池 -->
+        <property name="removeAbandoned" value="true"/>
+        <!--  默认值是 300( 秒 ), 活动连接的最大空闲时间 -->
+        <property name="removeAbandonedTimeout" value="180"/>
+        <!--  当建立一个数据库连接的时候，这些属性参数将传给 jdbc driver，参数的形式必须是 [propertypropertyName=property;]*。
+        <property name="connectionProperties">
+            <value>clientEncoding=utf-8</value>
+        </property>
+        -->
+
+        <!-- validate配置，重连配置 -->
+        <!-- 默认值是 false, 当连接池中的空闲连接是否有效 -->
+        <property name="testWhileIdle" value="true"/>
+        <!-- 默认值是 true ，当从连接池取连接时，验证这个连接是否有效 -->
+        <property name="testOnBorrow" value="true"/>
+        <!-- 默认值是 flase, 当从把该连接放回到连接池的时，验证这个连接是否有效 -->
+        <property name="testOnReturn" value="false"/>
+        <!-- 验证连接是否成功, SQL SELECT 指令至少要返回一行 -->
+        <property name="validationQuery" value="select 1 from system_platform.ums_code limit 1"/>
+        <!-- 在执行检查时超时设置，通过statement 设置，statement.setQueryTimeout(validationQueryTimeout)  -->
+        <property name="validationQueryTimeout" value="1"/>
+        <!-- 默认值是 -1 ，每隔一段多少毫秒跑一次回收空闲线程的线程 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <!-- 默认值是 3 ，每次验证空闲连接的连接数目 -->
+        <property name="numTestsPerEvictionRun" value="8"/>
+
+    </bean>
+
+    <!-- 配置mybatisSqlSessionFactoryBean, 扫描所有mapper文件 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 加载mybatis的配置文件 -->
+        <property name="configLocation" value="WEB-INF/configs/mybatis.xml"></property>
+        <!-- 配置需扫描的mapper文件地址 -->
+        <property name="mapperLocations" value="classpath*:cn/net/withub/ums/mapper/*.xml"/>
+        <property name="plugins">
+            <list>
+                <!-- 加载拦截器插件 -->
+                <ref bean="paginationInterceptor"/>
+            </list>
+        </property>
+        <!-- 默认数据源-->
+<!--        <property name="defaultTargetDataSource" ref="dataSource"></property>-->
+    </bean>
+
+
+    <!-- 配置SqlSessionTemplate -->
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" primary="true">
+        <constructor-arg index="0" name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" primary="true">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- 配置Mapper扫描（自动扫描Mapper接口） -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 基本包，只会扫描基本包中的文件 -->
+        <property name="basePackage" value="cn.net.withub.ums.dao"/>
+        <property name="sqlSessionTemplateBeanName" value="sqlSessionTemplate"/>
+    </bean>
+
+    <!-- 事务配置 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+
+    <!-- 配置数据源2 -->
+<!--    <bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource"-->
+<!--          p:driverClassName="${jdbc2.driverClassName}"-->
+<!--          p:password="${jdbc2.password}"-->
+<!--          p:url="${jdbc2.url}"-->
+<!--          p:username="${jdbc2.username}"-->
+<!--    >-->
+<!--        &lt;!&ndash; 默认值是 0, 连接池创建连接的初始连接数目 &ndash;&gt;-->
+<!--        <property name="initialSize" value="2"/>-->
+<!--        &lt;!&ndash; 默认是 0, 连接数中最小空闲连接数 &ndash;&gt;-->
+<!--        <property name="minIdle" value="2"/>-->
+<!--        &lt;!&ndash; 默认值是 8, 连接池中同时可以分派的最大活跃连接数 &ndash;&gt;-->
+<!--        <property name="maxActive" value="8"/>-->
+<!--        &lt;!&ndash; 默认是 8 ，连接池中最大空闲连接数 &ndash;&gt;-->
+<!--        <property name="maxIdle" value="5"/>-->
+<!--        &lt;!&ndash; 默认值是无限大，当连接池中连接已经用完了，等待建立一个新连接的最大毫秒数 ( 在抛异常之前 ) &ndash;&gt;-->
+<!--        <property name="maxWait" value="60000"/>-->
+<!--        &lt;!&ndash; 默认值是 false, 是否清理 removeAbandonedTimeout 秒没有使用的活动连接 , 清理后并没有放回连接池 &ndash;&gt;-->
+<!--        <property name="removeAbandoned" value="true"/>-->
+<!--        &lt;!&ndash;  默认值是 300( 秒 ), 活动连接的最大空闲时间 &ndash;&gt;-->
+<!--        <property name="removeAbandonedTimeout" value="180"/>-->
+
+<!--        &lt;!&ndash; validate配置，重连配置 &ndash;&gt;-->
+<!--        &lt;!&ndash; 默认值是 false, 当连接池中的空闲连接是否有效 &ndash;&gt;-->
+<!--        <property name="testWhileIdle" value="true"/>-->
+<!--        &lt;!&ndash; 默认值是 true ，当从连接池取连接时，验证这个连接是否有效 &ndash;&gt;-->
+<!--        <property name="testOnBorrow" value="true"/>-->
+<!--        &lt;!&ndash; 默认值是 flase, 当从把该连接放回到连接池的时，验证这个连接是否有效 &ndash;&gt;-->
+<!--        <property name="testOnReturn" value="false"/>-->
+<!--        &lt;!&ndash; 验证连接是否成功, SQL SELECT 指令至少要返回一行 &ndash;&gt;-->
+<!--        <property name="validationQuery" value="select 1 from system_platform.ums_code limit 1"/>-->
+<!--        &lt;!&ndash; 在执行检查时超时设置，通过statement 设置，statement.setQueryTimeout(validationQueryTimeout)  &ndash;&gt;-->
+<!--        <property name="validationQueryTimeout" value="1"/>-->
+<!--        &lt;!&ndash; 默认值是 -1 ，每隔一段多少毫秒跑一次回收空闲线程的线程 &ndash;&gt;-->
+<!--        <property name="timeBetweenEvictionRunsMillis" value="60000"/>-->
+<!--        &lt;!&ndash; 默认值是 3 ，每次验证空闲连接的连接数目 &ndash;&gt;-->
+<!--        <property name="numTestsPerEvictionRun" value="8"/>-->
+<!--    </bean>-->
+
+    <!-- 配置mybatisSqlSessionFactoryBean, 扫描所有mapper文件 -->
+<!--    <bean id="sqlSessionFactory2" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+<!--        <property name="dataSource" ref="dataSource2"/>-->
+<!--&lt;!&ndash;        &lt;!&ndash; 加载mybatis的配置文件 &ndash;&gt;&ndash;&gt;-->
+<!--        <property name="configLocation" value="WEB-INF/configs/mybatis2.xml"></property>-->
+<!--        &lt;!&ndash; 配置需扫描的mapper文件地址 &ndash;&gt;-->
+<!--        <property name="mapperLocations" value="classpath*:cn/net/withub/ums/sbrmpsyMapper/*.xml"/>-->
+<!--    </bean>-->
+
+    <!-- 配置SqlSessionTemplate -->
+<!--    <bean id="sqlSessionTemplate2" class="org.mybatis.spring.SqlSessionTemplate">-->
+<!--        <constructor-arg index="0" ref="sqlSessionFactory2"/>-->
+<!--    </bean>-->
+<!--    <bean id="sqlSessionTemplate2" class="org.mybatis.spring.SqlSessionTemplate">-->
+<!--        <constructor-arg ref="sqlSessionFactory2" />-->
+<!--    </bean>-->
+
+<!--    <bean id="jdbcTemplate2" class="org.springframework.jdbc.core.JdbcTemplate">-->
+<!--        <property name="dataSource" ref="dataSource2"/>-->
+<!--    </bean>-->
+
+    <!-- 配置Mapper扫描（自动扫描Mapper接口） -->
+<!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+<!--        &lt;!&ndash; 基本包，只会扫描基本包中的文件 &ndash;&gt;-->
+<!--        <property name="basePackage" value="cn.net.withub.ums.sbrmpsyDao"/>-->
+<!--        <property name="sqlSessionTemplateBeanName" value="sqlSessionTemplate2"/>-->
+<!--    </bean>-->
+
+    <!-- 事务配置 -->
+<!--    <bean id="transactionManager2" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+<!--        <property name="dataSource" ref="dataSource2"/>-->
+<!--    </bean>-->
+
+    <!-- 使用annotation注解方式配置事务；在使用SpringMvc的时候，配置文件中我们经常看到 annotation-driven 这样的注解，其含义就是支持注解 -->
+<!--    <tx:annotation-driven transaction-manager="transactionManager2"/>-->
+
+
+
+
+    <!-- 使用annotation注解方式配置事务；在使用SpringMvc的时候，配置文件中我们经常看到 annotation-driven 这样的注解，其含义就是支持注解 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- 拦截器插件 -->
+    <bean id="paginationInterceptor" class="cn.net.withub.ums.interceptor.PaginationInterceptor"></bean>
+
+    <!-- 配置需要扫描包：配置完这个标签后，spring就会去自动扫描base-package对应的package本包和儿子孙子包下面的java文件，如果扫描到文件中带有@Service,@Component,@Repository,@Controller等这些注解的类，则把这些类注册为bean  -->
+    <context:component-scan base-package="cn.net.withub.ums"></context:component-scan>
+
+    <!--注解方法配置AOP-->
+    <aop:aspectj-autoproxy/>
+
+<!--    <import resource="classpath*:META-INF/cxf/cxf.xml" />-->
+<!--    <import resource="classpath*:META-INF/cxf/cxf-extension-*.xml" />-->
+<!--    <import resource="classpath*:META-INF/cxf/cxf-servlet.xml" />-->
+
+
+<!--    <bean id="personWebServiceImpl" class="cn.net.withub.ums.webService.interior.PersonServiceImpl"></bean>-->
+    <bean id="AuthenticationInInterceptor" class="cn.net.withub.ums.webService.interior.AuthenticationInInterceptor"></bean>
+    <jaxws:endpoint id="cxfDemo" implementor="cn.net.withub.ums.webService.UserInfoServiceImpl" address="/cxfdemo"/>
+    <!--添加"人员统计接口授权账号"接口发布-->
+<!--    <jaxws:endpoint id="createAuthUser" implementor="cn.net.withub.ums.webService.interior.CreateFtpAuthUser" address="/createAuthUser"/>-->
+    <!--人员统计接口发布，带请求头验证-->
+    <jaxws:endpoint id="personCount" implementor="cn.net.withub.ums.webService.interior.PersonServiceImpl" address="/personService">
+        <jaxws:inInterceptors>
+            <ref bean="AuthenticationInInterceptor"></ref>
+        </jaxws:inInterceptors>
+    </jaxws:endpoint>
+    <!-- 开启这个配置，spring才能识别@Scheduled注解-->
+    <task:annotation-driven scheduler="qbScheduler" mode="proxy"/>
+    <task:scheduler id="qbScheduler" pool-size="10"/>
+
+</beans>

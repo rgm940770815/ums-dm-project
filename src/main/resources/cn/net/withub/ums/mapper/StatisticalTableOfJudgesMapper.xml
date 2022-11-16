@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="StatisticalTableOfJudgesMapper">
+
+    <resultMap id="userResultMap" type="cn.net.withub.ums.entity.UmsUserInfoView">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="xtpt_id" jdbcType="INTEGER" property="xtptId"/>
+        <result column="court_no" jdbcType="INTEGER" property="courtNo"/>
+        <result column="user_no" jdbcType="INTEGER" property="userNo"/>
+        <result column="is_info_complete" jdbcType="INTEGER" property="isInfoComplete"/>
+        <result column="salt" jdbcType="VARCHAR" property="salt"/>
+        <result column="c_ps_xlxw" jdbcType="INTEGER" property="cPsXlxw"/>
+        <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="user_code" jdbcType="VARCHAR" property="userCode"/>
+        <result column="user_type" jdbcType="INTEGER" property="userType"/>
+        <result column="C_CODE_JG1" jdbcType="VARCHAR" property="cCodeJg1"/>
+        <result column="C_CODE_JG2" jdbcType="VARCHAR" property="cCodeJg2"/>
+        <result column="C_CODE_JG3" jdbcType="VARCHAR" property="cCodeJg3"/>
+        <result column="fullname" jdbcType="VARCHAR" property="fullname"/>
+        <result column="former_name" jdbcType="VARCHAR" property="formerName"/>
+        <result column="gender" jdbcType="INTEGER" property="gender"/>
+        <result column="department" jdbcType="INTEGER" property="department"/>
+        <result column="unicode" jdbcType="INTEGER" property="unicode"/>
+        <result column="position_nature" jdbcType="INTEGER" property="positionNature"/>
+        <result column="hometown" jdbcType="VARCHAR" property="hometown"/>
+        <result column="birthplace" jdbcType="VARCHAR" property="birthplace"/>
+        <result column="birthday" jdbcType="DATE" property="birthday"/>
+        <result column="physical_condition" jdbcType="INTEGER" property="physicalCondition"/>
+        <result column="marital_status" jdbcType="INTEGER" property="maritalStatus"/>
+        <result column="nation" jdbcType="INTEGER" property="nation"/>
+        <result column="idcard" jdbcType="VARCHAR" property="idcard"/>
+        <result column="preparation" jdbcType="INTEGER" property="preparation"/>
+        <result column="position_type" jdbcType="INTEGER" property="positionType"/>
+        <result column="position_type_date" jdbcType="DATE" property="positionTypeDate"/>
+        <result column="assign" jdbcType="INTEGER" property="assign"/>
+        <result column="education_background" jdbcType="INTEGER" property="educationBackground"/>
+        <result column="major" jdbcType="INTEGER" property="major"/>
+        <result column="degree" jdbcType="INTEGER" property="degree"/>
+        <result column="degree_date" jdbcType="DATE" property="degreeDate"/>
+        <result column="work_date" jdbcType="DATE" property="workDate"/>
+        <result column="enter_date" jdbcType="DATE" property="enterDate"/>
+        <result column="pro_cert" jdbcType="INTEGER" property="proCert"/>
+        <result column="pro_cert_date" jdbcType="DATE" property="proCertDate"/>
+        <result column="political" jdbcType="INTEGER" property="political"/>
+        <result column="political_date" jdbcType="DATE" property="politicalDate"/>
+        <result column="politic_law_work_date" jdbcType="DATE" property="politicLawWorkDate"/>
+        <result column="administration_position" jdbcType="INTEGER" property="administrationPosition"/>
+        <result column="administration_position_date" jdbcType="DATE" property="administrationPositionDate"/>
+        <result column="law_position" jdbcType="INTEGER" property="lawPosition"/>
+        <result column="law_position_date" jdbcType="DATE" property="lawPositionDate"/>
+        <result column="is_parttime_presiding_judge" jdbcType="INTEGER" property="isParttimePresidingJudge"/>
+        <result column="party_office" jdbcType="INTEGER" property="partyOffice"/>
+        <result column="party_office_date" jdbcType="DATE" property="partyOfficeDate"/>
+        <result column="lawyer_date" jdbcType="DATE" property="lawyerDate"/>
+        <result column="extra_seniority" jdbcType="INTEGER" property="extraSeniority"/>
+        <result column="deduction_seniority" jdbcType="INTEGER" property="deductionSeniority"/>
+        <result column="before_court_work_year" jdbcType="INTEGER" property="beforeCourtWorkYear"/>
+        <result column="rank" jdbcType="INTEGER" property="rank"/>
+        <result column="rank_date" jdbcType="DATE" property="rankDate"/>
+        <result column="level" jdbcType="INTEGER" property="level"/>
+        <result column="level_date" jdbcType="DATE" property="levelDate"/>
+        <result column="enter_way" jdbcType="INTEGER" property="enterWay"/>
+        <result column="enter_source" jdbcType="INTEGER" property="enterSource"/>
+        <result column="former_post" jdbcType="INTEGER" property="formerPost"/>
+        <result column="former_rank" jdbcType="INTEGER" property="formerRank"/>
+        <result column="former_unit" jdbcType="VARCHAR" property="formerUnit"/>
+        <result column="verify_date" jdbcType="DATE" property="verifyDate"/>
+        <result column="leave_reason" jdbcType="INTEGER" property="leaveReason"/>
+        <result column="leave_date" jdbcType="DATE" property="leaveDate"/>
+        <result column="leave_destination" jdbcType="INTEGER" property="leaveDestination"/>
+        <result column="sort_no" jdbcType="INTEGER" property="sortNo"/>
+        <result column="is_valid" jdbcType="INTEGER" property="isValid"/>
+        <result column="additional_duration" jdbcType="INTEGER" property="additionalDuration"/>
+        <result column="lawyer_cert_date" jdbcType="DATE" property="lawyerCertDate"/>
+        <result column="servant_level" jdbcType="INTEGER" property="servantLevel"/>
+        <result column="servant_level_date" jdbcType="DATE" property="servantLevelDate"/>
+        <result column="lawyer_cert" jdbcType="INTEGER" property="lawyerCert"/>
+        <result column="court_code" jdbcType="VARCHAR" property="courtCode"/>
+        <result column="order_no" jdbcType="INTEGER" property="orderNo"/>
+        <result column="court_std_no" jdbcType="INTEGER" property="courtStdNo"/>
+        <result column="uk_no" jdbcType="VARCHAR" property="ukNo"/>
+        <result column="work_no" jdbcType="VARCHAR" property="workNo"/>
+        <result column="fanka_no" jdbcType="VARCHAR" property="fankaNo"/>
+        <result column="official_no" jdbcType="VARCHAR" property="officialNo"/>
+        <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="dept_org_code" jdbcType="VARCHAR" property="deptOrgCode"/>
+        <result column="yefg" jdbcType="INTEGER" property="yefg"/>
+        <result column="user_type_text" jdbcType="VARCHAR" property="userTypeText"/>
+        <result column="court_no_text" jdbcType="VARCHAR" property="courtNoText"/>
+        <result column="gender_text" jdbcType="VARCHAR" property="genderText"/>
+        <result column="department_text" jdbcType="VARCHAR" property="departmentText"/>
+        <result column="position_nature_text" jdbcType="VARCHAR" property="positionNatureText"/>
+        <result column="physical_condition_text" jdbcType="VARCHAR" property="physicalConditionText"/>
+        <result column="marital_status_text" jdbcType="VARCHAR" property="maritalStatusText"/>
+        <result column="nation_text" jdbcType="VARCHAR" property="nationText"/>
+        <result column="preparation_text" jdbcType="VARCHAR" property="preparationText"/>
+        <result column="position_type_text" jdbcType="VARCHAR" property="positionTypeText"/>
+        <result column="assign_text" jdbcType="VARCHAR" property="assignText"/>
+        <result column="education_background_text" jdbcType="VARCHAR" property="educationBackgroundText"/>
+        <result column="major_text" jdbcType="VARCHAR" property="majorText"/>
+        <result column="degree_text" jdbcType="VARCHAR" property="degreeText"/>
+        <result column="pro_cert_text" jdbcType="VARCHAR" property="proCertText"/>
+        <result column="political_text" jdbcType="VARCHAR" property="politicalText"/>
+        <result column="administration_position_text" jdbcType="VARCHAR" property="administrationPositionText"/>
+        <result column="law_position_text" jdbcType="VARCHAR" property="lawPositionText"/>
+        <result column="is_parttime_presiding_judge_text" jdbcType="VARCHAR" property="isParttimePresidingJudgeText"/>
+        <result column="party_office_text" jdbcType="VARCHAR" property="partyOfficeText"/>
+        <result column="rank_text" jdbcType="VARCHAR" property="rankText"/>
+        <result column="level_text" jdbcType="VARCHAR" property="levelText"/>
+        <result column="enter_way_text" jdbcType="VARCHAR" property="enterWayText"/>
+        <result column="enter_source_text" jdbcType="VARCHAR" property="enterSourceText"/>
+        <result column="former_post_text" jdbcType="VARCHAR" property="formerPostText"/>
+        <result column="former_rank_text" jdbcType="VARCHAR" property="formerRankText"/>
+        <result column="leave_reason_text" jdbcType="VARCHAR" property="leaveReasonText"/>
+        <result column="leave_destination_text" jdbcType="VARCHAR" property="leaveDestinationText"/>
+        <result column="is_valid_text" jdbcType="VARCHAR" property="isValidText"/>
+        <result column="servant_level_text" jdbcType="VARCHAR" property="servantLevelText"/>
+        <result column="lawyer_cert_text" jdbcType="VARCHAR" property="lawyerCertText"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="begin_time" jdbcType="DATE" property="beginTime"/>
+        <result column="local_address" jdbcType="VARCHAR" property="localAddress"/>
+        <result column="postal_address" jdbcType="VARCHAR" property="postalAddress"/>
+        <result column="job" jdbcType="VARCHAR" property="job"/>
+        <result column="juror_edu_text" jdbcType="VARCHAR" property="jurorEduText"/>
+        <result column="dept_sortNo" jdbcType="BIGINT" property="deptSortno"/>
+        <result column="dept_level" jdbcType="BIGINT" property="deptLevel"/>
+        <result column="personnel_classification" jdbcType="VARCHAR" property="personnelClassification"/>
+        <result column="personnel_classification_text" jdbcType="VARCHAR" property="personnelClassificationText"/>
+        <result column="nation_report" jdbcType="VARCHAR" property="nationReport"/>
+        <result column="education_background_report" jdbcType="VARCHAR" property="educationBackgroundReport"/>
+        <result column="administration_position_report" jdbcType="VARCHAR" property="administrationPositionReport"/>
+        <result column="law_position_report" jdbcType="VARCHAR" property="lawPositionReport"/>
+        <result column="rank_report" jdbcType="VARCHAR" property="rankReport"/>
+        <result column="political_report" jdbcType="VARCHAR" property="politicalReport"/>
+        <result column="party_office_report" jdbcType="VARCHAR" property="partyOfficeReport"/>
+        <result column="nation_report_text" jdbcType="VARCHAR" property="nationReportText"/>
+        <result column="education_background_report_text" jdbcType="VARCHAR" property="educationBackgroundReportText"/>
+        <result column="administration_position_report_text" jdbcType="VARCHAR" property="administrationPositionReportText"/>
+        <result column="law_position_report_text" jdbcType="VARCHAR" property="lawPositionReportText"/>
+        <result column="rank_report_text" jdbcType="VARCHAR" property="rankReportText"/>
+        <result column="political_report_text" jdbcType="VARCHAR" property="politicalReportText"/>
+        <result column="party_office_report_text" jdbcType="VARCHAR" property="partyOfficeReportText"/>
+        <result column="bzcy" jdbcType="INTEGER" property="bzcy"/>
+    </resultMap>
+
+    <select id="countRankOfJudges" parameterType="map" resultType="map">
+        SELECT
+        level_text AS 'name',
+        count(1),
+        LEVEL
+        FROM
+        ums_user_info_view a,
+        ums_court_full b
+        WHERE
+        a.court_code = b.court_code
+        AND a.court_no = b.court_no
+        AND a.law_position_report_text IS NOT NULL
+        <if test='courtCode != null'>
+            AND b.court_code = #{courtCode}
+        </if>
+        <if test='courtLevel != null' >
+            AND b.court_gradation = #{courtLevel}
+        </if>
+        <if test="preparation != null">
+            <choose>
+                <when test="preparation == 1">
+                    AND a.preparation = 1
+                </when>
+                <when test="preparation == 2">
+                    AND(a.preparation in(2,4,5,8) or a.preparation is null)
+                </when>
+                <when test="preparation == 3">
+                    AND a.preparation = 3
+                </when>
+                <otherwise>
+                </otherwise>
+            </choose>
+        </if>
+        <if test='law_position_report_text != null'>
+            AND a.law_position_report_text = #{law_position_report_text}
+        </if>
+        AND is_valid = 1
+        AND user_type = 1
+        AND LEVEL IS NOT NULL
+        <![CDATA[AND (LEVEL <= 24 or LEVEL = 98)]]>
+        GROUP BY
+        LEVEL
+        ORDER BY
+        LEVEL;
+    </select>
+
+    <select id="countRankOfStaff" parameterType="map" resultType="map">
+        select
+        <![CDATA[
+            count(1) as 实有人数,
+            sum(case when gender=1 then 1 else 0 end) as 男,
+            sum(case when gender=2 then 1 else 0 end) as 女,
+            sum(case when nation=1 then 1 else 0 end) as 汉族,
+            sum(case when nation!=1 then 1 else 0 end) as 少数民族,
+            sum(case when political=1 then 1 else 0 end) as 中共党员,
+            sum(case when political=3 then 1 else 0 end) as 共青团员,
+            sum(case when political in ('4','5','6','7','8','9','10','11') then 1 else 0 end) as 民主党派,
+            sum(case when political not in('1','3','4','5','6','7','8','9','10','11') or political is null then 1 else 0 end) as 其他,
+            sum(case when (SELECT DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthday, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthday, '00-%m-%d'))) <= 35 then 1 else 0 end) as 35岁及以下,
+            sum(case when (SELECT DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthday, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthday, '00-%m-%d'))) > 35 and (SELECT DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthday, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthday, '00-%m-%d'))) <= 40 then 1 else 0 end) as 36岁至40岁,
+            sum(case when (SELECT DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthday, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthday, '00-%m-%d'))) > 40 and (SELECT DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthday, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthday, '00-%m-%d'))) <= 45 then 1 else 0 end) as 41岁至45岁,
+            sum(case when (SELECT DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthday, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthday, '00-%m-%d'))) > 45 and (SELECT DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthday, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthday, '00-%m-%d'))) <= 50 then 1 else 0 end) as 46岁至50岁,
+            sum(case when (SELECT DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthday, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthday, '00-%m-%d'))) > 50 and (SELECT DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthday, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthday, '00-%m-%d'))) <= 55 then 1 else 0 end) as 51岁至55岁,
+            sum(case when (SELECT DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthday, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthday, '00-%m-%d'))) > 55 and (SELECT DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthday, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthday, '00-%m-%d'))) <= 60 then 1 else 0 end) as 56岁至60岁,
+            sum(case when (SELECT DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthday, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(birthday, '00-%m-%d'))) > 60 then 1 else 0 end) as 61岁及以上,
+            sum(case when education_background in ('1', '4') then 1 else 0 end) as 博士研究生,
+            sum(case when education_background in ('2', '3', '5', '6','9') then 1 else 0 end) as 硕士研究生,
+            sum(case when education_background in ('11', '12', '13', '19', '20') then 1 else 0 end) as 本科,
+            sum(case when education_background in ('21', '22', '29') then 1 else 0 end) as 大专,
+            sum(case when education_background in ('51', '52', '53', '59', '31', '32', '39', '41', '40') then 1 else 0 end) as 高中中专,
+            sum(case when education_background in ('61', '62', '63', '69') then 1 else 0 end) as 初中,
+            sum(case when education_background in ('71', '79','81') or education_background is null then 1 else 0 end) as 小学以下,
+            avg((select DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(birthday, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') - DATE_FORMAT(birthday, '00-%m-%d')))) as 平均年龄
+        ]]>
+        from
+            ums_user_info_view a,
+            ums_court_full b
+        WHERE
+            is_valid = 1
+            AND user_type = 1
+            AND a.court_code = b.court_code
+            AND a.court_no = b.court_no
+        <if test='courtCode != null'>
+            AND b.court_code = #{courtCode}
+        </if>
+        <if test='courtLevel != null' >
+            AND b.court_gradation = #{courtLevel}
+        </if>
+        <if test="preparation != null">
+            <choose>
+                <when test="preparation == 1">
+                    AND a.preparation = 1
+                </when>
+                <when test="preparation == 2">
+                    AND(a.preparation in(2,4,5,8) or a.preparation is null)
+                </when>
+                <when test="preparation == 3">
+                    AND a.preparation = 3
+                </when>
+                <otherwise>
+                </otherwise>
+            </choose>
+        </if>
+        <if test='law_position_report_text != null'>
+            AND a.law_position_text = #{law_position_report_text}
+        </if>
+    </select>
+
+
+    <select id="countRankOfJudgesNew" parameterType="map" resultType="map">
+        SELECT
+         judge_level_text,
+         judge_level,
+        count(1) as c
+        FROM
+          ums_user_info_view a,
+            ums_level_info_view b,
+        (
+            SELECT
+            MIN(id) AS id,MAX(d_start_date),user_id
+        FROM
+            ums_level_info_view b
+        WHERE
+            b.n_level_type = 1
+        AND b.n_present_info = 1
+        AND b.is_yefg = 1
+        GROUP BY
+            user_id
+        ) c
+        WHERE
+          a.user_type = 1  and a.is_valid = 1 and a.leave_reason is null
+        and a.id = b.user_id and b.id = c.id
+        <if test="law_position != null">
+            and a.law_position = #{law_position}
+        </if>
+        GROUP BY
+            b.judge_level_text,
+            b.judge_level
+        ORDER BY
+            b.judge_level
+    </select>
+
+    <select id="fcCountRankOfJudgesNew" parameterType="map" resultType="java.lang.Integer">
+        SELECT
+        count(1) AS c
+        FROM
+            ums_user_info_view a,
+            ums_level_info_view b,
+            (
+                SELECT
+                    MIN(id) AS id,
+                    MAX(d_start_date)
+                FROM
+                    ums_level_info_view b
+                WHERE
+                    b.n_level_type = 1
+                AND b.n_present_info = 1
+                AND b.is_yefg = 1
+                GROUP BY
+                    user_id
+            ) c
+        WHERE
+            a.user_type = 1
+        AND a.is_valid = 1
+        AND a.leave_reason IS NULL
+        AND a.id = b.user_id
+        AND b.id = c.id
+        <if test="law_position != null">
+            and a.law_position = #{law_position}
+        </if>
+        <if test="judge_level != null">
+            and b.judge_level = #{judge_level}
+        </if>
+        <if test="judge_level_range != null">
+            and b.judge_level ${judge_level_range}
+        </if>
+    </select>
+
+    <select id="fcSelectRankOfJudgesNew" parameterType="map" resultMap="userResultMap">
+        SELECT
+        a.*
+        FROM
+        ums_user_info_view a,
+        ums_level_info_view b,
+        (
+        SELECT
+        MIN(id) AS id,
+        MAX(d_start_date)
+        FROM
+        ums_level_info_view b
+        WHERE
+        b.n_level_type = 1
+        AND b.n_present_info = 1
+        AND b.is_yefg = 1
+        GROUP BY
+        user_id
+        ) c
+        WHERE
+        a.user_type = 1
+        AND a.is_valid = 1
+        AND a.leave_reason IS NULL
+        AND a.id = b.user_id
+        AND b.id = c.id
+        <if test="law_position != null">
+            and a.law_position = #{law_position}
+        </if>
+        <if test="judge_level != null">
+            and b.judge_level = #{judge_level}
+        </if>
+        <if test="judge_level_range != null">
+            and b.judge_level ${judge_level_range}
+        </if>
+        order by
+        a.court_no, a.dept_level,a.dept_sortNo,a.sort_no
+        limit #{start},#{limit}
+    </select>
+
+</mapper>

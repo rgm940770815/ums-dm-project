@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.net.withub.ums.dao.UmsCommunicationInformationMapper" >
+  <resultMap id="BaseResultMap" type="cn.net.withub.ums.entity.UmsCommunicationInformation" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="institution_id" property="institutionId" jdbcType="VARCHAR" />
+    <result column="court_code" property="courtCode" jdbcType="VARCHAR" />
+    <result column="court_no" property="courtNo" jdbcType="INTEGER" />
+    <result column="court_std_no" property="courtStdNo" jdbcType="INTEGER" />
+    <result column="dept_no" property="deptNo" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" />
+    <result column="fax_number" property="faxNumber" jdbcType="VARCHAR" />
+    <result column="postal_code" property="postalCode" jdbcType="VARCHAR" />
+    <result column="email_address" property="emailAddress" jdbcType="VARCHAR" />
+    <result column="office_contact_name" property="officeContactName" jdbcType="VARCHAR" />
+    <result column="office_contact_phone_number" property="officeContactPhoneNumber" jdbcType="VARCHAR" />
+    <result column="personnel_department_contact_name" property="personnelDepartmentContactName" jdbcType="VARCHAR" />
+    <result column="personnel_department_contact_phone_number" property="personnelDepartmentContactPhoneNumber" jdbcType="VARCHAR" />
+    <result column="personnel_department_contact_email_address" property="personnelDepartmentContactEmailAddress" jdbcType="VARCHAR" />
+    <result column="Internet_address" property="internetAddress" jdbcType="VARCHAR" />
+    <result column="insert_time" property="insertTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, institution_id, court_code, court_no, court_std_no, dept_no, address, phone_number, 
+    fax_number, postal_code, email_address, office_contact_name, office_contact_phone_number, 
+    personnel_department_contact_name, personnel_department_contact_phone_number, personnel_department_contact_email_address, 
+    Internet_address, insert_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.net.withub.ums.entity.UmsCommunicationInformationCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ums_communication_information
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null" >
+      <if test="offset != null" >
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null" >
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ums_communication_information
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ums_communication_information
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.net.withub.ums.entity.UmsCommunicationInformationCriteria" >
+    delete from ums_communication_information
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.net.withub.ums.entity.UmsCommunicationInformation" >
+    insert into ums_communication_information (id, institution_id, court_code, 
+      court_no, court_std_no, dept_no, 
+      address, phone_number, fax_number, 
+      postal_code, email_address, office_contact_name, 
+      office_contact_phone_number, personnel_department_contact_name, 
+      personnel_department_contact_phone_number, personnel_department_contact_email_address, 
+      Internet_address, insert_time)
+    values (#{id,jdbcType=VARCHAR}, #{institutionId,jdbcType=VARCHAR}, #{courtCode,jdbcType=VARCHAR}, 
+      #{courtNo,jdbcType=INTEGER}, #{courtStdNo,jdbcType=INTEGER}, #{deptNo,jdbcType=INTEGER}, 
+      #{address,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, #{faxNumber,jdbcType=VARCHAR}, 
+      #{postalCode,jdbcType=VARCHAR}, #{emailAddress,jdbcType=VARCHAR}, #{officeContactName,jdbcType=VARCHAR}, 
+      #{officeContactPhoneNumber,jdbcType=VARCHAR}, #{personnelDepartmentContactName,jdbcType=VARCHAR}, 
+      #{personnelDepartmentContactPhoneNumber,jdbcType=VARCHAR}, #{personnelDepartmentContactEmailAddress,jdbcType=VARCHAR}, 
+      #{internetAddress,jdbcType=VARCHAR}, #{insertTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.net.withub.ums.entity.UmsCommunicationInformation" >
+    insert into ums_communication_information
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="institutionId != null" >
+        institution_id,
+      </if>
+      <if test="courtCode != null" >
+        court_code,
+      </if>
+      <if test="courtNo != null" >
+        court_no,
+      </if>
+      <if test="courtStdNo != null" >
+        court_std_no,
+      </if>
+      <if test="deptNo != null" >
+        dept_no,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="phoneNumber != null" >
+        phone_number,
+      </if>
+      <if test="faxNumber != null" >
+        fax_number,
+      </if>
+      <if test="postalCode != null" >
+        postal_code,
+      </if>
+      <if test="emailAddress != null" >
+        email_address,
+      </if>
+      <if test="officeContactName != null" >
+        office_contact_name,
+      </if>
+      <if test="officeContactPhoneNumber != null" >
+        office_contact_phone_number,
+      </if>
+      <if test="personnelDepartmentContactName != null" >
+        personnel_department_contact_name,
+      </if>
+      <if test="personnelDepartmentContactPhoneNumber != null" >
+        personnel_department_contact_phone_number,
+      </if>
+      <if test="personnelDepartmentContactEmailAddress != null" >
+        personnel_department_contact_email_address,
+      </if>
+      <if test="internetAddress != null" >
+        Internet_address,
+      </if>
+      <if test="insertTime != null" >
+        insert_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="institutionId != null" >
+        #{institutionId,jdbcType=VARCHAR},
+      </if>
+      <if test="courtCode != null" >
+        #{courtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="courtNo != null" >
+        #{courtNo,jdbcType=INTEGER},
+      </if>
+      <if test="courtStdNo != null" >
+        #{courtStdNo,jdbcType=INTEGER},
+      </if>
+      <if test="deptNo != null" >
+        #{deptNo,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null" >
+        #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="faxNumber != null" >
+        #{faxNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="postalCode != null" >
+        #{postalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="emailAddress != null" >
+        #{emailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="officeContactName != null" >
+        #{officeContactName,jdbcType=VARCHAR},
+      </if>
+      <if test="officeContactPhoneNumber != null" >
+        #{officeContactPhoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="personnelDepartmentContactName != null" >
+        #{personnelDepartmentContactName,jdbcType=VARCHAR},
+      </if>
+      <if test="personnelDepartmentContactPhoneNumber != null" >
+        #{personnelDepartmentContactPhoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="personnelDepartmentContactEmailAddress != null" >
+        #{personnelDepartmentContactEmailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="internetAddress != null" >
+        #{internetAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="insertTime != null" >
+        #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.net.withub.ums.entity.UmsCommunicationInformationCriteria" resultType="java.lang.Integer" >
+    select count(*) from ums_communication_information
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ums_communication_information
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.institutionId != null" >
+        institution_id = #{record.institutionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courtCode != null" >
+        court_code = #{record.courtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courtNo != null" >
+        court_no = #{record.courtNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.courtStdNo != null" >
+        court_std_no = #{record.courtStdNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptNo != null" >
+        dept_no = #{record.deptNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phoneNumber != null" >
+        phone_number = #{record.phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.faxNumber != null" >
+        fax_number = #{record.faxNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.postalCode != null" >
+        postal_code = #{record.postalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emailAddress != null" >
+        email_address = #{record.emailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.officeContactName != null" >
+        office_contact_name = #{record.officeContactName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.officeContactPhoneNumber != null" >
+        office_contact_phone_number = #{record.officeContactPhoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.personnelDepartmentContactName != null" >
+        personnel_department_contact_name = #{record.personnelDepartmentContactName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.personnelDepartmentContactPhoneNumber != null" >
+        personnel_department_contact_phone_number = #{record.personnelDepartmentContactPhoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.personnelDepartmentContactEmailAddress != null" >
+        personnel_department_contact_email_address = #{record.personnelDepartmentContactEmailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.internetAddress != null" >
+        Internet_address = #{record.internetAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insertTime != null" >
+        insert_time = #{record.insertTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ums_communication_information
+    set id = #{record.id,jdbcType=VARCHAR},
+      institution_id = #{record.institutionId,jdbcType=VARCHAR},
+      court_code = #{record.courtCode,jdbcType=VARCHAR},
+      court_no = #{record.courtNo,jdbcType=INTEGER},
+      court_std_no = #{record.courtStdNo,jdbcType=INTEGER},
+      dept_no = #{record.deptNo,jdbcType=INTEGER},
+      address = #{record.address,jdbcType=VARCHAR},
+      phone_number = #{record.phoneNumber,jdbcType=VARCHAR},
+      fax_number = #{record.faxNumber,jdbcType=VARCHAR},
+      postal_code = #{record.postalCode,jdbcType=VARCHAR},
+      email_address = #{record.emailAddress,jdbcType=VARCHAR},
+      office_contact_name = #{record.officeContactName,jdbcType=VARCHAR},
+      office_contact_phone_number = #{record.officeContactPhoneNumber,jdbcType=VARCHAR},
+      personnel_department_contact_name = #{record.personnelDepartmentContactName,jdbcType=VARCHAR},
+      personnel_department_contact_phone_number = #{record.personnelDepartmentContactPhoneNumber,jdbcType=VARCHAR},
+      personnel_department_contact_email_address = #{record.personnelDepartmentContactEmailAddress,jdbcType=VARCHAR},
+      Internet_address = #{record.internetAddress,jdbcType=VARCHAR},
+      insert_time = #{record.insertTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.net.withub.ums.entity.UmsCommunicationInformation" >
+    update ums_communication_information
+    <set >
+      <if test="institutionId != null" >
+        institution_id = #{institutionId,jdbcType=VARCHAR},
+      </if>
+      <if test="courtCode != null" >
+        court_code = #{courtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="courtNo != null" >
+        court_no = #{courtNo,jdbcType=INTEGER},
+      </if>
+      <if test="courtStdNo != null" >
+        court_std_no = #{courtStdNo,jdbcType=INTEGER},
+      </if>
+      <if test="deptNo != null" >
+        dept_no = #{deptNo,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null" >
+        phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="faxNumber != null" >
+        fax_number = #{faxNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="postalCode != null" >
+        postal_code = #{postalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="emailAddress != null" >
+        email_address = #{emailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="officeContactName != null" >
+        office_contact_name = #{officeContactName,jdbcType=VARCHAR},
+      </if>
+      <if test="officeContactPhoneNumber != null" >
+        office_contact_phone_number = #{officeContactPhoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="personnelDepartmentContactName != null" >
+        personnel_department_contact_name = #{personnelDepartmentContactName,jdbcType=VARCHAR},
+      </if>
+      <if test="personnelDepartmentContactPhoneNumber != null" >
+        personnel_department_contact_phone_number = #{personnelDepartmentContactPhoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="personnelDepartmentContactEmailAddress != null" >
+        personnel_department_contact_email_address = #{personnelDepartmentContactEmailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="internetAddress != null" >
+        Internet_address = #{internetAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="insertTime != null" >
+        insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.net.withub.ums.entity.UmsCommunicationInformation" >
+    update ums_communication_information
+    set institution_id = #{institutionId,jdbcType=VARCHAR},
+      court_code = #{courtCode,jdbcType=VARCHAR},
+      court_no = #{courtNo,jdbcType=INTEGER},
+      court_std_no = #{courtStdNo,jdbcType=INTEGER},
+      dept_no = #{deptNo,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      fax_number = #{faxNumber,jdbcType=VARCHAR},
+      postal_code = #{postalCode,jdbcType=VARCHAR},
+      email_address = #{emailAddress,jdbcType=VARCHAR},
+      office_contact_name = #{officeContactName,jdbcType=VARCHAR},
+      office_contact_phone_number = #{officeContactPhoneNumber,jdbcType=VARCHAR},
+      personnel_department_contact_name = #{personnelDepartmentContactName,jdbcType=VARCHAR},
+      personnel_department_contact_phone_number = #{personnelDepartmentContactPhoneNumber,jdbcType=VARCHAR},
+      personnel_department_contact_email_address = #{personnelDepartmentContactEmailAddress,jdbcType=VARCHAR},
+      Internet_address = #{internetAddress,jdbcType=VARCHAR},
+      insert_time = #{insertTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

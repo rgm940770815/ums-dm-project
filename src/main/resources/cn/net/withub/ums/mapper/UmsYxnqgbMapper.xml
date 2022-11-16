@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.net.withub.ums.dao.UmsYxnqgbMapper">
+    <insert id="insert" parameterType="cn.net.withub.ums.entity.UmsYxnqgb">
+        <if test="nDqxx == 1 ">
+            UPDATE ums_yxnqgb SET n_dqxx = 2 where user_id = #{userId};
+        </if>
+        INSERT INTO
+            ums_yxnqgb(
+            user_id,
+            id,
+            n_sfyxnqgb,
+            n_jrtj,
+            n_dqxx,
+            user_no,
+            court_no,
+            court_code
+        )VALUES (
+            #{userId},
+            #{id},
+            #{nSfyxnqgb},
+            #{nJrtj},
+            #{nDqxx},
+            #{userNo},
+            #{courtNo},
+            #{courtCode}
+        )
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="cn.net.withub.ums.entity.UmsYxnqgb">
+        <if test="nDqxx == 1 ">
+            UPDATE ums_yxnqgb SET n_dqxx = 2 where user_id = #{userId};
+        </if>
+        UPDATE
+            ums_yxnqgb
+        SET
+            n_sfyxnqgb = #{nSfyxnqgb},
+            n_jrtj = #{nJrtj},
+            n_dqxx = #{nDqxx}
+        where
+            id = #{id}
+    </update>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM
+            ums_yxnqgb
+        where
+            id = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.net.withub.ums.dao.UmsCourtFullMapper" >
+  <resultMap id="BaseResultMap" type="cn.net.withub.ums.entity.UmsCourtFull" >
+    <id column="court_code" property="courtCode" jdbcType="VARCHAR" />
+    <result column="court_no" property="courtNo" jdbcType="INTEGER" />
+    <result column="court_std_no" property="courtStdNo" jdbcType="INTEGER" />
+    <result column="court_std_name" property="courtStdName" jdbcType="VARCHAR" />
+    <result column="court_short_name" property="courtShortName" jdbcType="VARCHAR" />
+    <result column="area_mark" property="areaMark" jdbcType="INTEGER" />
+    <result column="area_name" property="areaName" jdbcType="VARCHAR" />
+    <result column="basic_area" property="basicArea" jdbcType="INTEGER" />
+    <result column="basic_area_name" property="basicAreaName" jdbcType="VARCHAR" />
+    <result column="area_preparation" property="areaPreparation" jdbcType="INTEGER" />
+    <result column="court_area_no" property="courtAreaNo" jdbcType="INTEGER" />
+    <result column="court_gradation" property="courtGradation" jdbcType="INTEGER" />
+    <result column="court_level" property="courtLevel" jdbcType="INTEGER" />
+    <result column="last_push" property="lastPush" jdbcType="TIMESTAMP" />
+    <result column="sort_no" property="sortNo" jdbcType="INTEGER" />
+    <result column="court_area" property="courtArea" jdbcType="INTEGER" />
+    <result column="area_type" property="areaType" jdbcType="INTEGER" />
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="INSTITUTION_CODE" property="institutionCode" jdbcType="VARCHAR" />
+    <result column="COURT_TYPE" property="courtType" jdbcType="VARCHAR" />
+    <result column="COURT_GRADE" property="courtGrade" jdbcType="VARCHAR" />
+    <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="header" property="header" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    court_code, court_no, court_std_no, court_std_name, court_short_name, area_mark, 
+    area_name, basic_area, basic_area_name, area_preparation, court_area_no, court_gradation, 
+    court_level, last_push, sort_no, court_area, area_type, id, INSTITUTION_CODE, COURT_TYPE, 
+    COURT_GRADE, PARENT_ID, CREATE_TIME, UPDATE_TIME, header, description
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.net.withub.ums.entity.UmsCourtFullCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ums_court_full
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null" >
+      <if test="offset != null" >
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null" >
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ums_court_full
+    where court_code = #{courtCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ums_court_full
+    where court_code = #{courtCode,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.net.withub.ums.entity.UmsCourtFullCriteria" >
+    delete from ums_court_full
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.net.withub.ums.entity.UmsCourtFull" >
+    insert into ums_court_full (court_code, court_no, court_std_no, 
+      court_std_name, court_short_name, area_mark, 
+      area_name, basic_area, basic_area_name, 
+      area_preparation, court_area_no, court_gradation, 
+      court_level, last_push, sort_no, 
+      court_area, area_type, id, 
+      INSTITUTION_CODE, COURT_TYPE, COURT_GRADE, 
+      PARENT_ID, CREATE_TIME, UPDATE_TIME, 
+      header, description)
+    values (#{courtCode,jdbcType=VARCHAR}, #{courtNo,jdbcType=INTEGER}, #{courtStdNo,jdbcType=INTEGER}, 
+      #{courtStdName,jdbcType=VARCHAR}, #{courtShortName,jdbcType=VARCHAR}, #{areaMark,jdbcType=INTEGER}, 
+      #{areaName,jdbcType=VARCHAR}, #{basicArea,jdbcType=INTEGER}, #{basicAreaName,jdbcType=VARCHAR}, 
+      #{areaPreparation,jdbcType=INTEGER}, #{courtAreaNo,jdbcType=INTEGER}, #{courtGradation,jdbcType=INTEGER}, 
+      #{courtLevel,jdbcType=INTEGER}, #{lastPush,jdbcType=TIMESTAMP}, #{sortNo,jdbcType=INTEGER}, 
+      #{courtArea,jdbcType=INTEGER}, #{areaType,jdbcType=INTEGER}, #{id,jdbcType=VARCHAR}, 
+      #{institutionCode,jdbcType=VARCHAR}, #{courtType,jdbcType=VARCHAR}, #{courtGrade,jdbcType=VARCHAR}, 
+      #{parentId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{header,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.net.withub.ums.entity.UmsCourtFull" >
+    insert into ums_court_full
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="courtCode != null" >
+        court_code,
+      </if>
+      <if test="courtNo != null" >
+        court_no,
+      </if>
+      <if test="courtStdNo != null" >
+        court_std_no,
+      </if>
+      <if test="courtStdName != null" >
+        court_std_name,
+      </if>
+      <if test="courtShortName != null" >
+        court_short_name,
+      </if>
+      <if test="areaMark != null" >
+        area_mark,
+      </if>
+      <if test="areaName != null" >
+        area_name,
+      </if>
+      <if test="basicArea != null" >
+        basic_area,
+      </if>
+      <if test="basicAreaName != null" >
+        basic_area_name,
+      </if>
+      <if test="areaPreparation != null" >
+        area_preparation,
+      </if>
+      <if test="courtAreaNo != null" >
+        court_area_no,
+      </if>
+      <if test="courtGradation != null" >
+        court_gradation,
+      </if>
+      <if test="courtLevel != null" >
+        court_level,
+      </if>
+      <if test="lastPush != null" >
+        last_push,
+      </if>
+      <if test="sortNo != null" >
+        sort_no,
+      </if>
+      <if test="courtArea != null" >
+        court_area,
+      </if>
+      <if test="areaType != null" >
+        area_type,
+      </if>
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="institutionCode != null" >
+        INSTITUTION_CODE,
+      </if>
+      <if test="courtType != null" >
+        COURT_TYPE,
+      </if>
+      <if test="courtGrade != null" >
+        COURT_GRADE,
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="header != null" >
+        header,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="courtCode != null" >
+        #{courtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="courtNo != null" >
+        #{courtNo,jdbcType=INTEGER},
+      </if>
+      <if test="courtStdNo != null" >
+        #{courtStdNo,jdbcType=INTEGER},
+      </if>
+      <if test="courtStdName != null" >
+        #{courtStdName,jdbcType=VARCHAR},
+      </if>
+      <if test="courtShortName != null" >
+        #{courtShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMark != null" >
+        #{areaMark,jdbcType=INTEGER},
+      </if>
+      <if test="areaName != null" >
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="basicArea != null" >
+        #{basicArea,jdbcType=INTEGER},
+      </if>
+      <if test="basicAreaName != null" >
+        #{basicAreaName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaPreparation != null" >
+        #{areaPreparation,jdbcType=INTEGER},
+      </if>
+      <if test="courtAreaNo != null" >
+        #{courtAreaNo,jdbcType=INTEGER},
+      </if>
+      <if test="courtGradation != null" >
+        #{courtGradation,jdbcType=INTEGER},
+      </if>
+      <if test="courtLevel != null" >
+        #{courtLevel,jdbcType=INTEGER},
+      </if>
+      <if test="lastPush != null" >
+        #{lastPush,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sortNo != null" >
+        #{sortNo,jdbcType=INTEGER},
+      </if>
+      <if test="courtArea != null" >
+        #{courtArea,jdbcType=INTEGER},
+      </if>
+      <if test="areaType != null" >
+        #{areaType,jdbcType=INTEGER},
+      </if>
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="institutionCode != null" >
+        #{institutionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="courtType != null" >
+        #{courtType,jdbcType=VARCHAR},
+      </if>
+      <if test="courtGrade != null" >
+        #{courtGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="header != null" >
+        #{header,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.net.withub.ums.entity.UmsCourtFullCriteria" resultType="java.lang.Integer" >
+    select count(*) from ums_court_full
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="countByAuth" parameterType="cn.net.withub.ums.entity.UmsCourtFullCriteria" resultType="java.lang.Integer" >
+    select b.court_no rcourt_no,b.court_std_no rcourt_std_no,c.* from ums_user_role a,ums_role b left join ums_court_full c on b.court_no = c.court_no
+                where a.role_id = b.id
+                and a.user_id = #{user_id}
+  </select>
+  <select id="countByAuthForMap" parameterType="java.lang.String" resultType="java.util.HashMap" >
+    select b.court_no rcourt_no,b.court_std_no rcourt_std_no,c.* from ums_user_role a,ums_role b left join ums_court_full c on b.court_no = c.court_no
+    where a.role_id = b.id
+    and a.user_id = #{userID}
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ums_court_full
+    <set >
+      <if test="record.courtCode != null" >
+        court_code = #{record.courtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courtNo != null" >
+        court_no = #{record.courtNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.courtStdNo != null" >
+        court_std_no = #{record.courtStdNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.courtStdName != null" >
+        court_std_name = #{record.courtStdName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courtShortName != null" >
+        court_short_name = #{record.courtShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaMark != null" >
+        area_mark = #{record.areaMark,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaName != null" >
+        area_name = #{record.areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.basicArea != null" >
+        basic_area = #{record.basicArea,jdbcType=INTEGER},
+      </if>
+      <if test="record.basicAreaName != null" >
+        basic_area_name = #{record.basicAreaName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaPreparation != null" >
+        area_preparation = #{record.areaPreparation,jdbcType=INTEGER},
+      </if>
+      <if test="record.courtAreaNo != null" >
+        court_area_no = #{record.courtAreaNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.courtGradation != null" >
+        court_gradation = #{record.courtGradation,jdbcType=INTEGER},
+      </if>
+      <if test="record.courtLevel != null" >
+        court_level = #{record.courtLevel,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastPush != null" >
+        last_push = #{record.lastPush,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sortNo != null" >
+        sort_no = #{record.sortNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.courtArea != null" >
+        court_area = #{record.courtArea,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaType != null" >
+        area_type = #{record.areaType,jdbcType=INTEGER},
+      </if>
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.institutionCode != null" >
+        INSTITUTION_CODE = #{record.institutionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courtType != null" >
+        COURT_TYPE = #{record.courtType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courtGrade != null" >
+        COURT_GRADE = #{record.courtGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentId != null" >
+        PARENT_ID = #{record.parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.header != null" >
+        header = #{record.header,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ums_court_full
+    set court_code = #{record.courtCode,jdbcType=VARCHAR},
+      court_no = #{record.courtNo,jdbcType=INTEGER},
+      court_std_no = #{record.courtStdNo,jdbcType=INTEGER},
+      court_std_name = #{record.courtStdName,jdbcType=VARCHAR},
+      court_short_name = #{record.courtShortName,jdbcType=VARCHAR},
+      area_mark = #{record.areaMark,jdbcType=INTEGER},
+      area_name = #{record.areaName,jdbcType=VARCHAR},
+      basic_area = #{record.basicArea,jdbcType=INTEGER},
+      basic_area_name = #{record.basicAreaName,jdbcType=VARCHAR},
+      area_preparation = #{record.areaPreparation,jdbcType=INTEGER},
+      court_area_no = #{record.courtAreaNo,jdbcType=INTEGER},
+      court_gradation = #{record.courtGradation,jdbcType=INTEGER},
+      court_level = #{record.courtLevel,jdbcType=INTEGER},
+      last_push = #{record.lastPush,jdbcType=TIMESTAMP},
+      sort_no = #{record.sortNo,jdbcType=INTEGER},
+      court_area = #{record.courtArea,jdbcType=INTEGER},
+      area_type = #{record.areaType,jdbcType=INTEGER},
+      id = #{record.id,jdbcType=VARCHAR},
+      INSTITUTION_CODE = #{record.institutionCode,jdbcType=VARCHAR},
+      COURT_TYPE = #{record.courtType,jdbcType=VARCHAR},
+      COURT_GRADE = #{record.courtGrade,jdbcType=VARCHAR},
+      PARENT_ID = #{record.parentId,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      header = #{record.header,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.net.withub.ums.entity.UmsCourtFull" >
+    update ums_court_full
+    <set >
+      <if test="courtNo != null" >
+        court_no = #{courtNo,jdbcType=INTEGER},
+      </if>
+      <if test="courtStdNo != null" >
+        court_std_no = #{courtStdNo,jdbcType=INTEGER},
+      </if>
+      <if test="courtStdName != null" >
+        court_std_name = #{courtStdName,jdbcType=VARCHAR},
+      </if>
+      <if test="courtShortName != null" >
+        court_short_name = #{courtShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMark != null" >
+        area_mark = #{areaMark,jdbcType=INTEGER},
+      </if>
+      <if test="areaName != null" >
+        area_name = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="basicArea != null" >
+        basic_area = #{basicArea,jdbcType=INTEGER},
+      </if>
+      <if test="basicAreaName != null" >
+        basic_area_name = #{basicAreaName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaPreparation != null" >
+        area_preparation = #{areaPreparation,jdbcType=INTEGER},
+      </if>
+      <if test="courtAreaNo != null" >
+        court_area_no = #{courtAreaNo,jdbcType=INTEGER},
+      </if>
+      <if test="courtGradation != null" >
+        court_gradation = #{courtGradation,jdbcType=INTEGER},
+      </if>
+      <if test="courtLevel != null" >
+        court_level = #{courtLevel,jdbcType=INTEGER},
+      </if>
+      <if test="lastPush != null" >
+        last_push = #{lastPush,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sortNo != null" >
+        sort_no = #{sortNo,jdbcType=INTEGER},
+      </if>
+      <if test="courtArea != null" >
+        court_area = #{courtArea,jdbcType=INTEGER},
+      </if>
+      <if test="areaType != null" >
+        area_type = #{areaType,jdbcType=INTEGER},
+      </if>
+      <if test="id != null" >
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="institutionCode != null" >
+        INSTITUTION_CODE = #{institutionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="courtType != null" >
+        COURT_TYPE = #{courtType,jdbcType=VARCHAR},
+      </if>
+      <if test="courtGrade != null" >
+        COURT_GRADE = #{courtGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID = #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="header != null" >
+        header = #{header,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where court_code = #{courtCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.net.withub.ums.entity.UmsCourtFull" >
+    update ums_court_full
+    set court_no = #{courtNo,jdbcType=INTEGER},
+      court_std_no = #{courtStdNo,jdbcType=INTEGER},
+      court_std_name = #{courtStdName,jdbcType=VARCHAR},
+      court_short_name = #{courtShortName,jdbcType=VARCHAR},
+      area_mark = #{areaMark,jdbcType=INTEGER},
+      area_name = #{areaName,jdbcType=VARCHAR},
+      basic_area = #{basicArea,jdbcType=INTEGER},
+      basic_area_name = #{basicAreaName,jdbcType=VARCHAR},
+      area_preparation = #{areaPreparation,jdbcType=INTEGER},
+      court_area_no = #{courtAreaNo,jdbcType=INTEGER},
+      court_gradation = #{courtGradation,jdbcType=INTEGER},
+      court_level = #{courtLevel,jdbcType=INTEGER},
+      last_push = #{lastPush,jdbcType=TIMESTAMP},
+      sort_no = #{sortNo,jdbcType=INTEGER},
+      court_area = #{courtArea,jdbcType=INTEGER},
+      area_type = #{areaType,jdbcType=INTEGER},
+      id = #{id,jdbcType=VARCHAR},
+      INSTITUTION_CODE = #{institutionCode,jdbcType=VARCHAR},
+      COURT_TYPE = #{courtType,jdbcType=VARCHAR},
+      COURT_GRADE = #{courtGrade,jdbcType=VARCHAR},
+      PARENT_ID = #{parentId,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      header = #{header,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where court_code = #{courtCode,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByList" resultMap="BaseResultMap" parameterType="java.util.List" >
+    <!--
+      WARNING - @mbggenerated
+      This element is automatically generated by MyBatis Generator, do not modify.
+    -->
+    select
+    <include refid="Base_Column_List" />
+    from ums_court_full  where court_no in
+    <foreach open="(" close=")" separator="," item="item" collection="list">
+      #{item}
+    </foreach>
+      order by sort_no
+  </select>
+
+  <select id="selectAllCourt" resultMap="BaseResultMap" >
+    <!--
+      WARNING - @mbggenerated
+      This element is automatically generated by MyBatis Generator, do not modify.
+    -->
+    select
+    <include refid="Base_Column_List" />
+    from ums_court_full  where court_no is not null and court_std_no is not null
+    order by sort_no
+  </select>
+
+  <select id="selectCourtForNOLeaderDept" resultMap="BaseResultMap" parameterType="java.util.Map">
+    SELECT
+    <include refid="Base_Column_List" />
+    from ums_court_full a  WHERE a.court_no IS NOT NULL
+    and NOT EXISTS ( SELECT 1 FROM ums_department b  WHERE a.court_no = b.court_no and b.org_code = "000")
+    <if test="courtNo != null">
+      and court_no = #{courtNO}
+    </if>
+    <if test="list != null">
+      and court_no in
+      <foreach open="(" close=")" separator="," item="item" collection="list">
+        #{item}
+      </foreach>
+    </if>
+
+  </select>
+
+
+  <select id="countCourtForNOLeaderDept" resultType="java.lang.Integer" parameterType="java.util.Map">
+    select count(1) from ums_court_full a where a.court_no is not null and not exists (select 1 from ums_department b where a.court_no = b.court_no and b.org_code = "000")
+    <if test="courtNo != null">
+      and court_no = #{courtNO}
+    </if>
+    <if test="list != null">
+      and court_no in
+      <foreach open="(" close=")" separator="," item="item" collection="list">
+        #{item}
+      </foreach>
+    </if>
+  </select>
+
+</mapper>

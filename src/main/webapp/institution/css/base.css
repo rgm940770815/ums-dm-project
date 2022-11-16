@@ -1,0 +1,290 @@
+
+
+.body_div{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header_div{
+    margin-top: 10px;
+}
+
+.main_div{
+    flex: 1;
+    position: relative;
+}
+
+.main_div_inner{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.sidenav{
+    min-width: 180px;
+    width: 250px;
+    overflow: auto;
+    height: 100%;
+    padding: 0 20px 0 10px;
+}
+
+.tree{
+    border: 1px solid #c3c3d6;
+    height: 98%;
+}
+
+.tree .bui-tree-list{
+    height: 100%;
+}
+
+.article{
+    flex: 1;
+    height: 98%;
+    border: 1px solid #c3c3d6;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.title_1,.title_2,.title_3{
+    padding: 5px ;
+    border: 1px solid #d3d3d3;
+}
+
+.title_1{
+    font-weight: bold;
+    background-color: #FAF9F9;
+    font-size: 16px;
+}
+
+.title_2{
+    font-size: 15px;
+}
+
+.article ul:after{
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+
+.article ul li{
+    list-style: none;
+    float: left;
+}
+
+.title_2 ul li:after{
+    content: '|';
+    font-size: 16px;
+}
+
+.title_2 ul li span{
+    margin: 0 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #416DA3;
+}
+
+.title_2 ul li span.checked_span{
+    border-bottom: 2px solid #00F;
+    color: #000;
+
+}
+
+.title_2 ul li span:not(.checked_span):hover{
+    text-decoration: underline;
+}
+
+.title_3 .button{
+    margin: 0 10px;
+}
+
+.context_div{
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+
+}
+
+.context_div .context_top_div{
+    position: relative;
+    flex: 1;
+}
+
+.context_div .context_bottom_div{
+    height: 210px;
+    overflow: auto;
+    font-size: 14px!important;
+}
+
+.middle_div{
+    /*就是这个position:fixed起作用，生成相对定位的元素，相对于其正常位置进行定位。*/
+    position:relative;
+
+    /*这里都是对外边距进行设置*/
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+
+    /*!*设置div的宽和高*!*/
+    width:90%;
+    /*min-width: 400px;*/
+    /*height:40%;*/
+    /*min-height:400px;*/
+    /*!*设置超出范围后，就隐藏超出的部分*!*/
+    /*overflow: hidden;*/
+
+    /*!*设置边框*!*/
+    /*border: 2px solid #AEBBCA;*/
+
+    /*!*设置背景颜色*!*/
+    /*background-color: #EEF1F8;*/
+
+    /*!*设置鼠标的样式*!*/
+    /*cursor: move;*/
+}
+
+table.middle_div{
+    font-size: 14px;
+    font-family: "Microsoft Yahei";
+}
+
+.middle_div td{
+    border: 1px solid #7c7c7c;
+}
+
+.middle_div tr.row_style_1 td{
+    height: 40px;
+    line-height: 19px;
+}
+
+.middle_div tr.row_style_2 td{
+    height: 80px;
+    margin: 10px 0;
+}
+
+.middle_div tr.row_style_3 td{
+    height: 60px;
+    margin: 5px 0;
+}
+
+.middle_div tr td:nth-child(odd){
+    padding: 10px;
+    background: #eeeeee;
+    min-width: 150px;
+    text-align: right;
+}
+
+.middle_div tr td:nth-child(even){
+    padding: 0 10px;
+    min-width: 180px;
+}
+
+input.initClass,select.initClass:not(.select2-hidden-accessible){
+    height: 30px;
+    width: 100%;
+}
+
+
+textarea.initClass{
+    color: black;
+    width: 100%;
+    height: 85%;
+    /*禁止拉伸*/
+    resize: none;
+}
+
+s{
+    color: red;
+    padding-right: 5px;
+    text-decoration: none;
+}
+
+input[readonly]{
+    background-color: #efefef;
+}
+
+/* bui grid修改*/
+.grid .bui-grid-table .bui-grid-hd-inner{
+    padding: 8px 0;
+    height: 24px;
+}
+
+.grid .bui-grid-table .bui-grid-cell-text{
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+
+}
+
+.grid .bui-grid-table .bui-grid-cell-inner {
+    padding: 8px 0 7px 0;
+}
+
+input.not_fill,textarea.not_fill,span.not_fill{
+    border: 1px solid #c30!important;
+}
+
+.create_upload{
+    border-radius: 4px;
+    width: 99%;
+    height: 85%;
+    display: flex;
+    border: 1px solid #cccccc;
+    padding: 3px;
+}
+
+.create_upload .upload_right{
+    width: 100px;
+    height: 100%;
+    text-align: center;
+}
+
+.create_upload .upload_left{
+    flex: 1;
+    height: 100%;
+}
+
+.create_upload .upload_right button{
+    margin-top: 6px;
+}
+
+.upload_left ul li {
+    height: 30px;
+    line-height: 30px;
+    margin: 3px 10px;
+}
+.upload_left ul li span.x-icon{
+    line-height: 21px;
+    cursor: pointer;
+}
+.bui-ext-mask-user {
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2040;
+    background-color: #333333;
+}
+.bui-ext-mask-msg-index {
+    background: none repeat-x scroll 0 -16px #e8e9ef;
+    border: 1px solid #c3c3d6;
+    padding: 2px;
+    z-index: 2050;
+}
+
+.span-fj-download{
+    cursor: pointer;
+}

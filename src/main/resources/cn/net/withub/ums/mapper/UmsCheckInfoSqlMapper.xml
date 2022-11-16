@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.net.withub.ums.dao.UmsCheckInfoSqlMapper" >
+  <resultMap id="BaseResultMap" type="cn.net.withub.ums.entity.UmsCheckInfoSql" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="rule_title" property="ruleTitle" jdbcType="VARCHAR" />
+    <result column="rule_describe" property="ruleDescribe" jdbcType="VARCHAR" />
+    <result column="sql_query" property="sqlQuery" jdbcType="VARCHAR" />
+    <result column="sql_reverse" property="sqlReverse" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="creator_id" property="creatorId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, rule_title, rule_describe, sql_query, sql_reverse, create_time, creator, creator_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.net.withub.ums.entity.UmsCheckInfoSqlExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ums_check_info_sql
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null" >
+      <if test="offset != null" >
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null" >
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ums_check_info_sql
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ums_check_info_sql
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.net.withub.ums.entity.UmsCheckInfoSqlExample" >
+    delete from ums_check_info_sql
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.net.withub.ums.entity.UmsCheckInfoSql" >
+    insert into ums_check_info_sql (id, rule_title, rule_describe, 
+      sql_query, sql_reverse, create_time, 
+      creator, creator_id)
+    values (#{id,jdbcType=VARCHAR}, #{ruleTitle,jdbcType=VARCHAR}, #{ruleDescribe,jdbcType=VARCHAR}, 
+      #{sqlQuery,jdbcType=VARCHAR}, #{sqlReverse,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{creator,jdbcType=VARCHAR}, #{creatorId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.net.withub.ums.entity.UmsCheckInfoSql" >
+    insert into ums_check_info_sql
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ruleTitle != null" >
+        rule_title,
+      </if>
+      <if test="ruleDescribe != null" >
+        rule_describe,
+      </if>
+      <if test="sqlQuery != null" >
+        sql_query,
+      </if>
+      <if test="sqlReverse != null" >
+        sql_reverse,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="creatorId != null" >
+        creator_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleTitle != null" >
+        #{ruleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleDescribe != null" >
+        #{ruleDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="sqlQuery != null" >
+        #{sqlQuery,jdbcType=VARCHAR},
+      </if>
+      <if test="sqlReverse != null" >
+        #{sqlReverse,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorId != null" >
+        #{creatorId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.net.withub.ums.entity.UmsCheckInfoSqlExample" resultType="java.lang.Integer" >
+    select count(*) from ums_check_info_sql
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ums_check_info_sql
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ruleTitle != null" >
+        rule_title = #{record.ruleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ruleDescribe != null" >
+        rule_describe = #{record.ruleDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sqlQuery != null" >
+        sql_query = #{record.sqlQuery,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sqlReverse != null" >
+        sql_reverse = #{record.sqlReverse,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.creator != null" >
+        creator = #{record.creator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creatorId != null" >
+        creator_id = #{record.creatorId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ums_check_info_sql
+    set id = #{record.id,jdbcType=VARCHAR},
+      rule_title = #{record.ruleTitle,jdbcType=VARCHAR},
+      rule_describe = #{record.ruleDescribe,jdbcType=VARCHAR},
+      sql_query = #{record.sqlQuery,jdbcType=VARCHAR},
+      sql_reverse = #{record.sqlReverse,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      creator = #{record.creator,jdbcType=VARCHAR},
+      creator_id = #{record.creatorId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.net.withub.ums.entity.UmsCheckInfoSql" >
+    update ums_check_info_sql
+    <set >
+      <if test="ruleTitle != null" >
+        rule_title = #{ruleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleDescribe != null" >
+        rule_describe = #{ruleDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="sqlQuery != null" >
+        sql_query = #{sqlQuery,jdbcType=VARCHAR},
+      </if>
+      <if test="sqlReverse != null" >
+        sql_reverse = #{sqlReverse,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorId != null" >
+        creator_id = #{creatorId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.net.withub.ums.entity.UmsCheckInfoSql" >
+    update ums_check_info_sql
+    set rule_title = #{ruleTitle,jdbcType=VARCHAR},
+      rule_describe = #{ruleDescribe,jdbcType=VARCHAR},
+      sql_query = #{sqlQuery,jdbcType=VARCHAR},
+      sql_reverse = #{sqlReverse,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      creator_id = #{creatorId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

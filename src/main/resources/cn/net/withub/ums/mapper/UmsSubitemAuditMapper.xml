@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.net.withub.ums.dao.UmsSubitemAuditMapper">
+  <resultMap id="BaseResultMap" type="cn.net.withub.ums.entity.UmsSubitemAudit">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="content_type" jdbcType="VARCHAR" property="contentType" />
+    <result column="content_type_text" jdbcType="VARCHAR" property="contentTypeText" />
+    <result column="examine_type" jdbcType="VARCHAR" property="examineType" />
+    <result column="examine_type_text" jdbcType="VARCHAR" property="examineTypeText" />
+    <result column="operated_user_id" jdbcType="VARCHAR" property="operatedUserId" />
+    <result column="operated_user_name" jdbcType="VARCHAR" property="operatedUserName" />
+    <result column="operated_user_court_no" jdbcType="INTEGER" property="operatedUserCourtNo" />
+    <result column="operated_user_court_text" jdbcType="VARCHAR" property="operatedUserCourtText" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="creator_id" jdbcType="VARCHAR" property="creatorId" />
+    <result column="creator_name" jdbcType="VARCHAR" property="creatorName" />
+    <result column="auditor_id" jdbcType="VARCHAR" property="auditorId" />
+    <result column="auditor_name" jdbcType="VARCHAR" property="auditorName" />
+    <result column="audit_time" jdbcType="TIMESTAMP" property="auditTime" />
+    <result column="audit_status" jdbcType="INTEGER" property="auditStatus" />
+    <result column="audit_opinions" jdbcType="VARCHAR" property="auditOpinions" />
+    <result column="import_status" jdbcType="INTEGER" property="importStatus" />
+    <result column="shlx" jdbcType="INTEGER" property="shlx" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="cn.net.withub.ums.entity.UmsSubitemAuditWithBLOBs">
+    <result column="serialize_content" jdbcType="LONGVARCHAR" property="serializeContent" />
+    <result column="show_content" jdbcType="LONGVARCHAR" property="showContent" />
+    <result column="change_content" jdbcType="LONGVARCHAR" property="changeContent" />
+    <result column="change_content_describe" jdbcType="LONGVARCHAR" property="changeContentDescribe" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, content_type, content_type_text, examine_type, examine_type_text, operated_user_id, 
+    operated_user_name, operated_user_court_no, operated_user_court_text, create_time, 
+    creator_id, creator_name, auditor_id, auditor_name, audit_time, audit_status, audit_opinions, 
+    import_status,shlx
+  </sql>
+  <sql id="Blob_Column_List">
+    serialize_content, show_content, change_content, change_content_describe
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="cn.net.withub.ums.entity.UmsSubitemAuditExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ums_subitem_audit
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    limit #{start},#{limit}
+  </select>
+  <select id="selectByExample" parameterType="cn.net.withub.ums.entity.UmsSubitemAuditExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ums_subitem_audit
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ums_subitem_audit
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ums_subitem_audit
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.net.withub.ums.entity.UmsSubitemAuditExample">
+    delete from ums_subitem_audit
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.net.withub.ums.entity.UmsSubitemAuditWithBLOBs">
+    insert into ums_subitem_audit (id, content_type, content_type_text, 
+      examine_type, examine_type_text, operated_user_id, 
+      operated_user_name, operated_user_court_no, 
+      operated_user_court_text, create_time, creator_id, 
+      creator_name, auditor_id, auditor_name, 
+      audit_time, audit_status, audit_opinions, 
+      import_status, serialize_content, show_content, 
+      change_content, change_content_describe,shlx
+      )
+    values (#{id,jdbcType=VARCHAR}, #{contentType,jdbcType=VARCHAR}, #{contentTypeText,jdbcType=VARCHAR}, 
+      #{examineType,jdbcType=VARCHAR}, #{examineTypeText,jdbcType=VARCHAR}, #{operatedUserId,jdbcType=VARCHAR}, 
+      #{operatedUserName,jdbcType=VARCHAR}, #{operatedUserCourtNo,jdbcType=INTEGER}, 
+      #{operatedUserCourtText,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{creatorId,jdbcType=VARCHAR}, 
+      #{creatorName,jdbcType=VARCHAR}, #{auditorId,jdbcType=VARCHAR}, #{auditorName,jdbcType=VARCHAR}, 
+      #{auditTime,jdbcType=TIMESTAMP}, #{auditStatus,jdbcType=INTEGER}, #{auditOpinions,jdbcType=VARCHAR}, 
+      #{importStatus,jdbcType=INTEGER}, #{serializeContent,jdbcType=LONGVARCHAR}, #{showContent,jdbcType=LONGVARCHAR}, 
+      #{changeContent,jdbcType=LONGVARCHAR}, #{changeContentDescribe,jdbcType=LONGVARCHAR}, #{shlx,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.net.withub.ums.entity.UmsSubitemAuditWithBLOBs">
+    insert into ums_subitem_audit
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="contentType != null">
+        content_type,
+      </if>
+      <if test="contentTypeText != null">
+        content_type_text,
+      </if>
+      <if test="examineType != null">
+        examine_type,
+      </if>
+      <if test="examineTypeText != null">
+        examine_type_text,
+      </if>
+      <if test="operatedUserId != null">
+        operated_user_id,
+      </if>
+      <if test="operatedUserName != null">
+        operated_user_name,
+      </if>
+      <if test="operatedUserCourtNo != null">
+        operated_user_court_no,
+      </if>
+      <if test="operatedUserCourtText != null">
+        operated_user_court_text,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="creatorName != null">
+        creator_name,
+      </if>
+      <if test="auditorId != null">
+        auditor_id,
+      </if>
+      <if test="auditorName != null">
+        auditor_name,
+      </if>
+      <if test="auditTime != null">
+        audit_time,
+      </if>
+      <if test="auditStatus != null">
+        audit_status,
+      </if>
+      <if test="auditOpinions != null">
+        audit_opinions,
+      </if>
+      <if test="importStatus != null">
+        import_status,
+      </if>
+      <if test="serializeContent != null">
+        serialize_content,
+      </if>
+      <if test="showContent != null">
+        show_content,
+      </if>
+      <if test="changeContent != null">
+        change_content,
+      </if>
+      <if test="changeContentDescribe != null">
+        change_content_describe,
+      </if> <if test="shlx != null">
+      shlx,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="contentType != null">
+        #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="contentTypeText != null">
+        #{contentTypeText,jdbcType=VARCHAR},
+      </if>
+      <if test="examineType != null">
+        #{examineType,jdbcType=VARCHAR},
+      </if>
+      <if test="examineTypeText != null">
+        #{examineTypeText,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedUserId != null">
+        #{operatedUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedUserName != null">
+        #{operatedUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedUserCourtNo != null">
+        #{operatedUserCourtNo,jdbcType=INTEGER},
+      </if>
+      <if test="operatedUserCourtText != null">
+        #{operatedUserCourtText,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorName != null">
+        #{creatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditorId != null">
+        #{auditorId,jdbcType=VARCHAR},
+      </if>
+      <if test="auditorName != null">
+        #{auditorName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditTime != null">
+        #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=INTEGER},
+      </if>
+      <if test="auditOpinions != null">
+        #{auditOpinions,jdbcType=VARCHAR},
+      </if>
+      <if test="importStatus != null">
+        #{importStatus,jdbcType=INTEGER},
+      </if>
+      <if test="serializeContent != null">
+        #{serializeContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="showContent != null">
+        #{showContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="changeContent != null">
+        #{changeContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="changeContentDescribe != null">
+        #{changeContentDescribe,jdbcType=LONGVARCHAR},
+      </if> <if test="shlx != null">
+        #{shlx,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.net.withub.ums.entity.UmsSubitemAuditExample" resultType="java.lang.Integer">
+    select count(*) from ums_subitem_audit
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ums_subitem_audit
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contentType != null">
+        content_type = #{record.contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contentTypeText != null">
+        content_type_text = #{record.contentTypeText,jdbcType=VARCHAR},
+      </if>
+      <if test="record.examineType != null">
+        examine_type = #{record.examineType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.examineTypeText != null">
+        examine_type_text = #{record.examineTypeText,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operatedUserId != null">
+        operated_user_id = #{record.operatedUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operatedUserName != null">
+        operated_user_name = #{record.operatedUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operatedUserCourtNo != null">
+        operated_user_court_no = #{record.operatedUserCourtNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.operatedUserCourtText != null">
+        operated_user_court_text = #{record.operatedUserCourtText,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.creatorId != null">
+        creator_id = #{record.creatorId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creatorName != null">
+        creator_name = #{record.creatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditorId != null">
+        auditor_id = #{record.auditorId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditorName != null">
+        auditor_name = #{record.auditorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditTime != null">
+        audit_time = #{record.auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.auditStatus != null">
+        audit_status = #{record.auditStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.auditOpinions != null">
+        audit_opinions = #{record.auditOpinions,jdbcType=VARCHAR},
+      </if>
+      <if test="record.importStatus != null">
+        import_status = #{record.importStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.serializeContent != null">
+        serialize_content = #{record.serializeContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.showContent != null">
+        show_content = #{record.showContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.changeContent != null">
+        change_content = #{record.changeContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.changeContentDescribe != null">
+        change_content_describe = #{record.changeContentDescribe,jdbcType=LONGVARCHAR},
+      </if> <if test="record.shlx != null">
+      shlx = #{record.shlx,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update ums_subitem_audit
+    set id = #{record.id,jdbcType=VARCHAR},
+      content_type = #{record.contentType,jdbcType=VARCHAR},
+      content_type_text = #{record.contentTypeText,jdbcType=VARCHAR},
+      examine_type = #{record.examineType,jdbcType=VARCHAR},
+      examine_type_text = #{record.examineTypeText,jdbcType=VARCHAR},
+      operated_user_id = #{record.operatedUserId,jdbcType=VARCHAR},
+      operated_user_name = #{record.operatedUserName,jdbcType=VARCHAR},
+      operated_user_court_no = #{record.operatedUserCourtNo,jdbcType=INTEGER},
+      operated_user_court_text = #{record.operatedUserCourtText,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      creator_id = #{record.creatorId,jdbcType=VARCHAR},
+      creator_name = #{record.creatorName,jdbcType=VARCHAR},
+      auditor_id = #{record.auditorId,jdbcType=VARCHAR},
+      auditor_name = #{record.auditorName,jdbcType=VARCHAR},
+      audit_time = #{record.auditTime,jdbcType=TIMESTAMP},
+      audit_status = #{record.auditStatus,jdbcType=INTEGER},
+      audit_opinions = #{record.auditOpinions,jdbcType=VARCHAR},
+      shlx = #{record.shlx,jdbcType=VARCHAR},
+      import_status = #{record.importStatus,jdbcType=INTEGER},
+      serialize_content = #{record.serializeContent,jdbcType=LONGVARCHAR},
+      show_content = #{record.showContent,jdbcType=LONGVARCHAR},
+      change_content = #{record.changeContent,jdbcType=LONGVARCHAR},
+      change_content_describe = #{record.changeContentDescribe,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ums_subitem_audit
+    set id = #{record.id,jdbcType=VARCHAR},
+      content_type = #{record.contentType,jdbcType=VARCHAR},
+      content_type_text = #{record.contentTypeText,jdbcType=VARCHAR},
+      examine_type = #{record.examineType,jdbcType=VARCHAR},
+      examine_type_text = #{record.examineTypeText,jdbcType=VARCHAR},
+      operated_user_id = #{record.operatedUserId,jdbcType=VARCHAR},
+      operated_user_name = #{record.operatedUserName,jdbcType=VARCHAR},
+      operated_user_court_no = #{record.operatedUserCourtNo,jdbcType=INTEGER},
+      operated_user_court_text = #{record.operatedUserCourtText,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      creator_id = #{record.creatorId,jdbcType=VARCHAR},
+      creator_name = #{record.creatorName,jdbcType=VARCHAR},
+    shlx = #{record.shlx,jdbcType=VARCHAR},
+      auditor_id = #{record.auditorId,jdbcType=VARCHAR},
+      auditor_name = #{record.auditorName,jdbcType=VARCHAR},
+      audit_time = #{record.auditTime,jdbcType=TIMESTAMP},
+      audit_status = #{record.auditStatus,jdbcType=INTEGER},
+      audit_opinions = #{record.auditOpinions,jdbcType=VARCHAR},
+      import_status = #{record.importStatus,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.net.withub.ums.entity.UmsSubitemAuditWithBLOBs">
+    update ums_subitem_audit
+    <set>
+      <if test="contentType != null">
+        content_type = #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="contentTypeText != null">
+        content_type_text = #{contentTypeText,jdbcType=VARCHAR},
+      </if>
+      <if test="examineType != null">
+        examine_type = #{examineType,jdbcType=VARCHAR},
+      </if>
+      <if test="examineTypeText != null">
+        examine_type_text = #{examineTypeText,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedUserId != null">
+        operated_user_id = #{operatedUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedUserName != null">
+        operated_user_name = #{operatedUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedUserCourtNo != null">
+        operated_user_court_no = #{operatedUserCourtNo,jdbcType=INTEGER},
+      </if>
+      <if test="operatedUserCourtText != null">
+        operated_user_court_text = #{operatedUserCourtText,jdbcType=VARCHAR},
+      </if> <if test="shlx != null">
+      shlx = #{shlx,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorName != null">
+        creator_name = #{creatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditorId != null">
+        auditor_id = #{auditorId,jdbcType=VARCHAR},
+      </if>
+      <if test="auditorName != null">
+        auditor_name = #{auditorName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditTime != null">
+        audit_time = #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditStatus != null">
+        audit_status = #{auditStatus,jdbcType=INTEGER},
+      </if>
+      <if test="auditOpinions != null">
+        audit_opinions = #{auditOpinions,jdbcType=VARCHAR},
+      </if>
+      <if test="importStatus != null">
+        import_status = #{importStatus,jdbcType=INTEGER},
+      </if>
+      <if test="serializeContent != null">
+        serialize_content = #{serializeContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="showContent != null">
+        show_content = #{showContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="changeContent != null">
+        change_content = #{changeContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="changeContentDescribe != null">
+        change_content_describe = #{changeContentDescribe,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.net.withub.ums.entity.UmsSubitemAuditWithBLOBs">
+    update ums_subitem_audit
+    set content_type = #{contentType,jdbcType=VARCHAR},
+      content_type_text = #{contentTypeText,jdbcType=VARCHAR},
+      examine_type = #{examineType,jdbcType=VARCHAR},
+      examine_type_text = #{examineTypeText,jdbcType=VARCHAR},
+      operated_user_id = #{operatedUserId,jdbcType=VARCHAR},
+      operated_user_name = #{operatedUserName,jdbcType=VARCHAR},
+      operated_user_court_no = #{operatedUserCourtNo,jdbcType=INTEGER},
+      operated_user_court_text = #{operatedUserCourtText,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      creator_id = #{creatorId,jdbcType=VARCHAR},
+      creator_name = #{creatorName,jdbcType=VARCHAR},
+      auditor_id = #{auditorId,jdbcType=VARCHAR},
+      auditor_name = #{auditorName,jdbcType=VARCHAR},
+      audit_time = #{auditTime,jdbcType=TIMESTAMP},
+      audit_status = #{auditStatus,jdbcType=INTEGER},
+      audit_opinions = #{auditOpinions,jdbcType=VARCHAR},
+      shlx = #{shlx,jdbcType=VARCHAR},
+      import_status = #{importStatus,jdbcType=INTEGER},
+      serialize_content = #{serializeContent,jdbcType=LONGVARCHAR},
+      show_content = #{showContent,jdbcType=LONGVARCHAR},
+      change_content = #{changeContent,jdbcType=LONGVARCHAR},
+      change_content_describe = #{changeContentDescribe,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.net.withub.ums.entity.UmsSubitemAudit">
+    update ums_subitem_audit
+    set content_type = #{contentType,jdbcType=VARCHAR},
+      content_type_text = #{contentTypeText,jdbcType=VARCHAR},
+      examine_type = #{examineType,jdbcType=VARCHAR},
+      examine_type_text = #{examineTypeText,jdbcType=VARCHAR},
+      shlx = #{shlx,jdbcType=VARCHAR},
+      operated_user_id = #{operatedUserId,jdbcType=VARCHAR},
+      operated_user_name = #{operatedUserName,jdbcType=VARCHAR},
+      operated_user_court_no = #{operatedUserCourtNo,jdbcType=INTEGER},
+      operated_user_court_text = #{operatedUserCourtText,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      creator_id = #{creatorId,jdbcType=VARCHAR},
+      creator_name = #{creatorName,jdbcType=VARCHAR},
+      auditor_id = #{auditorId,jdbcType=VARCHAR},
+      auditor_name = #{auditorName,jdbcType=VARCHAR},
+      audit_time = #{auditTime,jdbcType=TIMESTAMP},
+      audit_status = #{auditStatus,jdbcType=INTEGER},
+      audit_opinions = #{auditOpinions,jdbcType=VARCHAR},
+      import_status = #{importStatus,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

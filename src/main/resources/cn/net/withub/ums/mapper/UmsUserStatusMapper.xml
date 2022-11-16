@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.net.withub.ums.dao.UmsUserStatusMapper">
+
+    <resultMap id="umsUserStatus" type="cn.net.withub.ums.entity.UmsUserStatus">
+        <id column="relation_id" property="relationId"/>
+        <result column="add_ip" property="addIp"/>
+        <result column="add_user" property="addUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="status_code" property="statusCode"/>
+        <result column="type_id" property="typeId"/>
+        <result column="user_id" property="userId"/>
+    </resultMap>
+
+    <sql id="field">
+add_ip,
+add_user,
+create_time,
+relation_id,
+status_code,
+type_id,
+user_id
+    </sql>
+    <insert id="insertList">
+        insert into ums_user_status_relation(add_ip,add_user,status_code,type_id,user_id) values
+        <foreach collection="insertList" item="item" separator=",">
+            (
+            #{item.addIp},#{item.addUser},#{item.statusCode},#{item.typeId},#{item.userId}
+            )
+        </foreach>
+    </insert>
+    <delete id="deleteByUserId">
+        delete from ums_user_status_relation where user_id = #{userId}
+    </delete>
+    <delete id="deleteByUserIdAndNotCodeList">
+        delete from ums_user_status_relation where user_id = #{userId} and status_code not in
+        <foreach collection="codeList" separator="," item="item" open="(" close=")" >
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="selectByUserId" resultMap="umsUserStatus">
+        select
+        <include refid="field"/>
+        from
+        ums_user_status_relation
+        where
+        user_id = #{userId}
+    </select>
+</mapper>
