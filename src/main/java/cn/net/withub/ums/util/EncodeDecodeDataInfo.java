@@ -144,10 +144,11 @@ public class EncodeDecodeDataInfo {
     }
 
     public static String encodeData(String info) {
-        if (info != null) {
+return info;
+ /*       if (info != null) {
             return PassUtil.passSm4(info);
         }
-        return null;
+        return null; */
 //        if(info != null){
 //            info +="_";
 //        }
@@ -155,10 +156,11 @@ public class EncodeDecodeDataInfo {
     }
 
     public static String decodeData(String info) {
-        if (info != null) {
+return info;
+      /*  if (info != null) {
             return PassUtil.decryptSm4(info);
         }
-        return null;
+        return null;*/
 //        if(info != null && info.lastIndexOf("_") == (info.length() - 1) ){
 //            return info.substring(0,info.length() -1);
 //        }

@@ -270,11 +270,11 @@
         </dependency>
 
         <!--  对 身份证、电话进行编码用到的包      -->
-        <dependency>
-            <groupId>cn.net.withub</groupId>
-            <artifactId>pass-server-util</artifactId>
-            <version>1.0</version>
-        </dependency>
+  <!--       <dependency>  -->
+   <!--          <groupId>cn.net.withub</groupId>  -->
+   <!--          <artifactId>pass-server-util</artifactId>  -->
+     <!--        <version>1.0</version>  -->
+     <!--    </dependency>  -->
 
 
 <!--        <dependency>-->
